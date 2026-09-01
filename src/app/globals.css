@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #2b1b20;
+  --ink-soft: #5b454b;
+  --paper: #faf5f2;
+  --surface: #ffffff;
+  --rose: #96324a;
+  --rose-strong: #7a2038;
+  --rose-tint: #f1dce1;
+  --bronze: #a9793f;
+  --bronze-tint: #efe1cc;
+  --line: #e4d6d0;
+  --good: #3f7a5a;
+  --warn: #b25b2e;
+
+  /* Fixed brand colors for buttons/banners that always pair with white text or sit on the fixed hero —
+     intentionally do not flip with theme, unlike --rose/--rose-strong which are used as adaptive text/links. */
+  --hero: #241619;
+  --brand: #96324a;
+  --brand-strong: #7a2038;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #f3e9e6;
+    --ink-soft: #cbb3b8;
+    --paper: #1c1215;
+    --surface: #241619;
+    --rose: #e28fa2;
+    --rose-strong: #f2aebd;
+    --rose-tint: #3a2229;
+    --bronze: #d2a867;
+    --bronze-tint: #332a1c;
+    --line: #3a2a2e;
+    --good: #7fbf9c;
+    --warn: #e0985f;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ink: #f3e9e6;
+  --ink-soft: #cbb3b8;
+  --paper: #1c1215;
+  --surface: #241619;
+  --rose: #e28fa2;
+  --rose-strong: #f2aebd;
+  --rose-tint: #3a2229;
+  --bronze: #d2a867;
+  --bronze-tint: #332a1c;
+  --line: #3a2a2e;
+  --good: #7fbf9c;
+  --warn: #e0985f;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-rose: var(--rose);
+  --color-rose-strong: var(--rose-strong);
+  --color-rose-tint: var(--rose-tint);
+  --color-bronze: var(--bronze);
+  --color-bronze-tint: var(--bronze-tint);
+  --color-line: var(--line);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --color-hero: var(--hero);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+
+  --font-display: var(--font-source-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-data: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
