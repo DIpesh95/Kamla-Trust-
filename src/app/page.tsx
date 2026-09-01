@@ -46,7 +46,7 @@ export default function Home() {
         <Container className="flex flex-col gap-10">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow="Newsroom" title="Recognition & recent activity" />
-            <Link href="/newsroom" className="text-sm font-semibold text-teal-strong">
+            <Link href="/newsroom" className="text-sm font-semibold text-navy-strong">
               View all →
             </Link>
           </div>

@@ -23,7 +23,7 @@ export default function LeadershipPage() {
           {trust.trustees.map((person) => (
             <div key={person.name} className="rounded-2xl border border-line bg-surface p-7">
               <p className="font-display text-xl font-medium text-ink">{person.name}</p>
-              <p className="mt-1 text-sm font-medium text-teal-strong">{person.role}</p>
+              <p className="mt-1 text-sm font-medium text-navy-strong">{person.role}</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft">{person.bio}</p>
             </div>
           ))}

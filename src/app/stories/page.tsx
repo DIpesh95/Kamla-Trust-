@@ -56,13 +56,13 @@ export default function StoriesPage() {
                   sizes="(min-width: 640px) 33vw, 100vw"
                   className="object-cover grayscale-[60%] brightness-[1.05] contrast-[.97]"
                 />
-                <div className="absolute inset-0 bg-teal/20 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-navy/20 mix-blend-multiply" />
                 <span className="absolute right-2 top-2 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
                   Sample photo, not a real beneficiary
                 </span>
               </div>
               <div className="flex flex-col gap-3 p-6">
-                <span className="w-fit rounded-full bg-teal-tint px-2.5 py-0.5 text-xs font-medium text-teal-strong">
+                <span className="w-fit rounded-full bg-navy-tint px-2.5 py-0.5 text-xs font-medium text-navy-strong">
                   {slot.pillar}
                 </span>
                 <p className="text-sm leading-relaxed text-ink-soft">{slot.prompt}</p>

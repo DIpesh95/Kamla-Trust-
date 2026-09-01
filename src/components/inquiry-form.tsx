@@ -42,7 +42,7 @@ export function InquiryForm({
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-teal"
+            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
           />
         </label>
         <label className="flex flex-col gap-1.5 text-sm">
@@ -52,7 +52,7 @@ export function InquiryForm({
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-teal"
+            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
           />
         </label>
       </div>
@@ -62,7 +62,7 @@ export function InquiryForm({
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-teal"
+            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
           />
         </label>
       ) : null}
@@ -73,7 +73,7 @@ export function InquiryForm({
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="resize-none rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-teal"
+          className="resize-none rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
         />
       </label>
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">

@@ -39,7 +39,7 @@ export default function DonatePage() {
             <p className="font-display text-lg font-medium text-ink">Tax deduction</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
               80G eligibility isn&rsquo;t confirmed yet — see{" "}
-              <Link href="/about/transparency" className="font-medium text-teal-strong">
+              <Link href="/about/transparency" className="font-medium text-navy-strong">
                 Registration &amp; Transparency
               </Link>
               .
@@ -49,7 +49,7 @@ export default function DonatePage() {
             <p className="font-display text-lg font-medium text-ink">Giving at scale</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
               For CSR-scale giving, see{" "}
-              <Link href="/get-involved/csr-partnership" className="font-medium text-teal-strong">
+              <Link href="/get-involved/csr-partnership" className="font-medium text-navy-strong">
                 CSR Partnership
               </Link>
               .

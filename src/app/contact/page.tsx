@@ -22,13 +22,13 @@ export default function ContactPage() {
           </div>
           <div className="rounded-2xl border border-line bg-surface p-6">
             <p className="font-data text-xs uppercase tracking-[0.1em] text-ink-soft">Phone</p>
-            <a href={`tel:${trust.phone.replace(/\s+/g, "")}`} className="mt-2 block text-sm text-teal-strong">
+            <a href={`tel:${trust.phone.replace(/\s+/g, "")}`} className="mt-2 block text-sm text-navy-strong">
               {trust.phone}
             </a>
           </div>
           <div className="rounded-2xl border border-line bg-surface p-6">
             <p className="font-data text-xs uppercase tracking-[0.1em] text-ink-soft">Email</p>
-            <a href={`mailto:${trust.email}`} className="mt-2 block text-sm text-teal-strong">
+            <a href={`mailto:${trust.email}`} className="mt-2 block text-sm text-navy-strong">
               {trust.email}
             </a>
           </div>

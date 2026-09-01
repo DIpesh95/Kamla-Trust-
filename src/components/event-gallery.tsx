@@ -5,7 +5,7 @@ export function EventGallery() {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
       {eventGallery.map((photo) => (
-        <figure key={photo.src} className="group relative aspect-square overflow-hidden rounded-xl bg-teal-tint">
+        <figure key={photo.src} className="group relative aspect-square overflow-hidden rounded-xl bg-navy-tint">
           <Image
             src={photo.src}
             alt={photo.alt}

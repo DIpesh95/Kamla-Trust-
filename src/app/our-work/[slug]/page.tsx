@@ -33,7 +33,7 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
 
       <Container className="flex flex-col gap-8 py-16 sm:py-20">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <Link href="/our-work" className="text-sm font-semibold text-teal-strong">
+          <Link href="/our-work" className="text-sm font-semibold text-navy-strong">
             ← All pillars
           </Link>
           <Fact value={pillar.stat} />

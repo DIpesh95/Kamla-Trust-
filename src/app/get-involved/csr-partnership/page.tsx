@@ -38,7 +38,7 @@ export default function CSRPartnershipPage() {
             <p className="mt-2 text-sm leading-relaxed text-ink-soft">
               Ongoing programs across education, healthcare, women &amp; child welfare, rural livelihoods,
               and disaster relief — see{" "}
-              <Link href="/our-work" className="font-medium text-teal-strong">
+              <Link href="/our-work" className="font-medium text-navy-strong">
                 Our Work
               </Link>{" "}
               for the full breakdown.

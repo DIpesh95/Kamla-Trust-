@@ -15,7 +15,7 @@ export function SubNav({ links }: { links: { label: string; href: string }[] }) 
               key={link.href}
               href={link.href}
               className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
-                active ? "bg-brand text-white" : "text-ink-soft hover:bg-teal-tint hover:text-teal-strong"
+                active ? "bg-brand text-white" : "text-ink-soft hover:bg-navy-tint hover:text-navy-strong"
               }`}
             >
               {link.label}
