@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, type FocusEvent } from "react";
 import { primaryNav } from "@/content/nav";
 import { logo } from "@/content/media";
 import { pillars } from "@/content/pillars";
@@ -11,6 +11,13 @@ import { SearchBox } from "./search-box";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+
+  function closeMenuOnBlur(e: FocusEvent<HTMLDivElement>, label: string) {
+    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+      setOpenMenu((current) => (current === label ? null : current));
+    }
+  }
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
@@ -22,14 +29,28 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-1 lg:flex">
           {primaryNav.map((item) => {
             const isOurWork = item.label === "Our Work";
+            const hasMenu = isOurWork || !!item.children;
+            const isMenuOpen = openMenu === item.label;
+            const panelVisibility = isMenuOpen
+              ? "visible translate-y-0 opacity-100"
+              : "invisible -translate-y-1 opacity-0";
+
             return (
-              <div key={item.label} className="group relative">
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => hasMenu && setOpenMenu(item.label)}
+                onMouseLeave={() => hasMenu && setOpenMenu((current) => (current === item.label ? null : current))}
+                onFocus={() => hasMenu && setOpenMenu(item.label)}
+                onBlur={(e) => hasMenu && closeMenuOnBlur(e, item.label)}
+              >
                 <Link
                   href={item.href}
+                  onClick={() => setOpenMenu(null)}
                   className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-navy-tint hover:text-navy-strong"
                 >
                   {item.label}
-                  {item.children || isOurWork ? (
+                  {hasMenu ? (
                     <span aria-hidden="true" className="text-[10px] text-ink-soft/60">
                       ▾
                     </span>
@@ -37,7 +58,9 @@ export function SiteHeader() {
                 </Link>
 
                 {isOurWork ? (
-                  <div className="invisible absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 -translate-y-1 rounded-2xl border border-line bg-surface p-4 opacity-0 shadow-xl transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div
+                    className={`absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 rounded-2xl border border-line bg-surface p-4 shadow-xl transition-all ${panelVisibility}`}
+                  >
                     <div className="grid grid-cols-3 gap-2">
                       {pillars.map((pillar) => {
                         const image = pillarImages[pillar.slug];
@@ -45,6 +68,7 @@ export function SiteHeader() {
                           <Link
                             key={pillar.slug}
                             href={`/our-work/${pillar.slug}`}
+                            onClick={() => setOpenMenu(null)}
                             className="group/card flex flex-col overflow-hidden rounded-xl border border-line hover:border-navy/40"
                           >
                             <div className="relative h-20 w-full bg-navy-tint">
@@ -68,17 +92,21 @@ export function SiteHeader() {
                     </div>
                     <Link
                       href="/our-work"
+                      onClick={() => setOpenMenu(null)}
                       className="mt-3 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-navy-strong hover:bg-navy-tint"
                     >
                       View all our work →
                     </Link>
                   </div>
                 ) : item.children ? (
-                  <div className="invisible absolute left-0 top-full z-50 min-w-56 -translate-y-1 rounded-xl border border-line bg-surface p-1.5 opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div
+                    className={`absolute left-0 top-full z-50 min-w-56 rounded-xl border border-line bg-surface p-1.5 shadow-lg transition-all ${panelVisibility}`}
+                  >
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
+                        onClick={() => setOpenMenu(null)}
                         className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-navy-tint hover:text-navy-strong"
                       >
                         {child.label}
