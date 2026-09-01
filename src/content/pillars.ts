@@ -10,13 +10,14 @@ export const pillars: Pillar[] = [
     stat: placeholder("Verified enrollment / schools-built figures pending from trustees."),
     initiatives: [
       {
-        name: "Schools & Colleges",
-        blurb: "Schools and colleges built and supported in rural Rajasthan, expanding access to education in underserved areas.",
-        location: "Rural Rajasthan",
+        name: "Commerce College & Hostel, Bhinmal",
+        blurb: "Founded by Shri G.K. Gowani in 1967, the Commerce College brought higher education to Bhinmal at a time when access was limited. The Smt. Ankibai Ghamandiram Ji Hostel followed in 1975, giving students from distant areas safe, affordable accommodation to attend.",
+        location: "Bhinmal, Rajasthan",
       },
       {
-        name: "Kamala Rising Stars",
-        blurb: "Recognises and nurtures young talent, giving promising students a platform and support to pursue their goals.",
+        name: "Schools & Colleges",
+        blurb: "Additional schools and colleges built and supported in rural Rajasthan, expanding access to education in underserved areas.",
+        location: "Rural Rajasthan",
       },
     ],
   },
@@ -29,8 +30,12 @@ export const pillars: Pillar[] = [
     stat: placeholder("Patients treated / vaccinated figures pending from trustees."),
     initiatives: [
       {
-        name: "HPV Vaccination",
-        blurb: "HPV vaccination drives for women, including over 10,000 doses administered as part of the trust’s cervical-cancer prevention work.",
+        name: "HPV Bharat – Kamala Beti Kavach",
+        blurb: "A named cervical-cancer prevention mission protecting girls through HPV vaccination and education — over 10,000 doses administered to date.",
+      },
+      {
+        name: "Anaemia Mukt Bharat",
+        blurb: "Anaemia screening and awareness work for women and young girls, aligned with the national Anaemia Mukt Bharat mission.",
       },
       {
         name: "Cancer Patient Support",
@@ -118,13 +123,17 @@ export const pillars: Pillar[] = [
         blurb: "Programs supporting self-employment and income generation in the communities the trust works with.",
       },
       {
+        name: "Vocal for Local",
+        blurb: "Support for local artisans and vendors — including potters and makers of Diwali decorative items — giving them a platform to showcase and sell their work and preserving heritage crafts.",
+      },
+      {
         name: "Feed Stray Animals",
         blurb: "Ongoing feeding programs for stray and community animals.",
       },
       {
-        name: "Temple Restoration",
-        blurb: "Restoration and beautification of Jain temples, including seven temples built or restored in Bhilwara.",
-        location: "Bhilwara",
+        name: "Temple & Pilgrimage Sites",
+        blurb: "Seven Jain temples built or restored in Bhilwara. In Palitana — one of Jainism’s holiest cities — the trust built the Ankibai Ghamandiram Gowani Dharamshala for pilgrims, along with sub-shelters, dining facilities, and the Munisuvrata Swamy Temple, supporting Chaturmas and other religious observances.",
+        location: "Bhilwara & Palitana",
       },
       {
         name: "World Environment Day",

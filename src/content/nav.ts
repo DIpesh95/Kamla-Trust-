@@ -30,6 +30,13 @@ export const primaryNav: NavLink[] = [
   },
 ];
 
+export const socialLinks = {
+  facebook: "https://www.facebook.com/kamala.gowani.trust",
+  instagram: "https://www.instagram.com/kamala.trust/",
+  youtube: "https://www.youtube.com/channel/UCFlyBOUqF_brpIP5vw2feOA",
+  x: "https://x.com/TrustKamala",
+};
+
 export const footerLinks: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Our Work", href: "/our-work" },

@@ -6,6 +6,8 @@ import { SectionHeading } from "@/components/section-heading";
 import { PillarCard } from "@/components/pillar-card";
 import { PressCard } from "@/components/press-card";
 import { CTASection } from "@/components/cta-section";
+import { RecognitionStrip } from "@/components/recognition-strip";
+import { FlagshipProgramsSection } from "@/components/flagship-programs-section";
 import { headlineStats } from "@/content/stats";
 import { pillars } from "@/content/pillars";
 import { newsroom } from "@/content/newsroom";
@@ -15,6 +17,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <RecognitionStrip />
 
       <section className="py-14 sm:py-16">
         <Container>
@@ -30,14 +33,16 @@ export default function Home() {
             dek={`${trust.shortName} runs ${pillars.reduce((n, p) => n + p.initiatives.length, 0)}+ programs across Maharashtra, organised into five focus areas.`}
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {pillars.map((pillar, i) => (
-              <PillarCard key={pillar.slug} pillar={pillar} index={i} />
+            {pillars.map((pillar) => (
+              <PillarCard key={pillar.slug} pillar={pillar} />
             ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-line bg-surface py-20 sm:py-24">
+      <FlagshipProgramsSection />
+
+      <section className="border-t border-line py-20 sm:py-24">
         <Container className="flex flex-col gap-10">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading eyebrow="Newsroom" title="Recognition & recent activity" />

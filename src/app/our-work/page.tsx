@@ -19,8 +19,8 @@ export default function OurWorkPage() {
       />
       <Container className="py-16 sm:py-20">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {pillars.map((pillar, i) => (
-            <PillarCard key={pillar.slug} pillar={pillar} index={i} />
+          {pillars.map((pillar) => (
+            <PillarCard key={pillar.slug} pillar={pillar} />
           ))}
         </div>
       </Container>
