@@ -33,7 +33,7 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
 
       <Container className="flex flex-col gap-8 py-16 sm:py-20">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <Link href="/our-work" className="text-sm font-semibold text-rose-strong">
+          <Link href="/our-work" className="text-sm font-semibold text-teal-strong">
             ← All pillars
           </Link>
           <Fact value={pillar.stat} />
@@ -45,7 +45,7 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-display text-lg font-medium text-ink">{initiative.name}</h3>
                 {initiative.location ? (
-                  <span className="shrink-0 rounded-full bg-bronze-tint px-2.5 py-0.5 text-xs font-medium text-bronze">
+                  <span className="shrink-0 rounded-full bg-gold-tint px-2.5 py-0.5 text-xs font-medium text-gold">
                     {initiative.location}
                   </span>
                 ) : null}

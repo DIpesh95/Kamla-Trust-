@@ -26,7 +26,7 @@ export function SiteHeader() {
               <div key={item.label} className="group relative">
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-rose-tint hover:text-rose-strong"
+                  className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-teal-tint hover:text-teal-strong"
                 >
                   {item.label}
                   {item.children || isOurWork ? (
@@ -45,9 +45,9 @@ export function SiteHeader() {
                           <Link
                             key={pillar.slug}
                             href={`/our-work/${pillar.slug}`}
-                            className="group/card flex flex-col overflow-hidden rounded-xl border border-line hover:border-rose/40"
+                            className="group/card flex flex-col overflow-hidden rounded-xl border border-line hover:border-teal/40"
                           >
-                            <div className="relative h-20 w-full bg-rose-tint">
+                            <div className="relative h-20 w-full bg-teal-tint">
                               {image ? (
                                 <Image
                                   src={image.src}
@@ -68,7 +68,7 @@ export function SiteHeader() {
                     </div>
                     <Link
                       href="/our-work"
-                      className="mt-3 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-rose-strong hover:bg-rose-tint"
+                      className="mt-3 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-teal-strong hover:bg-teal-tint"
                     >
                       View all our work →
                     </Link>
@@ -79,7 +79,7 @@ export function SiteHeader() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-rose-tint hover:text-rose-strong"
+                        className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-teal-tint hover:text-teal-strong"
                       >
                         {child.label}
                       </Link>

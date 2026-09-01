@@ -1,55 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #2b1b20;
-  --ink-soft: #5b454b;
-  --paper: #faf5f2;
+  --ink: #16231f;
+  --ink-soft: #4a5e56;
+  --paper: #f8f7f2;
   --surface: #ffffff;
-  --rose: #96324a;
-  --rose-strong: #7a2038;
-  --rose-tint: #f1dce1;
-  --bronze: #a9793f;
-  --bronze-tint: #efe1cc;
-  --line: #e4d6d0;
-  --good: #3f7a5a;
+  --teal: #1f5c50;
+  --teal-strong: #123a32;
+  --teal-tint: #dceae4;
+  --gold: #b8863b;
+  --gold-tint: #f1e4c6;
+  --line: #dce3dd;
+  --good: #2f8f5b;
   --warn: #b25b2e;
 
   /* Fixed brand colors for buttons/banners that always pair with white text or sit on the fixed hero —
-     intentionally do not flip with theme, unlike --rose/--rose-strong which are used as adaptive text/links. */
-  --hero: #241619;
-  --brand: #96324a;
-  --brand-strong: #7a2038;
+     intentionally do not flip with theme, unlike --teal/--teal-strong which are used as adaptive text/links. */
+  --hero: #0f1d19;
+  --brand: #1f5c50;
+  --brand-strong: #123a32;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #f3e9e6;
-    --ink-soft: #cbb3b8;
-    --paper: #1c1215;
-    --surface: #241619;
-    --rose: #e28fa2;
-    --rose-strong: #f2aebd;
-    --rose-tint: #3a2229;
-    --bronze: #d2a867;
-    --bronze-tint: #332a1c;
-    --line: #3a2a2e;
-    --good: #7fbf9c;
+    --ink: #eaf0ec;
+    --ink-soft: #a9bbb1;
+    --paper: #0e1a17;
+    --surface: #16241f;
+    --teal: #5fbfa6;
+    --teal-strong: #85d8c0;
+    --teal-tint: #1e332d;
+    --gold: #e0b563;
+    --gold-tint: #3a2e17;
+    --line: #2a3a34;
+    --good: #6fcb9b;
     --warn: #e0985f;
   }
 }
 
 :root[data-theme="dark"] {
-  --ink: #f3e9e6;
-  --ink-soft: #cbb3b8;
-  --paper: #1c1215;
-  --surface: #241619;
-  --rose: #e28fa2;
-  --rose-strong: #f2aebd;
-  --rose-tint: #3a2229;
-  --bronze: #d2a867;
-  --bronze-tint: #332a1c;
-  --line: #3a2a2e;
-  --good: #7fbf9c;
+  --ink: #eaf0ec;
+  --ink-soft: #a9bbb1;
+  --paper: #0e1a17;
+  --surface: #16241f;
+  --teal: #5fbfa6;
+  --teal-strong: #85d8c0;
+  --teal-tint: #1e332d;
+  --gold: #e0b563;
+  --gold-tint: #3a2e17;
+  --line: #2a3a34;
+  --good: #6fcb9b;
   --warn: #e0985f;
 }
 
@@ -58,11 +58,11 @@
   --color-ink-soft: var(--ink-soft);
   --color-paper: var(--paper);
   --color-surface: var(--surface);
-  --color-rose: var(--rose);
-  --color-rose-strong: var(--rose-strong);
-  --color-rose-tint: var(--rose-tint);
-  --color-bronze: var(--bronze);
-  --color-bronze-tint: var(--bronze-tint);
+  --color-teal: var(--teal);
+  --color-teal-strong: var(--teal-strong);
+  --color-teal-tint: var(--teal-tint);
+  --color-gold: var(--gold);
+  --color-gold-tint: var(--gold-tint);
   --color-line: var(--line);
   --color-good: var(--good);
   --color-warn: var(--warn);

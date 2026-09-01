@@ -9,9 +9,9 @@ export function PillarCard({ pillar }: { pillar: Pillar }) {
   return (
     <Link
       href={`/our-work/${pillar.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-sm transition-colors hover:border-rose/40"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-sm transition-colors hover:border-teal/40"
     >
-      <div className="relative h-40 w-full overflow-hidden bg-rose-tint">
+      <div className="relative h-40 w-full overflow-hidden bg-teal-tint">
         {image ? (
           <Image
             src={image.src}
@@ -28,7 +28,7 @@ export function PillarCard({ pillar }: { pillar: Pillar }) {
           <h3 className="font-display text-xl font-medium text-ink">{pillar.name}</h3>
           <p className="mt-2 text-sm leading-relaxed text-ink-soft">{pillar.summary}</p>
         </div>
-        <p className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-rose-strong">
+        <p className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-teal-strong">
           Explore {pillar.initiatives.length} programs
           <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
             →

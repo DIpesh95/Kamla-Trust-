@@ -3,8 +3,8 @@ import type { PressItem } from "@/content/types";
 import { Fact } from "./fact";
 
 const kindStyles: Record<PressItem["kind"], string> = {
-  Press: "bg-rose-tint text-rose-strong",
-  Award: "bg-bronze-tint text-bronze",
+  Press: "bg-teal-tint text-teal-strong",
+  Award: "bg-gold-tint text-gold",
   Event: "bg-line text-ink-soft",
 };
 
@@ -12,7 +12,7 @@ export function PressCard({ item }: { item: PressItem }) {
   return (
     <article className="overflow-hidden rounded-xl border border-line bg-surface">
       {item.image ? (
-        <div className="relative h-36 w-full bg-rose-tint">
+        <div className="relative h-36 w-full bg-teal-tint">
           <Image src={item.image.src} alt={item.image.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
         </div>
       ) : null}
