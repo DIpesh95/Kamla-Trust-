@@ -6,6 +6,7 @@ import { trust } from "@/content/trust";
 import { getYearsActive } from "@/content/stats";
 import { primaryNav } from "@/content/nav";
 import { EventGallery } from "@/components/event-gallery";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -77,12 +78,12 @@ export default function AboutPage() {
           <p className="mt-1.5 max-w-2xl text-sm text-ink-soft">{trust.relatedEntityNote}</p>
         </div>
 
-        <div>
+        <Reveal>
           <p className="font-data mb-4 text-xs uppercase tracking-[0.1em] text-ink-soft">
             From the archive — real moments from the trust’s work
           </p>
           <EventGallery />
-        </div>
+        </Reveal>
       </Container>
     </>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/page-hero";
 import { Container } from "@/components/container";
+import { Reveal } from "@/components/reveal";
 
 export const metadata: Metadata = {
   title: "Stories",
@@ -45,7 +46,7 @@ export default function StoriesPage() {
       />
 
       <Container className="py-16 sm:py-20">
-        <div className="grid gap-5 sm:grid-cols-3">
+        <Reveal className="grid gap-5 sm:grid-cols-3">
           {storySlots.map((slot) => (
             <div key={slot.pillar} className="overflow-hidden rounded-2xl border border-dashed border-line bg-surface">
               <div className="relative h-48 w-full">
@@ -70,7 +71,7 @@ export default function StoriesPage() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </>
   );

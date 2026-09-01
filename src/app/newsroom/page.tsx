@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Container } from "@/components/container";
 import { PressCard } from "@/components/press-card";
+import { Reveal } from "@/components/reveal";
 import { newsroom } from "@/content/newsroom";
 
 export const metadata: Metadata = {
@@ -18,11 +19,11 @@ export default function NewsroomPage() {
         dek="Merged from the trust’s previously separate Achievements and Spotlight pages into one timeline."
       />
       <Container className="py-16 sm:py-20">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Reveal className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {newsroom.map((item) => (
             <PressCard key={item.title} item={item} />
           ))}
-        </div>
+        </Reveal>
       </Container>
     </>
   );
