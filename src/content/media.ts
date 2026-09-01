@@ -73,4 +73,32 @@ export const eventGallery = [
     alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026 awards ceremony",
     caption: "Lokmata Ahilyabai Holkar Mahila Samman 2026",
   },
+  {
+    src: "https://www.ankibaighamandiramgowanitrust.com/assets/Rcelebration3-C1fPowGe.jpeg",
+    width: 1280,
+    height: 960,
+    alt: "Republic Day Celebration 2026 at Kamala Mills Compound",
+    caption: "Republic Day Celebration 2026, Kamala Mills Compound",
+  },
+  {
+    src: "https://www.ankibaighamandiramgowanitrust.com/assets/2DiwaliImage-CNRTqPqP.jpg",
+    width: 1440,
+    height: 960,
+    alt: "Diwali \"Greet and Meet\" program at India Habitat Centre, New Delhi",
+    caption: "Diwali Greet & Meet, New Delhi, 2025",
+  },
+  {
+    src: "https://www.ankibaighamandiramgowanitrust.com/assets/NBTAward1-DfaBYNjf.jpg",
+    width: 1080,
+    height: 1349,
+    alt: "Navbharat Times' Utsav 2026 awards presentation",
+    caption: "Navbharat Times' Utsav 2026",
+  },
+  {
+    src: "https://www.ankibaighamandiramgowanitrust.com/assets/Holi2026Post2-D1XTj8Vo.jpg",
+    width: 720,
+    height: 480,
+    alt: "Phoolo Ki Holi celebration at ISKCON Chowpatty",
+    caption: "Phoolo Ki Holi, ISKCON Chowpatty, 2026",
+  },
 ];

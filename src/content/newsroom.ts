@@ -14,6 +14,10 @@ export const newsroom: PressItem[] = [
     kind: "Event",
     description:
       "Kamala Power Women’s annual awards, honouring women across healthcare, journalism, education, art, entrepreneurship, and social work.",
+    image: {
+      src: "https://ik.imagekit.io/cujb7fqte/KamlaWeb/2026/KPW/KPW5.jpg?updatedAt=1773312685258",
+      alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026 awards ceremony",
+    },
   },
   {
     title: "Navbharat Times Utsav 2026",
@@ -21,6 +25,31 @@ export const newsroom: PressItem[] = [
     kind: "Event",
     description:
       "Trustee Nidarshana Gowani presented awards alongside the Hon’ble Chief Minister of Maharashtra, Shri Devendra Fadnavis.",
+    image: {
+      src: "https://www.ankibaighamandiramgowanitrust.com/assets/NBTAward1-DfaBYNjf.jpg",
+      alt: "Navbharat Times' Utsav 2026 awards presentation",
+    },
+  },
+  {
+    title: "Republic Day Celebration 2026",
+    date: "2026",
+    kind: "Event",
+    description:
+      "Flag hoisting, a community pledge, and livelihood-support kits distributed to mochis, street vendors, Dabbawalas, and transgender artisans at Kamala Mills Compound.",
+    image: {
+      src: "https://www.ankibaighamandiramgowanitrust.com/assets/Rcelebration3-C1fPowGe.jpeg",
+      alt: "Republic Day Celebration 2026 at Kamala Mills Compound",
+    },
+  },
+  {
+    title: "Phoolo Ki Holi",
+    date: "2026",
+    kind: "Event",
+    description: "Holi celebration organised at Sri Sri Radha Gopinath Temple (ISKCON Chowpatty), Mumbai.",
+    image: {
+      src: "https://www.ankibaighamandiramgowanitrust.com/assets/Holi2026Post2-D1XTj8Vo.jpg",
+      alt: "Phoolo Ki Holi celebration at ISKCON Chowpatty",
+    },
   },
   {
     title: "Kamala Power Women Awards, Delhi",

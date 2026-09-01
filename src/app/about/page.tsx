@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { trust } from "@/content/trust";
 import { getYearsActive } from "@/content/stats";
 import { primaryNav } from "@/content/nav";
+import { EventGallery } from "@/components/event-gallery";
 
 export const metadata: Metadata = {
   title: "About",
@@ -33,9 +34,15 @@ export default function AboutPage() {
               productive life, regardless of background or circumstance.
             </p>
             <p>
+              Its roots in education go back further still: in 1967, Shri G.K. Gowani founded a Commerce
+              College in Bhinmal, Rajasthan, at a time when access to higher education there was limited.
+              The Smt. Ankibai Ghamandiram Ji Hostel followed in 1975, giving students from distant
+              villages a safe place to stay while they studied.
+            </p>
+            <p>
               Over {getYearsActive()} years, the trust’s work has grown to span education, healthcare,
               gender equality, rural upliftment, disaster relief, and social empowerment — including
-              building schools and colleges in rural Rajasthan, and consistently supporting girl-child
+              further schools and colleges in rural Rajasthan, and ongoing support for girl-child
               education and menstrual-hygiene awareness.
             </p>
             <p>
@@ -68,6 +75,13 @@ export default function AboutPage() {
         <div className="rounded-2xl border border-dashed border-warn/50 bg-warn/5 p-6">
           <p className="text-sm font-semibold text-warn">Needs trustee confirmation</p>
           <p className="mt-1.5 max-w-2xl text-sm text-ink-soft">{trust.relatedEntityNote}</p>
+        </div>
+
+        <div>
+          <p className="font-data mb-4 text-xs uppercase tracking-[0.1em] text-ink-soft">
+            From the archive — real moments from the trust’s work
+          </p>
+          <EventGallery />
         </div>
       </Container>
     </>

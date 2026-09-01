@@ -57,6 +57,7 @@ export type PressItem = {
   date: Verified<string>;
   kind: "Press" | "Award" | "Event";
   description: string;
+  image?: { src: string; alt: string };
 };
 
 export type HeadlineStat = {

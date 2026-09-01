@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "ankibaighamandiramgowanitrust.com" },
       { protocol: "https", hostname: "www.ankibaighamandiramgowanitrust.com" },
       { protocol: "https", hostname: "ik.imagekit.io" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
 };
