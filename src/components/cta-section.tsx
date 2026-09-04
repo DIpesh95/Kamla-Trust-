@@ -12,7 +12,7 @@ export function CTASection({
   secondary?: { label: string; href: string };
 }) {
   return (
-    <section className="border-y border-line bg-navy-tint">
+    <section className="border-y-2 border-navy bg-surface">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-start gap-6 px-6 py-14 sm:flex-row sm:items-center sm:justify-between">
         <div className="max-w-xl">
           <div className="mb-3 h-1 w-10 rounded-full bg-gold" aria-hidden="true" />
