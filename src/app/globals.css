@@ -21,23 +21,8 @@
   --brand-strong: #10233f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ink: #edf1f7;
-    --ink-soft: #a7b3c4;
-    --paper: #0b1420;
-    --surface: #131f30;
-    --navy: #6c93d1;
-    --navy-strong: #94b4e3;
-    --navy-tint: #1b2c42;
-    --gold: #e0bc63;
-    --gold-tint: #3a2e17;
-    --line: #26364a;
-    --good: #6fcb9b;
-    --warn: #e0985f;
-  }
-}
-
+/* Dark mode is opt-in only (data-theme="dark") — it does not follow the visitor's
+   system preference, so the site always renders on the white theme by default. */
 :root[data-theme="dark"] {
   --ink: #edf1f7;
   --ink-soft: #a7b3c4;
