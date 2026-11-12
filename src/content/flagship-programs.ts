@@ -18,8 +18,8 @@ export const flagshipPrograms: FlagshipProgram[] = [
     year: "2026",
     impact: "20+ sectors recognised in the most recent edition",
     image: {
-      src: "https://ik.imagekit.io/cujb7fqte/KamlaWeb/2026/KPW/KPW5.jpg?updatedAt=1773312685258",
-      alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026 awards ceremony",
+      src: "/images/kamala-power-women-2026.jpg",
+      alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026 — award presented on stage",
     },
   },
   {
@@ -32,8 +32,8 @@ export const flagshipPrograms: FlagshipProgram[] = [
     year: "Annual",
     impact: "6 communities honoured each year",
     image: {
-      src: "https://www.ankibaighamandiramgowanitrust.com/assets/Rcelebration3-C1fPowGe.jpeg",
-      alt: "Republic Day Celebration — livelihood kits distributed to mochis, street vendors, Dabbawalas, and transgender artisans",
+      src: "/images/pillars-of-humanity-2024.jpg",
+      alt: "Pillars of Humanity Fashion Show, 23rd February 2024, Gateway of India, Mumbai",
     },
   },
   {
