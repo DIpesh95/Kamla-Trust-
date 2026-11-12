@@ -25,31 +25,19 @@ export const newsroom: PressItem[] = [
     kind: "Event",
     description:
       "Trustee Nidarshana Gowani presented awards alongside the Hon’ble Chief Minister of Maharashtra, Shri Devendra Fadnavis.",
-    image: {
-      src: "https://www.ankibaighamandiramgowanitrust.com/assets/NBTAward1-DfaBYNjf.jpg",
-      alt: "Navbharat Times' Utsav 2026 awards presentation",
-    },
   },
   {
     title: "Republic Day Celebration 2026",
     date: "2026",
-    kind: "Event",
+    kind: "Community",
     description:
       "Flag hoisting, a community pledge, and livelihood-support kits distributed to mochis, street vendors, Dabbawalas, and transgender artisans at Kamala Mills Compound.",
-    image: {
-      src: "https://www.ankibaighamandiramgowanitrust.com/assets/Rcelebration3-C1fPowGe.jpeg",
-      alt: "Republic Day Celebration 2026 at Kamala Mills Compound",
-    },
   },
   {
     title: "Phoolo Ki Holi",
     date: "2026",
-    kind: "Event",
+    kind: "Community",
     description: "Holi celebration organised at Sri Sri Radha Gopinath Temple (ISKCON Chowpatty), Mumbai.",
-    image: {
-      src: "https://www.ankibaighamandiramgowanitrust.com/assets/Holi2026Post2-D1XTj8Vo.jpg",
-      alt: "Phoolo Ki Holi celebration at ISKCON Chowpatty",
-    },
   },
   {
     title: "Kamala Power Women Awards, Delhi",
@@ -78,7 +66,7 @@ export const newsroom: PressItem[] = [
   {
     title: "Kamala Power Women Award 2022",
     date: "2022",
-    kind: "Award",
+    kind: "Recognition",
     description: "38 women achievers honoured; awards presented by the then-Governor of Maharashtra, Shri Bhagat Singh Koshyari.",
   },
   {
@@ -96,43 +84,43 @@ export const newsroom: PressItem[] = [
   {
     title: "Recognition by the Governor of Maharashtra",
     date: placeholder("Exact date pending confirmation."),
-    kind: "Award",
+    kind: "Recognition",
     description: "Formal recognition of the trust’s work by Shri Bhagat Singh Koshyari, then-Governor of Maharashtra.",
   },
   {
     title: "“Icon of Maharashtra”",
     date: placeholder("Exact date pending confirmation."),
-    kind: "Award",
+    kind: "Recognition",
     description: "State-level recognition award.",
   },
   {
     title: "Times Power Women 2020",
     date: "2020",
-    kind: "Award",
+    kind: "Recognition",
     description: "National recognition of women leadership and impact.",
   },
   {
     title: "Bharat Amrut Award",
     date: placeholder("Exact date pending confirmation."),
-    kind: "Award",
+    kind: "Recognition",
     description: "Awarded as “Character of Bharat — Icon of Maharashtra.”",
   },
   {
     title: "Global Sustainability Award",
     date: "2025",
-    kind: "Award",
+    kind: "Recognition",
     description: "International recognition for sustainability-focused initiatives.",
   },
   {
     title: "Top 50 Most Influential Indians",
     date: placeholder("Exact date pending confirmation."),
-    kind: "Award",
+    kind: "Recognition",
     description: "Named among the Top 50 Most Influential Indians at an event held at Tower Bridge, London.",
   },
   {
     title: "Kashi Vaishwik Gaurav Samaan 2022",
     date: "2022",
-    kind: "Award",
+    kind: "Recognition",
     description: "Global recognition award conferred in Varanasi.",
   },
 ];

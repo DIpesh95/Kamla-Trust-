@@ -6,16 +6,16 @@ export type NavLink = {
 
 export const primaryNav: NavLink[] = [
   {
-    label: "About",
+    label: "About Us",
     href: "/about",
     children: [
-      { label: "Our History", href: "/about" },
+      { label: "Our Story", href: "/about" },
       { label: "Leadership", href: "/about/leadership" },
       { label: "Registration & Transparency", href: "/about/transparency" },
     ],
   },
   { label: "Our Work", href: "/our-work" },
-  { label: "Impact", href: "/impact" },
+  { label: "Our Impact", href: "/impact" },
   { label: "Stories", href: "/stories" },
   { label: "Newsroom", href: "/newsroom" },
   {
@@ -38,9 +38,9 @@ export const socialLinks = {
 };
 
 export const footerLinks: NavLink[] = [
-  { label: "About", href: "/about" },
+  { label: "About Us", href: "/about" },
   { label: "Our Work", href: "/our-work" },
-  { label: "Impact", href: "/impact" },
+  { label: "Our Impact", href: "/impact" },
   { label: "Stories", href: "/stories" },
   { label: "Newsroom", href: "/newsroom" },
   { label: "Contact", href: "/contact" },

@@ -34,55 +34,55 @@ export function InquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-2xl border border-line bg-surface p-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-sm border border-line bg-surface p-6">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium text-ink">Name</span>
+          <span className="font-medium text-text">Name</span>
           <input
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
+            className="rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
           />
         </label>
         <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium text-ink">Email</span>
+          <span className="font-medium text-text">Email</span>
           <input
             required
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
+            className="rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
           />
         </label>
       </div>
       {includePhone ? (
         <label className="flex flex-col gap-1.5 text-sm">
-          <span className="font-medium text-ink">Phone (optional)</span>
+          <span className="font-medium text-text">Phone (optional)</span>
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
+            className="rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
           />
         </label>
       ) : null}
       <label className="flex flex-col gap-1.5 text-sm">
-        <span className="font-medium text-ink">Message</span>
+        <span className="font-medium text-text">Message</span>
         <textarea
           required
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="resize-none rounded-lg border border-line bg-paper px-3.5 py-2.5 text-ink outline-none focus:border-navy"
+          className="resize-none rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
         />
       </label>
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-        <p className="text-xs text-ink-soft">
+        <p className="text-xs text-text-muted">
           Opens your email app addressed to {trust.email} — a direct form submission isn&rsquo;t wired up yet.
         </p>
         <button
           type="submit"
-          className="shrink-0 rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-strong"
+          className="shrink-0 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-surface transition-colors hover:bg-primary-strong"
         >
           {submitLabel}
         </button>

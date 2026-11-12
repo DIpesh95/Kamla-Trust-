@@ -108,7 +108,7 @@ export const pillars: Pillar[] = [
   },
   {
     slug: "rural-livelihoods-environment",
-    name: "Rural Livelihoods, Environment & Culture",
+    name: "Rural Livelihoods",
     shortName: "Livelihoods & Environment",
     summary:
       "Renewable energy, self-employment support, animal welfare, and environmental clean-up drives, alongside the trust’s long-running heritage and temple work.",
@@ -153,7 +153,7 @@ export const pillars: Pillar[] = [
   },
   {
     slug: "disaster-relief-civic-recognition",
-    name: "Disaster Relief & Civic Recognition",
+    name: "Disaster Relief & Civic Initiatives",
     shortName: "Relief & Recognition",
     summary:
       "Recognition for frontline workers and the armed forces, and public events that bring civic pride and community spirit together.",

@@ -22,7 +22,7 @@ export function SearchBox() {
         onClick={() => setOpen((v) => !v)}
         aria-label="Search"
         aria-expanded={open}
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full text-ink-soft transition-colors hover:bg-navy-tint hover:text-navy-strong"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full text-text-muted transition-colors hover:bg-soft-bg hover:text-primary-strong"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-5 w-5" aria-hidden="true">
           <circle cx="10.5" cy="10.5" r="6.5" />
@@ -31,13 +31,13 @@ export function SearchBox() {
       </button>
 
       {open ? (
-        <div className="absolute right-0 top-full z-50 mt-2 w-80 rounded-2xl border border-line bg-surface p-3 shadow-xl">
+        <div className="absolute right-0 top-full z-50 mt-2 w-80 rounded-xl border border-line bg-surface p-3 shadow-xl">
           <input
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search programs, news…"
-            className="w-full rounded-lg border border-line bg-paper px-3.5 py-2.5 text-sm text-ink outline-none focus:border-navy"
+            className="w-full rounded-lg border border-line bg-soft-bg px-3.5 py-2.5 text-sm text-text outline-none focus:border-primary"
           />
           {query ? (
             <div className="mt-2 flex flex-col gap-0.5">
@@ -47,14 +47,14 @@ export function SearchBox() {
                     key={`${result.title}-${result.href}`}
                     href={result.href}
                     onClick={close}
-                    className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm text-ink hover:bg-navy-tint"
+                    className="flex items-center justify-between gap-3 rounded-lg px-3 py-2 text-sm text-text hover:bg-soft-bg"
                   >
                     <span>{result.title}</span>
-                    <span className="shrink-0 text-xs text-ink-soft">{result.category}</span>
+                    <span className="shrink-0 text-xs text-text-muted">{result.category}</span>
                   </Link>
                 ))
               ) : (
-                <p className="px-3 py-2 text-sm text-ink-soft">No matches yet.</p>
+                <p className="px-3 py-2 text-sm text-text-muted">No matches yet.</p>
               )}
             </div>
           ) : null}

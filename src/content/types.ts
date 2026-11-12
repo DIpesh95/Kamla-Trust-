@@ -55,7 +55,7 @@ export type Pillar = {
 export type PressItem = {
   title: string;
   date: Verified<string>;
-  kind: "Press" | "Award" | "Event";
+  kind: "Press" | "Recognition" | "Event" | "Community";
   description: string;
   image?: { src: string; alt: string };
 };
@@ -64,4 +64,6 @@ export type HeadlineStat = {
   value: string;
   label: string;
   note?: string;
+  source?: Verified<string>;
+  period?: Verified<string>;
 };

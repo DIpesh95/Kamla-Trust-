@@ -11,12 +11,17 @@ export const metadata: Metadata = {
   description: `Registration, tax-exemption status, and financial transparency for ${trust.legalName}.`,
 };
 
-const aboutLinks = primaryNav.find((item) => item.label === "About")?.children ?? [];
+const aboutLinks = primaryNav.find((item) => item.label === "About Us")?.children ?? [];
 
 export default function TransparencyPage() {
   return (
     <>
       <PageHero
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "About Us", href: "/about" },
+          { label: "Registration & Transparency" },
+        ]}
         eyebrow="About us"
         title="Registration & transparency"
         dek="What donors and CSR partners need to verify before they give — the section every reference foundation leads with."
@@ -25,35 +30,35 @@ export default function TransparencyPage() {
 
       <Container className="flex flex-col gap-10 py-16 sm:py-20">
         <div className="grid gap-5 sm:grid-cols-2">
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-data text-xs uppercase tracking-[0.1em] text-ink-soft">Trust registration</p>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">Trust registration</p>
             <div className="mt-2">
               <Fact value={trust.registrationNumber} />
             </div>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-data text-xs uppercase tracking-[0.1em] text-ink-soft">80G — tax deduction for donors</p>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">80G — tax deduction for donors</p>
             <div className="mt-2">
               <Fact value={trust.exemption80G} />
             </div>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-data text-xs uppercase tracking-[0.1em] text-ink-soft">12A registration</p>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">12A registration</p>
             <div className="mt-2">
               <Fact value={trust.exemption12A} />
             </div>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-data text-xs uppercase tracking-[0.1em] text-ink-soft">FCRA — foreign contributions</p>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">FCRA — foreign contributions</p>
             <div className="mt-2">
               <Fact value={trust.exemptionFCRA} />
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-line bg-surface p-7">
-          <p className="font-display text-lg font-medium text-ink">Financial statements & annual reports</p>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">
+        <div className="rounded-sm border border-line bg-surface p-7">
+          <p className="font-display text-lg font-medium text-text">Financial statements & annual reports</p>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
             No audited financial statements or annual reports are currently published. Every reference
             foundation studied for this rebuild — Azim Premji Foundation, Reliance Foundation, Aga Khan
             Foundation, and Swades Foundation — publishes these prominently, since it&rsquo;s what turns a

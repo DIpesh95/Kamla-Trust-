@@ -16,6 +16,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }, { label: "Careers" }]}
         eyebrow="Get involved"
         title="Careers"
         dek="No open roles are listed yet. Every reference foundation studied keeps an active careers page — worth deciding whether the trust wants the same before launch."
@@ -24,7 +25,7 @@ export default function CareersPage() {
 
       <Container className="py-16 sm:py-20">
         <div className="max-w-xl">
-          <p className="mb-3 text-sm font-medium text-ink">Interested anyway? Send a note.</p>
+          <p className="mb-3 text-sm font-medium text-text">Interested anyway? Send a note.</p>
           <InquiryForm subjectPrefix="Careers inquiry" submitLabel="Send" includePhone />
         </div>
       </Container>

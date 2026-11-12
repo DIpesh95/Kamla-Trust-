@@ -21,6 +21,7 @@ export default function DonatePage() {
   return (
     <>
       <PageHero
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }, { label: "Donate" }]}
         eyebrow="Get involved"
         title="Donate"
         dek="This is the single biggest gap versus every reference foundation studied — none existed on the trust’s site before this page."
@@ -29,27 +30,27 @@ export default function DonatePage() {
 
       <Container className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <div className="flex flex-col gap-6">
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-display text-lg font-medium text-ink">Bank transfer / UPI</p>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-display text-lg font-medium text-text">Bank transfer / UPI</p>
             <div className="mt-2 text-sm">
               <Fact value={paymentDetails} />
             </div>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-display text-lg font-medium text-ink">Tax deduction</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-display text-lg font-medium text-text">Tax deduction</p>
+            <p className="mt-2 text-sm leading-relaxed text-text-muted">
               80G eligibility isn&rsquo;t confirmed yet — see{" "}
-              <Link href="/about/transparency" className="font-medium text-navy-strong">
+              <Link href="/about/transparency" className="font-medium text-primary-strong">
                 Registration &amp; Transparency
               </Link>
               .
             </p>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-display text-lg font-medium text-ink">Giving at scale</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-display text-lg font-medium text-text">Giving at scale</p>
+            <p className="mt-2 text-sm leading-relaxed text-text-muted">
               For CSR-scale giving, see{" "}
-              <Link href="/get-involved/csr-partnership" className="font-medium text-navy-strong">
+              <Link href="/get-involved/csr-partnership" className="font-medium text-primary-strong">
                 CSR Partnership
               </Link>
               .
@@ -58,7 +59,7 @@ export default function DonatePage() {
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-medium text-ink">Want to give now?</p>
+          <p className="mb-3 text-sm font-medium text-text">Want to give now?</p>
           <InquiryForm subjectPrefix="Donation inquiry" submitLabel="Contact us to give" includePhone />
         </div>
       </Container>

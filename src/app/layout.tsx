@@ -1,14 +1,22 @@
 import type { Metadata } from "next";
-import { Source_Serif_4 } from "next/font/google";
+import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { siteUrl } from "@/lib/site";
 
-const displaySerif = Source_Serif_4({
-  variable: "--font-source-serif",
+const sans = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["400", "500", "600"],
+});
+
+const serif = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  weight: "variable",
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT"],
 });
 
 export const metadata: Metadata = {
@@ -23,8 +31,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${displaySerif.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-paper text-ink">
+    <html lang="en" className={`${sans.variable} ${serif.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-surface text-text">
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />

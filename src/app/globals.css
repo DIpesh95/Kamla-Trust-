@@ -1,68 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #10192a;
-  --ink-soft: #4a5568;
-  --paper: #ffffff;
+  /* Pink institutional palette */
+  --primary: #a81759;
+  --primary-strong: #7a1040;
+  --secondary: #d93683;
+  --light-pink: #f5b7d0;
+  --soft-bg: #fcebf2;
   --surface: #ffffff;
-  --navy: #1b3a6b;
-  --navy-strong: #10233f;
-  --navy-tint: #e3e9f3;
-  --gold: #c1912f;
-  --gold-tint: #f3e8cb;
-  --line: #e1e5eb;
-  --good: #2f8f5b;
-  --warn: #b25b2e;
+  --text: #252126;
+  --text-muted: #777078;
+  --line: #eadce3;
+  --good: #3f7a52;
+  --warn: #a81759;
 
-  /* Fixed brand colors for buttons/banners that always pair with white text or sit on the fixed hero —
-     intentionally do not flip with theme, unlike --navy/--navy-strong which are used as adaptive text/links. */
-  --hero: #0a1420;
-  --brand: #1b3a6b;
-  --brand-strong: #10233f;
-}
-
-/* Dark mode is opt-in only (data-theme="dark") — it does not follow the visitor's
-   system preference, so the site always renders on the white theme by default. */
-:root[data-theme="dark"] {
-  --ink: #edf1f7;
-  --ink-soft: #a7b3c4;
-  --paper: #0b1420;
-  --surface: #131f30;
-  --navy: #6c93d1;
-  --navy-strong: #94b4e3;
-  --navy-tint: #1b2c42;
-  --gold: #e0bc63;
-  --gold-tint: #3a2e17;
-  --line: #26364a;
-  --good: #6fcb9b;
-  --warn: #e0985f;
+  /* Fixed tokens — always this value regardless of context, for elements that pair with
+     guaranteed-contrast text (dark sections, buttons on photography). */
+  --ink-on-dark: #ffffff;
+  --brand: #a81759;
+  --brand-strong: #7a1040;
 }
 
 @theme inline {
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
-  --color-paper: var(--paper);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-secondary: var(--secondary);
+  --color-light-pink: var(--light-pink);
+  --color-soft-bg: var(--soft-bg);
   --color-surface: var(--surface);
-  --color-navy: var(--navy);
-  --color-navy-strong: var(--navy-strong);
-  --color-navy-tint: var(--navy-tint);
-  --color-gold: var(--gold);
-  --color-gold-tint: var(--gold-tint);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
   --color-line: var(--line);
   --color-good: var(--good);
   --color-warn: var(--warn);
-  --color-hero: var(--hero);
+  --color-ink-on-dark: var(--ink-on-dark);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
 
-  --font-display: var(--font-source-serif), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-data: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-body: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-data: var(--font-geist), ui-monospace, monospace;
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--surface);
+  color: var(--text);
   font-family: var(--font-body);
 }
 
@@ -76,7 +58,6 @@ h1, h2, h3, h4 {
   transform: translateY(18px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);

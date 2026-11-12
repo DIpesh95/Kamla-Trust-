@@ -5,6 +5,7 @@ import { PageHero } from "@/components/page-hero";
 import { Container } from "@/components/container";
 import { Fact } from "@/components/fact";
 import { CTASection } from "@/components/cta-section";
+import { ProgramList } from "@/components/program-list";
 import { pillars, getPillar } from "@/content/pillars";
 
 export function generateStaticParams() {
@@ -29,33 +30,31 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
 
   return (
     <>
-      <PageHero eyebrow="Our work" title={pillar.name} dek={pillar.summary} />
+      <PageHero
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Our Work", href: "/our-work" }, { label: pillar.name }]}
+        eyebrow="Our work"
+        title={pillar.name}
+        dek={pillar.summary}
+      />
 
-      <Container className="flex flex-col gap-8 py-16 sm:py-20">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <Link href="/our-work" className="text-sm font-semibold text-navy-strong">
+      <Container className="flex flex-col gap-10 py-16 sm:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
+          <Link href="/our-work" className="text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong">
             ← All pillars
           </Link>
-          <Fact value={pillar.stat} />
+          <div className="flex items-baseline gap-3">
+            <span className="font-display text-5xl italic text-primary sm:text-6xl">
+              {pillar.initiatives.length}
+            </span>
+            <span className="text-sm font-medium uppercase tracking-[0.18em] text-text-muted">
+              {pillar.initiatives.length === 1 ? "Program" : "Programs"}
+            </span>
+          </div>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          {pillar.initiatives.map((initiative) => (
-            <div key={initiative.name} className="rounded-2xl border border-line bg-surface p-6">
-              <div className="flex items-start justify-between gap-3">
-                <h3 className="font-display text-lg font-medium text-ink">{initiative.name}</h3>
-                {initiative.location ? (
-                  <span className="shrink-0 rounded-full bg-gold-tint px-2.5 py-0.5 text-xs font-medium text-gold">
-                    {initiative.location}
-                  </span>
-                ) : null}
-              </div>
-              <div className="mt-2 text-sm leading-relaxed text-ink-soft">
-                <Fact value={initiative.blurb} />
-              </div>
-            </div>
-          ))}
-        </div>
+        <Fact value={pillar.stat} className="text-sm text-text-muted" />
+
+        <ProgramList initiatives={pillar.initiatives} />
       </Container>
 
       <CTASection

@@ -2,28 +2,56 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, type FocusEvent } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { primaryNav } from "@/content/nav";
-import { logo } from "@/content/media";
 import { pillars } from "@/content/pillars";
 import { pillarImages } from "@/content/media";
+import { Logomark, Wordmark } from "./logomark";
+import { PillarIcon } from "./pillar-icon";
 import { SearchBox } from "./search-box";
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
 
-  function closeMenuOnBlur(e: FocusEvent<HTMLDivElement>, label: string) {
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 72);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const transparent = isHome && !scrolled && !open;
+
+  function closeMenuOnBlur(e: React.FocusEvent<HTMLDivElement>, label: string) {
     if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
       setOpenMenu((current) => (current === label ? null : current));
     }
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
+    <header
+      className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${
+        transparent ? "bg-transparent" : "border-b border-line bg-surface/90 backdrop-blur-md"
+      }`}
+    >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <Image src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} priority className="h-11 w-auto" />
+        <Link
+          href="/"
+          onClick={() => setOpen(false)}
+          className={`flex items-center gap-2 transition-colors duration-500 ${
+            transparent ? "text-surface" : "text-text"
+          }`}
+        >
+          <Logomark className={`h-7 w-7 ${transparent ? "text-surface" : "text-primary"}`} />
+          <Wordmark className="text-lg" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -34,6 +62,7 @@ export function SiteHeader() {
             const panelVisibility = isMenuOpen
               ? "visible translate-y-0 opacity-100"
               : "invisible -translate-y-1 opacity-0";
+            const linkColor = transparent ? "text-surface/90 hover:text-surface" : "text-text-muted hover:text-primary";
 
             return (
               <div
@@ -47,12 +76,12 @@ export function SiteHeader() {
                 <Link
                   href={item.href}
                   onClick={() => setOpenMenu(null)}
-                  className="flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-ink-soft transition-colors hover:bg-navy-tint hover:text-navy-strong"
+                  className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium uppercase tracking-[0.04em] transition-colors ${linkColor}`}
                 >
                   {item.label}
                   {hasMenu ? (
-                    <span aria-hidden="true" className="text-[10px] text-ink-soft/60">
-                      ▾
+                    <span aria-hidden="true" className="text-[9px] opacity-60">
+                      &#9662;
                     </span>
                   ) : null}
                 </Link>
@@ -69,9 +98,9 @@ export function SiteHeader() {
                             key={pillar.slug}
                             href={`/our-work/${pillar.slug}`}
                             onClick={() => setOpenMenu(null)}
-                            className="group/card flex flex-col overflow-hidden rounded-xl border border-line hover:border-navy/40"
+                            className="group/card flex flex-col overflow-hidden rounded-xl border border-line hover:border-primary/40"
                           >
-                            <div className="relative h-20 w-full bg-navy-tint">
+                            <div className="relative flex h-20 w-full items-center justify-center bg-soft-bg">
                               {image ? (
                                 <Image
                                   src={image.src}
@@ -80,11 +109,13 @@ export function SiteHeader() {
                                   sizes="200px"
                                   className="object-cover transition-transform group-hover/card:scale-105"
                                 />
-                              ) : null}
+                              ) : (
+                                <PillarIcon slug={pillar.slug} className="h-8 w-8 text-primary" />
+                              )}
                             </div>
                             <div className="p-3">
-                              <p className="text-sm font-medium text-ink">{pillar.name}</p>
-                              <p className="mt-0.5 text-xs text-ink-soft">{pillar.initiatives.length} programs</p>
+                              <p className="text-sm font-medium text-text">{pillar.name}</p>
+                              <p className="mt-0.5 text-xs text-text-muted">{pillar.initiatives.length} programs</p>
                             </div>
                           </Link>
                         );
@@ -93,7 +124,7 @@ export function SiteHeader() {
                     <Link
                       href="/our-work"
                       onClick={() => setOpenMenu(null)}
-                      className="mt-3 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-navy-strong hover:bg-navy-tint"
+                      className="mt-3 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-primary-strong hover:bg-soft-bg"
                     >
                       View all our work →
                     </Link>
@@ -107,7 +138,7 @@ export function SiteHeader() {
                         key={child.href}
                         href={child.href}
                         onClick={() => setOpenMenu(null)}
-                        className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:bg-navy-tint hover:text-navy-strong"
+                        className="block rounded-lg px-3 py-2 text-sm text-text-muted hover:bg-soft-bg hover:text-primary-strong"
                       >
                         {child.label}
                       </Link>
@@ -120,10 +151,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <SearchBox />
+          <span className={transparent ? "text-surface" : "text-text"}>
+            <SearchBox />
+          </span>
           <Link
             href="/get-involved/donate"
-            className="hidden rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-strong sm:inline-flex"
+            className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:bg-primary-strong sm:inline-flex"
           >
             Donate
           </Link>
@@ -132,64 +165,74 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Toggle menu"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink lg:hidden"
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors lg:hidden ${
+              transparent ? "border-surface/40 text-surface" : "border-line text-text"
+            }`}
           >
             <span aria-hidden="true">{open ? "✕" : "☰"}</span>
           </button>
         </div>
       </div>
 
-      {open ? (
-        <div className="border-t border-line bg-surface px-6 py-4 lg:hidden">
-          <nav className="flex flex-col gap-1">
-            {primaryNav.map((item) => (
-              <div key={item.label}>
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-ink"
-                >
-                  {item.label}
-                </Link>
-                {item.label === "Our Work" ? (
-                  <div className="ml-3 flex flex-col border-l border-line pl-3">
-                    {pillars.map((pillar) => (
-                      <Link
-                        key={pillar.slug}
-                        href={`/our-work/${pillar.slug}`}
-                        onClick={() => setOpen(false)}
-                        className="rounded-lg px-3 py-2 text-sm text-ink-soft"
-                      >
-                        {pillar.name}
-                      </Link>
-                    ))}
-                  </div>
-                ) : item.children ? (
-                  <div className="ml-3 flex flex-col border-l border-line pl-3">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        onClick={() => setOpen(false)}
-                        className="rounded-lg px-3 py-2 text-sm text-ink-soft"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
-            <Link
-              href="/get-involved/donate"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-brand px-4 py-2.5 text-center text-sm font-semibold text-white"
-            >
-              Donate
-            </Link>
-          </nav>
-        </div>
-      ) : null}
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden border-t border-line bg-surface lg:hidden"
+          >
+            <nav className="flex flex-col gap-1 px-6 py-4">
+              {primaryNav.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-text"
+                  >
+                    {item.label}
+                  </Link>
+                  {item.label === "Our Work" ? (
+                    <div className="ml-3 flex flex-col border-l border-line pl-3">
+                      {pillars.map((pillar) => (
+                        <Link
+                          key={pillar.slug}
+                          href={`/our-work/${pillar.slug}`}
+                          onClick={() => setOpen(false)}
+                          className="rounded-lg px-3 py-2 text-sm text-text-muted"
+                        >
+                          {pillar.name}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : item.children ? (
+                    <div className="ml-3 flex flex-col border-l border-line pl-3">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setOpen(false)}
+                          className="rounded-lg px-3 py-2 text-sm text-text-muted"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+              <Link
+                href="/get-involved/donate"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold uppercase tracking-[0.04em] text-surface"
+              >
+                Donate
+              </Link>
+            </nav>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

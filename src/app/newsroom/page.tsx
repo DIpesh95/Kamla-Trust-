@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { Container } from "@/components/container";
-import { PressCard } from "@/components/press-card";
-import { Reveal } from "@/components/reveal";
-import { newsroom } from "@/content/newsroom";
+import { NewsroomEditorial } from "@/components/newsroom-editorial";
 
 export const metadata: Metadata = {
   title: "Newsroom",
@@ -14,16 +12,13 @@ export default function NewsroomPage() {
   return (
     <>
       <PageHero
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Newsroom" }]}
         eyebrow="Newsroom"
-        title="Press, awards & events"
-        dek="Merged from the trust’s previously separate Achievements and Spotlight pages into one timeline."
+        title="Press, recognition & events"
+        dek="Merged from the trust’s previously separate Achievements and Spotlight pages into one timeline, grouped by kind."
       />
-      <Container className="py-16 sm:py-20">
-        <Reveal className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {newsroom.map((item) => (
-            <PressCard key={item.title} item={item} />
-          ))}
-        </Reveal>
+      <Container className="py-16 sm:py-24">
+        <NewsroomEditorial />
       </Container>
     </>
   );

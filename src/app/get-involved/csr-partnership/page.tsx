@@ -19,6 +19,7 @@ export default function CSRPartnershipPage() {
   return (
     <>
       <PageHero
+        breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }, { label: "CSR Partnership" }]}
         eyebrow="Get involved"
         title="CSR Partnership"
         dek="A dedicated CSR-1 registration is what lets a company route CSR funds to the trust directly."
@@ -27,18 +28,18 @@ export default function CSRPartnershipPage() {
 
       <Container className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[1fr_1fr]">
         <div className="flex flex-col gap-6">
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-display text-lg font-medium text-ink">CSR-1 registration</p>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-display text-lg font-medium text-text">CSR-1 registration</p>
             <div className="mt-2 text-sm">
               <Fact value={{ pending: true, note: "CSR-1 (Registrar of Companies) status not yet confirmed — required for companies to route CSR funds here." }} />
             </div>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="font-display text-lg font-medium text-ink">Where CSR funding fits</p>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-display text-lg font-medium text-text">Where CSR funding fits</p>
+            <p className="mt-2 text-sm leading-relaxed text-text-muted">
               Ongoing programs across education, healthcare, women &amp; child welfare, rural livelihoods,
               and disaster relief — see{" "}
-              <Link href="/our-work" className="font-medium text-navy-strong">
+              <Link href="/our-work" className="font-medium text-primary-strong">
                 Our Work
               </Link>{" "}
               for the full breakdown.
@@ -47,7 +48,7 @@ export default function CSRPartnershipPage() {
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-medium text-ink">Start a conversation</p>
+          <p className="mb-3 text-sm font-medium text-text">Start a conversation</p>
           <InquiryForm subjectPrefix="CSR partnership inquiry" submitLabel="Contact us" includePhone />
         </div>
       </Container>

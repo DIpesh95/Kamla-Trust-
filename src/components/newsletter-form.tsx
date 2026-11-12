@@ -22,16 +22,16 @@ export function NewsletterForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@email.com"
-          className="min-w-0 flex-1 rounded-full border border-line bg-paper px-4 py-2.5 text-sm text-ink outline-none focus:border-navy"
+          className="min-w-0 flex-1 rounded-full border border-surface/20 bg-transparent px-4 py-2.5 text-sm text-surface placeholder:text-surface/40 outline-none focus:border-secondary"
         />
         <button
           type="submit"
-          className="shrink-0 rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-strong"
+          className="shrink-0 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-surface transition-colors hover:bg-primary-strong"
         >
           Subscribe
         </button>
       </div>
-      <p className="text-xs text-ink-soft">No mailing list is wired up yet — this opens an email to sign up manually.</p>
+      <p className="text-xs text-surface/45">No mailing list is wired up yet — this opens an email to sign up manually.</p>
     </form>
   );
 }
