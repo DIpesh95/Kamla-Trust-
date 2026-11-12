@@ -7,14 +7,13 @@ export function getYearsActive(): number {
   return new Date().getFullYear() - trust.founded;
 }
 
+/**
+ * A "lives impacted" headline figure is deliberately NOT included here. The trust's prior site
+ * carried a "50,000+" total with no sourced methodology or reporting period — per trustee
+ * direction, that unverified claim has been removed rather than displayed with a caveat. Add it
+ * back once a real, sourced total is confirmed.
+ */
 export const headlineStats: HeadlineStat[] = [
-  {
-    value: "50k+",
-    label: "Lives impacted",
-    note: "Carried over from the trust’s current site — pending a verified, per-program breakdown.",
-    source: placeholder("Source and methodology pending trustee confirmation."),
-    period: placeholder("Reporting period pending trustee confirmation."),
-  },
   {
     value: "6",
     label: "Cities reached",

@@ -46,10 +46,11 @@ export default function ImpactPage() {
         <Reveal className="rounded-sm border border-line bg-surface p-7">
           <p className="font-display text-lg font-medium text-text">Methodology & reports</p>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
-            The current “50k+ lives impacted” figure is carried over from the trust’s existing site as a
-            single, unbroken total. Reference organisations publish how they count impact — a person
-            trained counted once, a household with clean water counted per person, and so on. Kamala
-            Trust should adopt the same discipline before this page states firm numbers.
+            A “50k+ lives impacted” figure previously appeared on the trust’s site with no sourced
+            methodology or reporting period, so it has been removed from this page rather than
+            displayed as a caveated guess. Reference organisations publish how they count impact — a
+            person trained counted once, a household with clean water counted per person, and so on.
+            This page will state a lives-impacted total again once Kamala Trust has one built the same way.
           </p>
           <div className="mt-4">
             <Fact value={reportsPlaceholder} />

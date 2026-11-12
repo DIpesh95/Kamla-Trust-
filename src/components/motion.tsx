@@ -140,25 +140,26 @@ export function CountUp({
   const target = match ? parseInt(match[1].replace(/,/g, ""), 10) : null;
   const suffix = match ? match[2] : "";
 
-  const [display, setDisplay] = useState<string>(() =>
-    target === null ? value : value.replace(/[0-9]/g, "0")
-  );
+  // Always start with the correct, final value — never a zeroed placeholder —
+  // so the real number is right on first paint even if the reveal trigger,
+  // the animation, or JS itself never runs. The count-up below is a pure
+  // visual enhancement layered on top, not something correctness depends on.
+  const [display, setDisplay] = useState<string>(value);
 
   useEffect(() => {
-    if (!active || target === null) return;
-    const effectiveDuration = reduceMotion ? 0.01 : duration;
+    if (!active || target === null || reduceMotion) return;
     let frame: number;
     const start = performance.now();
     const tick = (now: number) => {
-      const t = Math.max(0, Math.min(1, (now - start) / (effectiveDuration * 1000)));
+      const t = Math.max(0, Math.min(1, (now - start) / (duration * 1000)));
       const eased = 1 - Math.pow(1 - t, 3);
       const current = Math.max(0, Math.round(eased * target));
-      setDisplay(`${current.toLocaleString()}${suffix}`);
+      setDisplay(t < 1 ? `${current.toLocaleString()}${suffix}` : value);
       if (t < 1) frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [active, target, suffix, duration, reduceMotion]);
+  }, [active, target, suffix, duration, reduceMotion, value]);
 
   return (
     <span ref={ref} className={className}>

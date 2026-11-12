@@ -25,8 +25,8 @@ export function SignatureInitiatives() {
           >
             <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
               <Image
-                src={kpw.image.src}
-                alt={kpw.image.alt}
+                src={kpw.image!.src}
+                alt={kpw.image!.alt}
                 fill
                 sizes="100vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -51,8 +51,8 @@ export function SignatureInitiatives() {
             <Link href={`/#${poh.slug}`}>
               <div className="relative aspect-[3/4] w-full">
                 <Image
-                  src={poh.image.src}
-                  alt={poh.image.alt}
+                  src={poh.image!.src}
+                  alt={poh.image!.alt}
                   fill
                   sizes="(min-width: 1024px) 35vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -77,8 +77,14 @@ export function SignatureInitiatives() {
                   <h3 className="font-display text-3xl font-medium text-text sm:text-4xl">{krs.name}</h3>
                   <p className="max-w-sm text-sm leading-relaxed text-text-muted sm:text-base">{krs.story}</p>
                 </div>
-                <div className="relative hidden h-28 w-28 shrink-0 overflow-hidden rounded-sm sm:block">
-                  <Image src={krs.image.src} alt={krs.image.alt} fill sizes="112px" className="object-cover" />
+                <div className="relative hidden h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-soft-bg sm:flex">
+                  {krs.image ? (
+                    <Image src={krs.image.src} alt={krs.image.alt} fill sizes="112px" className="object-cover" />
+                  ) : (
+                    <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 text-primary" aria-hidden="true">
+                      <path d="M20 6l3.8 8.2 8.9 1.1-6.6 6.1 1.8 8.9L20 26l-7.9 4.3 1.8-8.9-6.6-6.1 8.9-1.1Z" />
+                    </svg>
+                  )}
                 </div>
               </div>
               <span className="inline-flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong">

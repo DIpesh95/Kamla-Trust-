@@ -1,12 +1,14 @@
-import Image from "next/image";
 import { storySlots } from "@/content/stories";
 import { Reveal } from "./motion";
 
-function SampleBadge() {
+function PhotoPending({ className = "" }: { className?: string }) {
   return (
-    <span className="absolute right-3 top-3 rounded-full bg-text/80 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-surface">
-      Sample photo, not a real beneficiary
-    </span>
+    <div
+      className={`flex flex-col items-center justify-center gap-2 border border-dashed border-line bg-soft-bg px-4 text-center ${className}`}
+    >
+      <span className="text-[10px] font-semibold uppercase tracking-wide text-text-muted">Photo pending</span>
+      <span className="text-[10px] leading-snug text-text-muted/80">Real photo &amp; interview not yet available</span>
+    </div>
   );
 }
 
@@ -17,17 +19,7 @@ export function StoriesMagazine() {
     <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
       <Reveal className="lg:w-3/5">
         <article className="group">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
-            <Image
-              src={featured.image.src}
-              alt={featured.image.alt}
-              fill
-              sizes="(min-width: 1024px) 55vw, 100vw"
-              className="object-cover grayscale-[55%] contrast-[.97] transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-primary-strong/20 mix-blend-multiply" />
-            <SampleBadge />
-          </div>
+          <PhotoPending className="aspect-[4/3] w-full rounded-sm" />
           <div className="mt-6 flex flex-col gap-3">
             <span className="w-fit font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">
               {featured.pillar}
@@ -43,16 +35,7 @@ export function StoriesMagazine() {
         {rest.map((slot, i) => (
           <Reveal key={slot.slug} delay={0.1 + i * 0.08}>
             <article className="group flex gap-5">
-              <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-sm sm:h-32 sm:w-32">
-                <Image
-                  src={slot.image.src}
-                  alt={slot.image.alt}
-                  fill
-                  sizes="128px"
-                  className="object-cover grayscale-[55%] contrast-[.97] transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-primary-strong/20 mix-blend-multiply" />
-              </div>
+              <PhotoPending className="h-28 w-28 shrink-0 rounded-sm sm:h-32 sm:w-32" />
               <div className="flex flex-col gap-1.5">
                 <span className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
                   {slot.pillar}

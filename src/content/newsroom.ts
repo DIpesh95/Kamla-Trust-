@@ -15,8 +15,8 @@ export const newsroom: PressItem[] = [
     description:
       "Kamala Power Women’s annual awards, honouring women across healthcare, journalism, education, art, entrepreneurship, and social work.",
     image: {
-      src: "https://ik.imagekit.io/cujb7fqte/KamlaWeb/2026/KPW/KPW5.jpg?updatedAt=1773312685258",
-      alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026 awards ceremony",
+      src: "/images/lokmata-ahilyabai-holkar-2026.jpg",
+      alt: "Devendra Fadnavis speaking at the Lokmata Ahilyabai Holkar Mahila Samman 2026, NCPA",
     },
   },
   {
@@ -32,6 +32,10 @@ export const newsroom: PressItem[] = [
     kind: "Community",
     description:
       "Flag hoisting, a community pledge, and livelihood-support kits distributed to mochis, street vendors, Dabbawalas, and transgender artisans at Kamala Mills Compound.",
+    image: {
+      src: "/images/republic-day-2026.jpg",
+      alt: "Outdoor Republic Day gathering — photo dated 26 January; exact event match pending confirmation",
+    },
   },
   {
     title: "Phoolo Ki Holi",

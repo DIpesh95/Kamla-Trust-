@@ -27,11 +27,16 @@ export const heroImage = {
 export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {};
 
 /**
- * Homepage "About" section photo. No dedicated trust/office photo exists yet, so this aliases
- * to the one real event photo already on hand rather than using a stock image. Swap for a
- * dedicated photo once the trust provides one.
+ * Homepage "About" section photo. No dedicated trust/office photo exists yet. Uses a different
+ * real event photo than the Hero (Yamuna Clean-Up & Anemia Awareness) rather than repeating the
+ * same image twice on the homepage. Swap for a dedicated photo once the trust provides one.
  */
-export const homeAboutImage = heroImage;
+export const homeAboutImage = {
+  src: "/images/yamuna-drive.jpg",
+  width: 1080,
+  height: 720,
+  alt: "Yamuna Clean-Up & Anemia Awareness drive in Vrindavan",
+};
 
 export const eventGallery = [
   {

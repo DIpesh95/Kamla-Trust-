@@ -3,7 +3,7 @@ import { Reveal, CountUp } from "./motion";
 import { Container } from "./container";
 import { Fact } from "./fact";
 
-const [lives, cities, years, programs] = headlineStats;
+const [cities, years, programs] = headlineStats;
 
 export function ImpactNumbers() {
   return (
@@ -32,7 +32,7 @@ export function ImpactNumbers() {
           </Reveal>
 
           <div className="flex flex-col divide-y divide-surface/15 border-t border-surface/15 lg:border-t-0">
-            {[lives, cities, programs].map((stat, i) => (
+            {[cities, programs].map((stat, i) => (
               <Reveal key={stat.label} delay={i * 0.1} className="flex flex-col gap-1.5 py-6">
                 <div className="flex items-baseline justify-between gap-6">
                   <CountUp value={stat.value} className="font-display text-5xl font-medium text-surface sm:text-6xl" />

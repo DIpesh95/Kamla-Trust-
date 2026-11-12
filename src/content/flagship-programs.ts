@@ -5,7 +5,8 @@ export type FlagshipProgram = {
   story: string;
   year: string;
   impact: string;
-  image: { src: string; alt: string };
+  /** Omitted when no real, working photo is available — renders an icon fallback instead. */
+  image?: { src: string; alt: string };
 };
 
 export const flagshipPrograms: FlagshipProgram[] = [
@@ -44,9 +45,7 @@ export const flagshipPrograms: FlagshipProgram[] = [
       "Recognition early in a career can change its entire trajectory. This initiative looks for the people doing exceptional work before the world has noticed — and makes sure it does.",
     year: "Annual",
     impact: "Celebrating emerging talent nationally",
-    image: {
-      src: "https://www.ankibaighamandiramgowanitrust.com/assets/NBTAward1-DfaBYNjf.jpg",
-      alt: "Navbharat Times' Utsav 2026 awards presentation",
-    },
+    // No working photo available — the one previously used 404s. Renders an icon fallback
+    // in signature-initiatives.tsx until a real photo is supplied.
   },
 ];
