@@ -107,7 +107,7 @@ export const newsroom: PressItem[] = [
     title: "Bharat Amrut Award",
     date: placeholder("Exact date pending confirmation."),
     kind: "Recognition",
-    description: "Awarded as “Character of Bharat — Icon of Maharashtra.”",
+    description: "Awarded as “Character of Bharat, Icon of Maharashtra.”",
   },
   {
     title: "Global Sustainability Award",
