@@ -14,7 +14,7 @@
   --good: #3f7a52;
   --warn: #a81759;
 
-  /* Fixed tokens — always this value regardless of context, for elements that pair with
+  /* Fixed tokens: always this value regardless of context, for elements that pair with
      guaranteed-contrast text (dark sections, buttons on photography). */
   --ink-on-dark: #ffffff;
   --brand: #a81759;

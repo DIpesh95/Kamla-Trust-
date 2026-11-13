@@ -5,7 +5,7 @@ import { Reveal } from "./motion";
 const milestones = [
   {
     year: "1967",
-    text: "Shri G.K. Gowani founds a Commerce College in Bhinmal, Rajasthan — bringing higher education to a region where access was limited.",
+    text: "Shri G.K. Gowani founds a Commerce College in Bhinmal, Rajasthan, bringing higher education to a region where access was limited.",
   },
   {
     year: "1969",
@@ -17,7 +17,7 @@ const milestones = [
   },
   {
     year: "Today",
-    text: `${getYearsActive()} years on — 30+ active programs, across education, healthcare, women & girl child, rural livelihoods, and civic life.`,
+    text: `${getYearsActive()} years on. 30+ active programs, across education, healthcare, women & girl child, rural livelihoods, and civic life.`,
   },
 ];
 

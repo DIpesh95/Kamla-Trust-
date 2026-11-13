@@ -26,12 +26,12 @@ export const pillars: Pillar[] = [
     name: "Healthcare",
     shortName: "Health",
     summary:
-      "Vaccination drives, cancer-patient support, rural health camps, and pandemic-era relief — care aimed at the people least likely to otherwise receive it.",
+      "Vaccination drives, cancer-patient support, rural health camps, and pandemic-era relief, care aimed at the people least likely to otherwise receive it.",
     stat: placeholder("Patients treated / vaccinated figures pending from trustees."),
     initiatives: [
       {
         name: "HPV Bharat – Kamala Beti Kavach",
-        blurb: "A named cervical-cancer prevention mission protecting girls through HPV vaccination and education — over 10,000 doses administered to date.",
+        blurb: "A named cervical-cancer prevention mission protecting girls through HPV vaccination and education, over 10,000 doses administered to date.",
       },
       {
         name: "Anaemia Mukt Bharat",
@@ -73,7 +73,7 @@ export const pillars: Pillar[] = [
     name: "Women & Girl Child",
     shortName: "Women & Girl Child",
     summary:
-      "From mass weddings for underprivileged couples to awards recognising women changemakers — programs built around dignity, safety, and recognition.",
+      "From mass weddings for underprivileged couples to awards recognising women changemakers, programs built around dignity, safety, and recognition.",
     stat: placeholder("Beneficiary counts per program pending from trustees."),
     initiatives: [
       {
@@ -82,7 +82,7 @@ export const pillars: Pillar[] = [
       },
       {
         name: "Kanya Sneh Bandhan",
-        blurb: "Mass wedding ceremony for underprivileged couples — 25 couples were married in the most recent edition, attended by the Governor of Maharashtra.",
+        blurb: "Mass wedding ceremony for underprivileged couples. 25 couples were married in the most recent edition, attended by the Governor of Maharashtra.",
       },
       {
         name: "Kamala Cricket Tournament",
@@ -124,7 +124,7 @@ export const pillars: Pillar[] = [
       },
       {
         name: "Vocal for Local",
-        blurb: "Support for local artisans and vendors — including potters and makers of Diwali decorative items — giving them a platform to showcase and sell their work and preserving heritage crafts.",
+        blurb: "Support for local artisans and vendors, including potters and makers of Diwali decorative items, giving them a platform to showcase and sell their work and preserving heritage crafts.",
       },
       {
         name: "Feed Stray Animals",
@@ -132,7 +132,7 @@ export const pillars: Pillar[] = [
       },
       {
         name: "Temple & Pilgrimage Sites",
-        blurb: "Seven Jain temples built or restored in Bhilwara. In Palitana — one of Jainism’s holiest cities — the trust built the Ankibai Ghamandiram Gowani Dharamshala for pilgrims, along with sub-shelters, dining facilities, and the Munisuvrata Swamy Temple, supporting Chaturmas and other religious observances.",
+        blurb: "Seven Jain temples built or restored in Bhilwara. In Palitana, one of Jainism’s holiest cities, the trust built the Ankibai Ghamandiram Gowani Dharamshala for pilgrims, along with sub-shelters, dining facilities, and the Munisuvrata Swamy Temple, supporting Chaturmas and other religious observances.",
         location: "Bhilwara & Palitana",
       },
       {

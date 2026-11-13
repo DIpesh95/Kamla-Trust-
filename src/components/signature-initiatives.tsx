@@ -17,7 +17,7 @@ export function SignatureInitiatives() {
           </h2>
         </Reveal>
 
-        {/* 1 — Kamala Power Women Awards: full-width banner */}
+        {/* 1. Kamala Power Women Awards: full-width banner */}
         <Reveal>
           <Link
             href={`/#${kpw.slug}`}
@@ -46,7 +46,7 @@ export function SignatureInitiatives() {
         </Reveal>
 
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-          {/* 2 — Pillars of Humanity: portrait, stat-forward */}
+          {/* 2. Pillars of Humanity: portrait, stat-forward */}
           <Reveal delay={0.05} className="group relative overflow-hidden rounded-sm border border-line">
             <Link href={`/#${poh.slug}`}>
               <div className="relative aspect-[3/4] w-full">
@@ -68,7 +68,7 @@ export function SignatureInitiatives() {
             </Link>
           </Reveal>
 
-          {/* 3 — Kamala Rising Star: text-forward, small accent image */}
+          {/* 3. Kamala Rising Star: text-forward, small accent image */}
           <Reveal delay={0.1} className="group flex flex-col justify-between gap-8 rounded-sm border border-line bg-surface p-8 sm:p-10">
             <Link href={`/#${krs.slug}`} className="flex flex-1 flex-col justify-between gap-8">
               <div className="flex items-start justify-between gap-6">

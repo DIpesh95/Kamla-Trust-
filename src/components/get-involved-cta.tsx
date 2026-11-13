@@ -15,7 +15,7 @@ export function GetInvolvedCTA() {
           </h2>
         </Reveal>
         <Reveal delay={0.16} className="max-w-lg text-lg leading-relaxed text-surface/80">
-          Your time, resources, or partnership can help turn opportunity into change — for a student, a patient,
+          Your time, resources, or partnership can help turn opportunity into change, for a student, a patient,
           a family, a community.
         </Reveal>
         <Reveal delay={0.24} className="flex flex-wrap items-center gap-4 pt-2">

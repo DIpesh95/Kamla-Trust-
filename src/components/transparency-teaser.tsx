@@ -6,9 +6,9 @@ import { Container } from "./container";
 
 const rows = [
   { label: "Trust registration", value: trust.registrationNumber },
-  { label: "80G — tax deduction for donors", value: trust.exemption80G },
+  { label: "80G: tax deduction for donors", value: trust.exemption80G },
   { label: "12A registration", value: trust.exemption12A },
-  { label: "FCRA — foreign contributions", value: trust.exemptionFCRA },
+  { label: "FCRA: foreign contributions", value: trust.exemptionFCRA },
 ];
 
 export function TransparencyTeaser() {

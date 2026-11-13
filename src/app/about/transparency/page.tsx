@@ -24,7 +24,7 @@ export default function TransparencyPage() {
         ]}
         eyebrow="About us"
         title="Registration & transparency"
-        dek="What donors and CSR partners need to verify before they give — the section every reference foundation leads with."
+        dek="What donors and CSR partners need to verify before they give. The section every reference foundation leads with."
       />
       <SubNav links={aboutLinks} />
 
@@ -37,7 +37,7 @@ export default function TransparencyPage() {
             </div>
           </div>
           <div className="rounded-sm border border-line bg-surface p-6">
-            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">80G — tax deduction for donors</p>
+            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">80G: tax deduction for donors</p>
             <div className="mt-2">
               <Fact value={trust.exemption80G} />
             </div>
@@ -49,7 +49,7 @@ export default function TransparencyPage() {
             </div>
           </div>
           <div className="rounded-sm border border-line bg-surface p-6">
-            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">FCRA — foreign contributions</p>
+            <p className="font-data text-xs uppercase tracking-[0.1em] text-text-muted">FCRA: foreign contributions</p>
             <div className="mt-2">
               <Fact value={trust.exemptionFCRA} />
             </div>
@@ -60,12 +60,12 @@ export default function TransparencyPage() {
           <p className="font-display text-lg font-medium text-text">Financial statements & annual reports</p>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
             No audited financial statements or annual reports are currently published. Every reference
-            foundation studied for this rebuild — Azim Premji Foundation, Reliance Foundation, Aga Khan
-            Foundation, and Swades Foundation — publishes these prominently, since it&rsquo;s what turns a
+            foundation studied for this rebuild: Azim Premji Foundation, Reliance Foundation, Aga Khan
+            Foundation, and Swades Foundation, publishes these prominently, since it&rsquo;s what turns a
             donation into an informed decision rather than a leap of faith.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/10 px-4 py-2.5 text-sm text-warn">
-            Reports pending from trustees — this section should list downloadable PDFs once available.
+            Reports pending from trustees. This section should list downloadable PDFs once available.
           </div>
         </div>
       </Container>

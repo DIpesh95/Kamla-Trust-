@@ -2,7 +2,7 @@ import { placeholder, type PressItem } from "./types";
 
 export const newsroom: PressItem[] = [
   {
-    title: "“The Quiet Revolutionary” — Times Magazine profile",
+    title: "“The Quiet Revolutionary”: Times Magazine profile",
     date: "April 2026",
     kind: "Press",
     description:
@@ -34,7 +34,7 @@ export const newsroom: PressItem[] = [
       "Flag hoisting, a community pledge, and livelihood-support kits distributed to mochis, street vendors, Dabbawalas, and transgender artisans at Kamala Mills Compound.",
     image: {
       src: "/images/republic-day-2026.jpg",
-      alt: "Outdoor Republic Day gathering — photo dated 26 January; exact event match pending confirmation",
+      alt: "Outdoor Republic Day gathering, photo dated 26 January; exact event match pending confirmation",
     },
   },
   {
@@ -50,7 +50,7 @@ export const newsroom: PressItem[] = [
     description: "Recognised inspiring women achievers across 20 sectors.",
   },
   {
-    title: "Women’s bike rally — Azadi Ka Amrit Mahotsav",
+    title: "Women’s bike rally: Azadi Ka Amrit Mahotsav",
     date: placeholder("Exact date pending confirmation."),
     kind: "Event",
     description: "Flagged off by the Governor of Maharashtra as part of Azadi Ka Amrit Mahotsav.",

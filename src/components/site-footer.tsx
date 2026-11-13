@@ -20,7 +20,7 @@ export function SiteFooter() {
           <Link href="/" className="block w-56">
             <Image
               src="/images/logo-dark.png"
-              alt={`${trust.legalName} — ${trust.tagline}`}
+              alt={`${trust.legalName}: ${trust.tagline}`}
               width={1060}
               height={669}
               className="h-auto w-full"

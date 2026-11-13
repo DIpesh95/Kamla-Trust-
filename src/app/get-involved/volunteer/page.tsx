@@ -20,7 +20,7 @@ export default function VolunteerPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }, { label: "Volunteer" }]}
         eyebrow="Get involved"
         title="Volunteer"
-        dek="Programs run across Mumbai and rural Maharashtra & Rajasthan — from event-day support to ongoing mentoring."
+        dek="Programs run across Mumbai and rural Maharashtra & Rajasthan, from event-day support to ongoing mentoring."
       />
       <SubNav links={giLinks} />
 
@@ -30,7 +30,7 @@ export default function VolunteerPage() {
           <ul className="flex flex-col gap-2">
             {pillars.map((pillar) => (
               <li key={pillar.slug} className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-text-muted">
-                <span className="font-medium text-text">{pillar.name}</span> — {pillar.summary}
+                <span className="font-medium text-text">{pillar.name}</span>: {pillar.summary}
               </li>
             ))}
           </ul>

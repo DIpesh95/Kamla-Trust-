@@ -6,8 +6,8 @@ export type StorySlot = {
 };
 
 /**
- * Real beneficiary stories are the single most important content gap on the site — see the
- * Content Writer Brief. No stock photography is used here (removed per trustee direction) —
+ * Real beneficiary stories are the single most important content gap on the site; see the
+ * Content Writer Brief. No stock photography is used here (removed per trustee direction);
  * each slot renders an honest "photo pending" placeholder in stories-magazine.tsx instead,
  * until real interviews, consent, and photography are available.
  */

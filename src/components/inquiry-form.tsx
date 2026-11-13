@@ -19,7 +19,7 @@ export function InquiryForm({
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const subject = `${subjectPrefix} — ${name || "New inquiry"}`;
+    const subject = `${subjectPrefix}: ${name || "New inquiry"}`;
     const bodyLines = [
       `Name: ${name}`,
       `Email: ${email}`,
@@ -78,7 +78,7 @@ export function InquiryForm({
       </label>
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <p className="text-xs text-text-muted">
-          Opens your email app addressed to {trust.email} — a direct form submission isn&rsquo;t wired up yet.
+          Opens your email app addressed to {trust.email}. A direct form submission isn&rsquo;t wired up yet.
         </p>
         <button
           type="submit"

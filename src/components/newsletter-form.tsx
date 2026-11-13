@@ -31,7 +31,7 @@ export function NewsletterForm() {
           Subscribe
         </button>
       </div>
-      <p className="text-xs text-surface/45">No mailing list is wired up yet — this opens an email to sign up manually.</p>
+      <p className="text-xs text-surface/45">No mailing list is wired up yet. This opens an email to sign up manually.</p>
     </form>
   );
 }

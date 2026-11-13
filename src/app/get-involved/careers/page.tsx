@@ -19,7 +19,7 @@ export default function CareersPage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }, { label: "Careers" }]}
         eyebrow="Get involved"
         title="Careers"
-        dek="No open roles are listed yet. Every reference foundation studied keeps an active careers page — worth deciding whether the trust wants the same before launch."
+        dek="No open roles are listed yet. Every reference foundation studied keeps an active careers page. Worth deciding whether the trust wants the same before launch."
       />
       <SubNav links={giLinks} />
 

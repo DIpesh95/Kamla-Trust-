@@ -9,7 +9,7 @@ export function getYearsActive(): number {
 
 /**
  * A "lives impacted" headline figure is deliberately NOT included here. The trust's prior site
- * carried a "50,000+" total with no sourced methodology or reporting period — per trustee
+ * carried a "50,000+" total with no sourced methodology or reporting period. Per trustee
  * direction, that unverified claim has been removed rather than displayed with a caveat. Add it
  * back once a real, sourced total is confirmed.
  */

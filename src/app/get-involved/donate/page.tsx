@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const giLinks = primaryNav.find((item) => item.label === "Get Involved")?.children ?? [];
-const paymentDetails = placeholder("Bank transfer and UPI details are being finalised — check back or write in below.");
+const paymentDetails = placeholder("Bank transfer and UPI details are being finalised. Check back or write in below.");
 
 export default function DonatePage() {
   return (
@@ -24,7 +24,7 @@ export default function DonatePage() {
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }, { label: "Donate" }]}
         eyebrow="Get involved"
         title="Donate"
-        dek="This is the single biggest gap versus every reference foundation studied — none existed on the trust’s site before this page."
+        dek="This is the single biggest gap versus every reference foundation studied. None existed on the trust’s site before this page."
       />
       <SubNav links={giLinks} />
 
@@ -39,7 +39,7 @@ export default function DonatePage() {
           <div className="rounded-sm border border-line bg-surface p-6">
             <p className="font-display text-lg font-medium text-text">Tax deduction</p>
             <p className="mt-2 text-sm leading-relaxed text-text-muted">
-              80G eligibility isn&rsquo;t confirmed yet — see{" "}
+              80G eligibility isn&rsquo;t confirmed yet, see{" "}
               <Link href="/about/transparency" className="font-medium text-primary-strong">
                 Registration &amp; Transparency
               </Link>

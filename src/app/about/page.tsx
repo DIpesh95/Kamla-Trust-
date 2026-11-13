@@ -30,7 +30,7 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[2fr_1fr]">
           <Reveal className="flex flex-col gap-5 text-base leading-relaxed text-text-muted">
             <p>
-              {trust.shortName} — formally {trust.legalName} — is a charitable foundation led by Trustee
+              {trust.shortName}, formally {trust.legalName}, is a charitable foundation led by Trustee
               Nidarshana Gowani. Rooted in the values of diversity, equity, and inclusion, the trust operates
               on the principle that everyone deserves a healthy, productive life, regardless of background or
               circumstance.
@@ -38,7 +38,7 @@ export default function AboutPage() {
             <p>
               The trust is also known for large-scale public initiatives such as Kamala Power Women, Kamala
               Rising Stars, and the Kamala Cricket Tournament, recognising individuals who have contributed to
-              society — including COVID-19 frontline workers, transgender community members, and widows of
+              society, including COVID-19 frontline workers, transgender community members, and widows of
               armed-forces officers.
             </p>
           </Reveal>
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
         <Reveal>
           <p className="mb-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
-            From the archive — real moments from the trust&rsquo;s work
+            From the archive: real moments from the trust&rsquo;s work
           </p>
           <EventGallery />
         </Reveal>

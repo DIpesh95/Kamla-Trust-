@@ -5,7 +5,7 @@ import { Container } from "./container";
 const vignettes = [
   {
     label: "A student",
-    line: "A seat in a classroom that was never guaranteed — now it is.",
+    line: "A seat in a classroom that was never guaranteed, now it is.",
     slug: "education",
   },
   {
@@ -40,7 +40,7 @@ export function HumanImpact() {
             Impact isn&rsquo;t a figure. It&rsquo;s five decades of this.
           </h2>
           <p className="mt-3 text-sm text-text-muted">
-            Illustrative examples of the kind of change these programs work toward — not individual
+            Illustrative examples of the kind of change these programs work toward, not individual
             beneficiary accounts.
           </p>
         </Reveal>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const reportsPlaceholder = placeholder(
-  "No annual report or downloadable impact report is published yet — add one here once available."
+  "No annual report or downloadable impact report is published yet. Add one here once available."
 );
 
 export default function ImpactPage() {
@@ -48,7 +48,7 @@ export default function ImpactPage() {
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
             A “50k+ lives impacted” figure previously appeared on the trust’s site with no sourced
             methodology or reporting period, so it has been removed from this page rather than
-            displayed as a caveated guess. Reference organisations publish how they count impact — a
+            displayed as a caveated guess. Reference organisations publish how they count impact: a
             person trained counted once, a household with clean water counted per person, and so on.
             This page will state a lives-impacted total again once Kamala Trust has one built the same way.
           </p>

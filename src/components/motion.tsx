@@ -7,7 +7,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
  * Fires once when the element scrolls into view. Deliberately does not rely on
- * IntersectionObserver / framer-motion's whileInView alone — uses direct
+ * IntersectionObserver / framer-motion's whileInView alone; uses direct
  * getBoundingClientRect checks on scroll/resize, a short poll, and a hard
  * timeout fallback, so content can never get stuck invisible if viewport
  * detection fails to fire in a given browser/environment.
@@ -140,7 +140,7 @@ export function CountUp({
   const target = match ? parseInt(match[1].replace(/,/g, ""), 10) : null;
   const suffix = match ? match[2] : "";
 
-  // Always start with the correct, final value — never a zeroed placeholder —
+  // Always start with the correct, final value, never a zeroed placeholder,
   // so the real number is right on first paint even if the reveal trigger,
   // the animation, or JS itself never runs. The count-up below is a pure
   // visual enhancement layered on top, not something correctness depends on.

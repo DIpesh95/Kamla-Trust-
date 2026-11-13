@@ -7,7 +7,7 @@ export const trust: TrustProfile = {
     "Trust literature also references a separately named “Ankibai Ghamandiram Gowani Trust.” This site represents Kamala Ankibai Ghamandiram Gowani Trust; the relationship between the two names should be confirmed with the trustees before launch.",
   tagline: "Rising By Lifting Others",
   founded: 1969,
-  orgType: "Registered Public Trust — women-led",
+  orgType: "Registered Public Trust, women-led",
   trustees: [
     {
       name: "Smt. Nidarshana Gowani",
@@ -24,8 +24,8 @@ export const trust: TrustProfile = {
     "2nd Floor, Kamala House, Kamala City, Senapati Bapat Marg, Lower Parel West, Mumbai, Maharashtra – 400013",
   phone: "+91 86570 05023",
   email: "trustee@ankibaighamandiramgowanitrust.com",
-  registrationNumber: placeholder("Trust registration number not yet published — pending from trustees."),
-  exemption80G: placeholder("80G tax-exemption status not yet published — pending from trustees."),
-  exemption12A: placeholder("12A registration status not yet published — pending from trustees."),
-  exemptionFCRA: placeholder("FCRA status not yet published — confirm whether the trust accepts foreign contributions."),
+  registrationNumber: placeholder("Trust registration number not yet published; pending from trustees."),
+  exemption80G: placeholder("80G tax-exemption status not yet published; pending from trustees."),
+  exemption12A: placeholder("12A registration status not yet published; pending from trustees."),
+  exemptionFCRA: placeholder("FCRA status not yet published; confirm whether the trust accepts foreign contributions."),
 };

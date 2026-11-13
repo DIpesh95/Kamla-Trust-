@@ -26,7 +26,7 @@ export function AboutIntro() {
             {getYearsActive()} years of {trust.tagline.toLowerCase()}.
           </h2>
           <p className="max-w-md text-base leading-relaxed text-text-muted">
-            {trust.shortName} has worked quietly and consistently since {trust.founded} — a {trust.orgType.toLowerCase()},
+            {trust.shortName} has worked quietly and consistently since {trust.founded}, a {trust.orgType.toLowerCase()},
             built on the belief that dignity, education, and health shouldn&rsquo;t depend on circumstance. From a
             single college and hostel in Bhinmal to programs spanning education, healthcare, women&rsquo;s welfare,
             rural livelihoods, and disaster relief, the work has stayed the same at its core: showing up.

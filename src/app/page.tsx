@@ -97,7 +97,7 @@ export default function Home() {
       {/* 11. Get Involved */}
       <GetInvolvedCTA />
 
-      {/* 12. Footer — rendered globally in layout.tsx */}
+      {/* 12. Footer, rendered globally in layout.tsx */}
     </>
   );
 }

@@ -22,11 +22,11 @@ const serif = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Kamala Trust — Rising By Lifting Others",
+    default: "Kamala Trust | Rising By Lifting Others",
     template: "%s | Kamala Trust",
   },
   description:
-    "Kamala Ankibai Ghamandiram Gowani Trust — a Mumbai-based, women-led public charitable trust working in education, healthcare, women & child welfare, and rural livelihoods since 1969.",
+    "Kamala Ankibai Ghamandiram Gowani Trust, a Mumbai-based, women-led public charitable trust working in education, healthcare, women & child welfare, and rural livelihoods since 1969.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
