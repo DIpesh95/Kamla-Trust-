@@ -15,6 +15,7 @@ export function AboutIntro() {
             src={homeAboutImage.src}
             alt={homeAboutImage.alt}
             fill
+            quality={95}
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover"
           />

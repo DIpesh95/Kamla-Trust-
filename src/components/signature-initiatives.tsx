@@ -28,6 +28,7 @@ export function SignatureInitiatives() {
                 src={kpw.image!.src}
                 alt={kpw.image!.alt}
                 fill
+                quality={92}
                 sizes="100vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
@@ -54,6 +55,7 @@ export function SignatureInitiatives() {
                   src={poh.image!.src}
                   alt={poh.image!.alt}
                   fill
+                  quality={92}
                   sizes="(min-width: 1024px) 35vw, 100vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />

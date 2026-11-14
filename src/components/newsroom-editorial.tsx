@@ -15,6 +15,7 @@ function Row({ item }: { item: PressItem }) {
             src={item.image.src}
             alt={item.image.alt}
             fill
+            quality={92}
             sizes="112px"
             className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
           />

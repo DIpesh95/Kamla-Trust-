@@ -29,21 +29,23 @@ export const pillarImages: Record<string, { src: string; width: number; height: 
 /**
  * Homepage "About" section photo. No dedicated trust/office photo exists yet. Uses a different
  * real event photo than the Hero (Yamuna Clean-Up & Anemia Awareness) rather than repeating the
- * same image twice on the homepage. Swap for a dedicated photo once the trust provides one.
+ * same image twice on the homepage. Pre-cropped to the section's 4:5 portrait aspect (rather than
+ * relying on CSS object-position) so both people stay fully in frame. Swap for a dedicated photo
+ * once the trust provides one.
  */
 export const homeAboutImage = {
-  src: "/images/yamuna-drive.jpg",
-  width: 1080,
+  src: "/images/about-yamuna-drive-portrait.jpg",
+  width: 576,
   height: 720,
   alt: "Yamuna Clean-Up & Anemia Awareness drive in Vrindavan",
 };
 
 export const eventGallery = [
   {
-    src: "/images/hero-kanya-sneh-bandhan-alt.jpg",
-    width: 1080,
+    src: "/images/gallery-kanya-sneh-bandhan-square.jpg",
+    width: 720,
     height: 720,
-    alt: "Kanya Sneh Bandhan mass wedding ceremony",
+    alt: "Kanya Sneh Bandhan mass wedding ceremony, bride receiving a gift",
     caption: "Kanya Sneh Bandhan, 25 couples married with the Governor of Maharashtra in attendance",
   },
   {

@@ -10,6 +10,7 @@ export function EventGallery() {
             src={photo.src}
             alt={photo.alt}
             fill
+            quality={92}
             sizes="(min-width: 640px) 33vw, 50vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
