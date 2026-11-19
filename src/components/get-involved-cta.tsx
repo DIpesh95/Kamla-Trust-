@@ -37,6 +37,12 @@ export function GetInvolvedCTA() {
           >
             CSR Partnership
           </Link>
+          <Link
+            href="/get-involved/social-partnership"
+            className="rounded-full border border-surface/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:border-surface"
+          >
+            Social Partnership
+          </Link>
         </Reveal>
       </Container>
     </section>

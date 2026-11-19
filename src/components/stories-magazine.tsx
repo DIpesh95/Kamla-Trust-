@@ -1,4 +1,5 @@
-import { storySlots } from "@/content/stories";
+import Image from "next/image";
+import { storySlots, type StorySlot } from "@/content/stories";
 import { Reveal } from "./motion";
 
 function PhotoPending({ className = "" }: { className?: string }) {
@@ -12,6 +13,24 @@ function PhotoPending({ className = "" }: { className?: string }) {
   );
 }
 
+function StoryPhoto({ slot, className = "" }: { slot: StorySlot; className?: string }) {
+  if (!slot.image) return <PhotoPending className={className} />;
+  return (
+    <div className={`group relative overflow-hidden ${className}`}>
+      <Image
+        src={slot.image.src}
+        alt={slot.image.alt}
+        fill
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+      />
+      <span className="absolute bottom-2 left-2 rounded-sm bg-text/70 px-2 py-1 text-[10px] font-medium leading-snug text-surface/90">
+        {slot.image.caption}
+      </span>
+    </div>
+  );
+}
+
 export function StoriesMagazine() {
   const [featured, ...rest] = storySlots;
 
@@ -19,14 +38,23 @@ export function StoriesMagazine() {
     <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
       <Reveal className="lg:w-3/5">
         <article className="group">
-          <PhotoPending className="aspect-[4/3] w-full rounded-sm" />
+          <StoryPhoto slot={featured} className="aspect-[4/3] w-full rounded-sm" />
           <div className="mt-6 flex flex-col gap-3">
-            <span className="w-fit font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">
+            <span className="w-fit rounded-full bg-primary/10 px-3 py-1 font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">
               {featured.pillar}
             </span>
             <h3 className="font-display text-3xl font-medium italic text-text sm:text-4xl">{featured.title}</h3>
             <p className="max-w-lg text-base leading-relaxed text-text-muted">{featured.prompt}</p>
-            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Awaiting interview</span>
+            <div className="mt-1 flex items-center gap-4">
+              <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Awaiting interview</span>
+              <a
+                href={`/stories#${featured.slug}`}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong"
+              >
+                Read more
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
         </article>
       </Reveal>
@@ -35,14 +63,22 @@ export function StoriesMagazine() {
         {rest.map((slot, i) => (
           <Reveal key={slot.slug} delay={0.1 + i * 0.08}>
             <article className="group flex gap-5">
-              <PhotoPending className="h-28 w-28 shrink-0 rounded-sm sm:h-32 sm:w-32" />
+              <StoryPhoto slot={slot} className="h-28 w-28 shrink-0 rounded-sm sm:h-32 sm:w-32" />
               <div className="flex flex-col gap-1.5">
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
+                <span className="w-fit rounded-full bg-primary/10 px-2.5 py-0.5 font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
                   {slot.pillar}
                 </span>
                 <h4 className="font-display text-xl font-medium text-text">{slot.title}</h4>
                 <p className="text-sm leading-snug text-text-muted">{slot.prompt}</p>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Awaiting interview</span>
+                <div className="mt-1 flex items-center gap-3">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Awaiting interview</span>
+                  <a
+                    href={`/stories#${slot.slug}`}
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.04em] text-primary-strong"
+                  >
+                    Read more →
+                  </a>
+                </div>
               </div>
             </article>
           </Reveal>

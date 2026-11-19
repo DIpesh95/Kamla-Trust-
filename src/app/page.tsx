@@ -10,7 +10,6 @@ import { HumanImpact } from "@/components/human-impact";
 import { StoriesMagazine } from "@/components/stories-magazine";
 import { NewsroomEditorial } from "@/components/newsroom-editorial";
 import { LeadershipTeaser } from "@/components/leadership-teaser";
-import { TransparencyTeaser } from "@/components/transparency-teaser";
 import { GetInvolvedCTA } from "@/components/get-involved-cta";
 import { Reveal } from "@/components/motion";
 import { pillars } from "@/content/pillars";
@@ -21,13 +20,14 @@ export default function Home() {
     <>
       {/* 1. Hero */}
       <Hero />
-      <RecognitionStrip />
 
-      {/* 2. About */}
+      {/* 2. Five Decades of Legacy */}
+      <ImpactNumbers />
+
+      {/* 3. About */}
       <AboutIntro />
 
-      {/* 3. Our Impact */}
-      <ImpactNumbers />
+      <RecognitionStrip />
 
       {/* 4. Our Focus Areas */}
       <section className="bg-surface py-24 sm:py-32">
@@ -91,13 +91,10 @@ export default function Home() {
       {/* 9. Leadership */}
       <LeadershipTeaser />
 
-      {/* 10. Annual Reports & Transparency */}
-      <TransparencyTeaser />
-
-      {/* 11. Get Involved */}
+      {/* 10. Get Involved */}
       <GetInvolvedCTA />
 
-      {/* 12. Footer, rendered globally in layout.tsx */}
+      {/* 11. Footer, rendered globally in layout.tsx */}
     </>
   );
 }

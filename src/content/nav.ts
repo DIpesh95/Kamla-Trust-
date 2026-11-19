@@ -25,6 +25,7 @@ export const primaryNav: NavLink[] = [
       { label: "Donate", href: "/get-involved/donate" },
       { label: "Volunteer", href: "/get-involved/volunteer" },
       { label: "CSR Partnership", href: "/get-involved/csr-partnership" },
+      { label: "Social Partnership", href: "/get-involved/social-partnership" },
       { label: "Careers", href: "/get-involved/careers" },
     ],
   },

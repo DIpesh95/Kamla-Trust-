@@ -55,19 +55,6 @@ export default function TransparencyPage() {
             </div>
           </div>
         </div>
-
-        <div className="rounded-sm border border-line bg-surface p-7">
-          <p className="font-display text-lg font-medium text-text">Financial statements & annual reports</p>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
-            No audited financial statements or annual reports are currently published. Every reference
-            foundation studied for this rebuild: Azim Premji Foundation, Reliance Foundation, Aga Khan
-            Foundation, and Swades Foundation, publishes these prominently, since it&rsquo;s what turns a
-            donation into an informed decision rather than a leap of faith.
-          </p>
-          <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-dashed border-warn/50 bg-warn/10 px-4 py-2.5 text-sm text-warn">
-            Reports pending from trustees. This section should list downloadable PDFs once available.
-          </div>
-        </div>
       </Container>
     </>
   );

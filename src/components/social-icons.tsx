@@ -33,3 +33,20 @@ export function XIcon({ className = "" }: IconProps) {
     </svg>
   );
 }
+
+export function LinkedinIcon({ className = "" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M6.94 8.5H3.56V20.5H6.94V8.5ZM5.25 3.5A1.97 1.97 0 0 0 3.25 5.47A1.96 1.96 0 0 0 5.22 7.44H5.25A1.97 1.97 0 1 0 5.25 3.5ZM20.45 20.5H17.07V14.08C17.07 12.52 16.5 11.45 15.1 11.45C14.03 11.45 13.38 12.18 13.1 12.88C12.99 13.14 12.96 13.52 12.96 13.9V20.5H9.58S9.63 9.47 9.58 8.5H12.96V9.96C13.41 9.21 14.33 8.12 16.47 8.12C19.14 8.12 20.45 9.86 20.45 13.07V20.5Z" />
+    </svg>
+  );
+}
+
+export function WebsiteIcon({ className = "" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.7-3.8-9S9.5 5.6 12 3Z" />
+    </svg>
+  );
+}

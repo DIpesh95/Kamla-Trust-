@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const reportsPlaceholder = placeholder(
-  "No annual report or downloadable impact report is published yet. Add one here once available."
+  "No downloadable impact report is published yet. Add one here once available."
 );
 
 export default function ImpactPage() {

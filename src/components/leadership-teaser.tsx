@@ -2,6 +2,7 @@ import Link from "next/link";
 import { trust } from "@/content/trust";
 import { Reveal } from "./motion";
 import { Container } from "./container";
+import { TrusteeSocialRow } from "./trustee-social-row";
 
 export function LeadershipTeaser() {
   const [lead] = trust.trustees;
@@ -19,6 +20,7 @@ export function LeadershipTeaser() {
             <h2 className="font-display text-3xl font-medium text-text sm:text-4xl">{lead.name}</h2>
             <p className="text-sm font-medium text-primary-strong">{lead.role}</p>
             <p className="max-w-2xl text-base leading-relaxed text-text-muted">{lead.bio}</p>
+            <TrusteeSocialRow trustee={lead} className="mt-1" />
             <Link
               href="/about/leadership"
               className="mt-2 inline-flex w-fit items-center gap-2 text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong"

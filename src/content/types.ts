@@ -14,10 +14,17 @@ export function placeholder(note: string): Placeholder {
   return { pending: true, note };
 }
 
+export type TrusteeSocialLinks = {
+  website?: Verified<string>;
+  instagram?: Verified<string>;
+  linkedin?: Verified<string>;
+};
+
 export type Trustee = {
   name: string;
   role: string;
   bio: string;
+  socialLinks?: TrusteeSocialLinks;
 };
 
 export type TrustProfile = {

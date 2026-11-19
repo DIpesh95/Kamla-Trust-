@@ -3,13 +3,16 @@ export type StorySlot = {
   pillar: string;
   title: string;
   prompt: string;
+  /** A real event photo that represents the program, not a portrait of this specific person/couple. */
+  image?: { src: string; alt: string; caption: string };
 };
 
 /**
- * Real beneficiary stories are the single most important content gap on the site; see the
- * Content Writer Brief. No stock photography is used here (removed per trustee direction);
- * each slot renders an honest "photo pending" placeholder in stories-magazine.tsx instead,
- * until real interviews, consent, and photography are available.
+ * Real, named, first-person beneficiary stories are still the single most important content
+ * gap on the site; see the Content Writer Brief. No stock photography is used here (removed
+ * per trustee direction). Where a real event photo genuinely represents the program, it is
+ * shown with an honest "representative photo" caption; the interview/testimony itself still
+ * renders the "awaiting interview" placeholder until a real conversation and consent exist.
  */
 export const storySlots: StorySlot[] = [
   {
@@ -17,6 +20,11 @@ export const storySlots: StorySlot[] = [
     pillar: "Women & Girl Child",
     title: "A wedding day, a year on",
     prompt: "A Kanya Sneh Bandhan couple, on the day of their wedding and a year on.",
+    image: {
+      src: "/images/gallery-kanya-sneh-bandhan-square.jpg",
+      alt: "Kanya Sneh Bandhan mass wedding ceremony, bride receiving a gift",
+      caption: "Representative photo from a Kanya Sneh Bandhan ceremony, not this specific couple",
+    },
   },
   {
     slug: "hpv-vaccination-recipient",

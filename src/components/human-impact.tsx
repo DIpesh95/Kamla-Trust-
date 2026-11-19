@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { PillarIcon } from "./pillar-icon";
+import { pillarImages } from "@/content/media";
 import { Reveal } from "./motion";
 import { Container } from "./container";
 
@@ -22,6 +24,7 @@ const vignettes = [
     label: "A family",
     line: "A wedding day that becomes the start of a life, not the end of a struggle.",
     slug: "rural-livelihoods-environment",
+    image: { src: "/images/hero-kanya-sneh-bandhan-alt.jpg", alt: "Kanya Sneh Bandhan wedding ceremony" },
   },
   {
     label: "A community",
@@ -46,22 +49,40 @@ export function HumanImpact() {
         </Reveal>
 
         <div className="-mx-6 flex gap-4 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:grid-cols-5 sm:gap-5 sm:overflow-visible sm:px-0">
-          {vignettes.map((v, i) => (
-            <Reveal
-              key={v.label}
-              delay={i * 0.08}
-              className="group relative flex aspect-[3/4] w-[72vw] shrink-0 flex-col justify-between overflow-hidden rounded-sm bg-text p-4 sm:w-auto"
-            >
-              <PillarIcon
-                slug={v.slug}
-                className="h-9 w-9 text-secondary/70 transition-transform duration-500 ease-out group-hover:scale-110"
-              />
-              <div className="flex flex-col gap-1.5">
-                <span className="font-display text-lg italic text-secondary">{v.label}</span>
-                <p className="text-xs leading-snug text-surface/85">{v.line}</p>
-              </div>
-            </Reveal>
-          ))}
+          {vignettes.map((v, i) => {
+            const image = v.image ?? pillarImages[v.slug];
+            return (
+              <Reveal
+                key={v.label}
+                delay={i * 0.08}
+                className="group relative flex aspect-[3/4] w-[72vw] shrink-0 flex-col justify-between overflow-hidden rounded-sm bg-text p-4 sm:w-auto"
+              >
+                {image ? (
+                  <>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(min-width: 1024px) 20vw, 72vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/30 to-text/10"
+                    />
+                  </>
+                ) : null}
+                <PillarIcon
+                  slug={v.slug}
+                  className="relative z-10 h-9 w-9 text-secondary/70 transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+                <div className="relative z-10 flex flex-col gap-1.5">
+                  <span className="font-display text-lg italic text-secondary">{v.label}</span>
+                  <p className="text-xs leading-snug text-surface/85">{v.line}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Container>
     </section>

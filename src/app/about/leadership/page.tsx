@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { Reveal } from "@/components/motion";
 import { trust } from "@/content/trust";
 import { primaryNav } from "@/content/nav";
+import { TrusteeSocialRow } from "@/components/trustee-social-row";
 
 export const metadata: Metadata = {
   title: "Leadership",
@@ -45,6 +46,7 @@ export default function LeadershipPage() {
               &ldquo;Leadership rooted in service.&rdquo;
             </p>
             <p className="max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">{lead.bio}</p>
+            <TrusteeSocialRow trustee={lead} />
             <div className="mt-2 flex flex-col gap-3 border-t border-line pt-6">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-text-muted">Selected roles</p>
               <ul className="flex flex-col gap-2 text-sm text-text-muted">

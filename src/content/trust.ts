@@ -13,6 +13,11 @@ export const trust: TrustProfile = {
       name: "Smt. Nidarshana Gowani",
       role: "Trustee",
       bio: "Managing Director, Kamala Group of Industries, and National Patron of Bharat Vikas Parishad (Women’s Wing). Leads the trust’s programs across education, healthcare, and women’s empowerment.",
+      socialLinks: {
+        website: placeholder("Official website URL not yet confirmed; pending from trustees."),
+        instagram: placeholder("Official Instagram profile not yet confirmed; pending from trustees."),
+        linkedin: placeholder("Official LinkedIn profile not yet confirmed; pending from trustees."),
+      },
     },
     {
       name: "Shri Ramesh Gowani",

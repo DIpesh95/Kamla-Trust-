@@ -12,19 +12,37 @@
  * full list of what's needed.
  */
 
-export const heroImage = {
-  src: "/images/hero-kanya-sneh-bandhan.jpg",
-  width: 1080,
-  height: 720,
-  alt: "Governor of Maharashtra Shri Jishnu Dev Varma Ji at the Kanya Sneh Bandhan mass wedding ceremony",
-};
+/**
+ * Six hero-carousel photos live in content/hero-slides.ts, reusing these same real assets
+ * (plus two honest "photo pending" slides for themes with no verified photo yet).
+ */
 
 /**
- * No real per-pillar photography is currently reachable (see note above). Each pillar page
- * instead uses a custom icon treatment (see components/pillar-icon.tsx) until real photos
- * are available.
+ * Per-pillar photography: only mapped where an existing real asset is genuinely about that
+ * pillar's work. Education and Rural Livelihoods have no matching real photo yet, so those
+ * two render the icon treatment (see components/pillar-icon.tsx) instead of borrowing an
+ * unrelated image.
  */
-export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {};
+export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {
+  "women-and-girl-child": {
+    src: "/images/gallery-kanya-sneh-bandhan-square.jpg",
+    width: 720,
+    height: 720,
+    alt: "Kanya Sneh Bandhan mass wedding ceremony, bride receiving a gift",
+  },
+  healthcare: {
+    src: "/images/yamuna-drive.jpg",
+    width: 1080,
+    height: 720,
+    alt: "Yamuna Clean-Up & Anemia Awareness drive in Vrindavan",
+  },
+  "disaster-relief-civic-recognition": {
+    src: "/images/republic-day-2026.jpg",
+    width: 1440,
+    height: 960,
+    alt: "Outdoor Republic Day gathering with flag hoisting at Kamala Mills Compound",
+  },
+};
 
 /**
  * Homepage "About" section photo. No dedicated trust/office photo exists yet. Uses a different

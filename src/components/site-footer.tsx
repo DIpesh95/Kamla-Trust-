@@ -75,6 +75,11 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/get-involved/social-partnership" className="text-sm text-surface/75 transition-colors hover:text-secondary">
+                Social Partnership
+              </Link>
+            </li>
+            <li>
               <Link href="/get-involved/careers" className="text-sm text-surface/75 transition-colors hover:text-secondary">
                 Careers
               </Link>
