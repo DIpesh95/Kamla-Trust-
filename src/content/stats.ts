@@ -1,7 +1,7 @@
 import type { HeadlineStat } from "./types";
 import { trust } from "./trust";
 import { pillars } from "./pillars";
-import { placeholder } from "./types";
+import { geographicReach } from "./geography";
 
 export function getYearsActive(): number {
   return new Date().getFullYear() - trust.founded;
@@ -15,9 +15,9 @@ export function getYearsActive(): number {
  */
 export const headlineStats: HeadlineStat[] = [
   {
-    value: "6",
+    value: `${geographicReach.length}`,
     label: "Cities reached",
-    source: placeholder("Source pending trustee confirmation."),
+    source: "Program & event locations, as published on this site",
   },
   {
     value: `${getYearsActive()}`,

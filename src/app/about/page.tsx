@@ -3,9 +3,11 @@ import { PageHero } from "@/components/page-hero";
 import { SubNav } from "@/components/sub-nav";
 import { Container } from "@/components/container";
 import { trust } from "@/content/trust";
+import { isPlaceholder } from "@/content/types";
 import { primaryNav } from "@/content/nav";
 import { EventGallery } from "@/components/event-gallery";
 import { Timeline } from "@/components/timeline";
+import { Fact } from "@/components/fact";
 import { Reveal } from "@/components/motion";
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export default function AboutPage() {
       <PageHero
         breadcrumb={[{ label: "Home", href: "/" }, { label: "About Us" }]}
         eyebrow="About us"
-        title="A trust built on showing up, since 1969"
+        title={`A trust built on showing up, since ${trust.founded}`}
         dek={`${trust.legalName} is a ${trust.orgType.toLowerCase()}, working across education, healthcare, women & child welfare, and rural livelihoods.`}
       />
       <SubNav links={aboutLinks} />
@@ -45,11 +47,11 @@ export default function AboutPage() {
 
           <Reveal delay={0.1}>
             <aside className="flex h-fit flex-col gap-4 rounded-sm border border-line bg-soft-bg p-6">
-              <p className="font-sans text-xs font-medium uppercase tracking-[0.18em] text-text-muted">At a glance</p>
+              <p className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-text-muted">At a glance</p>
               <dl className="flex flex-col gap-3 text-sm">
                 <div>
                   <dt className="text-text-muted">Founded</dt>
-                  <dd className="font-medium text-text">{trust.founded}</dd>
+                  <dd className="font-bold text-text">{trust.founded}</dd>
                 </div>
                 <div>
                   <dt className="text-text-muted">Structure</dt>
@@ -59,16 +61,54 @@ export default function AboutPage() {
                   <dt className="text-text-muted">Registered office</dt>
                   <dd className="font-medium text-text">{trust.registeredOffice}</dd>
                 </div>
+                {trust.wikipediaUrl ? (
+                  <div>
+                    <dt className="text-text-muted">Wikipedia</dt>
+                    <dd className="font-medium text-text">
+                      {isPlaceholder(trust.wikipediaUrl) ? (
+                        <Fact value={trust.wikipediaUrl} />
+                      ) : (
+                        <a
+                          href={trust.wikipediaUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary-strong"
+                        >
+                          View article ↗
+                        </a>
+                      )}
+                    </dd>
+                  </div>
+                ) : null}
               </dl>
             </aside>
           </Reveal>
         </div>
 
+        <Reveal className="grid gap-6 sm:grid-cols-3">
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-primary">Vision</p>
+            <p className="mt-3 text-base leading-relaxed text-text">{trust.vision}</p>
+          </div>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-primary">Mission</p>
+            <p className="mt-3 text-base leading-relaxed text-text">{trust.mission}</p>
+          </div>
+          <div className="rounded-sm border border-line bg-surface p-6">
+            <p className="font-sans text-xs font-bold uppercase tracking-[0.18em] text-primary">Core values</p>
+            <ul className="mt-3 flex flex-col gap-1.5 text-base leading-relaxed text-text">
+              {trust.coreValues.map((value) => (
+                <li key={value}>{value}</li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
         <div>
           <Reveal className="mb-10 max-w-xl">
-            <p className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">1969 → Today</p>
-            <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
-              Five decades, in four moments.
+            <p className="timecode text-xs font-bold text-primary">{trust.founded} &rarr; Today</p>
+            <h2 className="mt-4 font-display text-4xl font-bold italic text-text sm:text-5xl">
+              Five Decades of Action, in four moments.
             </h2>
           </Reveal>
           <Timeline />
@@ -80,7 +120,7 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal>
-          <p className="mb-4 font-sans text-xs font-medium uppercase tracking-[0.18em] text-text-muted">
+          <p className="timecode mb-4 text-xs text-text-muted">
             From the archive: real moments from the trust&rsquo;s work
           </p>
           <EventGallery />

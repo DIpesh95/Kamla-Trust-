@@ -46,15 +46,15 @@ export function SiteHeader() {
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className={`flex items-center gap-2 transition-colors duration-500 ${
+          className={`flex items-center gap-2.5 transition-colors duration-500 ${
             transparent ? "text-surface" : "text-text"
           }`}
         >
-          <Logomark className={`h-7 w-7 ${transparent ? "text-surface" : "text-primary"}`} />
-          <Wordmark className="text-lg" />
+          <Logomark className={`h-8 w-8 ${transparent ? "text-surface" : "text-primary"}`} />
+          <Wordmark className="text-xl" />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {primaryNav.map((item) => {
             const isOurWork = item.label === "Our Work";
             const hasMenu = isOurWork || !!item.children;
@@ -76,7 +76,7 @@ export function SiteHeader() {
                 <Link
                   href={item.href}
                   onClick={() => setOpenMenu(null)}
-                  className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium uppercase tracking-[0.04em] transition-colors ${linkColor}`}
+                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-[12.5px] font-semibold uppercase tracking-[0.03em] transition-colors ${linkColor}`}
                 >
                   {item.label}
                   {hasMenu ? (
@@ -156,7 +156,7 @@ export function SiteHeader() {
           </span>
           <Link
             href="/get-involved/donate"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:bg-primary-strong sm:inline-flex"
+            className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-surface shadow-sm shadow-primary/30 transition-all hover:bg-primary-strong hover:shadow-md hover:shadow-primary/40 sm:inline-flex"
           >
             Donate
           </Link>
@@ -189,7 +189,7 @@ export function SiteHeader() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-text"
+                    className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-text"
                   >
                     {item.label}
                   </Link>
@@ -225,7 +225,7 @@ export function SiteHeader() {
               <Link
                 href="/get-involved/donate"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold uppercase tracking-[0.04em] text-surface"
+                className="mt-3 rounded-full bg-primary px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.04em] text-surface shadow-sm shadow-primary/30"
               >
                 Donate
               </Link>

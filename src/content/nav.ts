@@ -11,17 +11,21 @@ export const primaryNav: NavLink[] = [
     children: [
       { label: "Our Story", href: "/about" },
       { label: "Leadership", href: "/about/leadership" },
+      { label: "Recognitions & Awards", href: "/recognitions" },
+      { label: "Press Releases", href: "/press-releases" },
       { label: "Registration & Transparency", href: "/about/transparency" },
     ],
   },
   { label: "Our Work", href: "/our-work" },
+  { label: "Our Experiences", href: "/our-experiences" },
   { label: "Our Impact", href: "/impact" },
   { label: "Stories", href: "/stories" },
   { label: "Newsroom", href: "/newsroom" },
   {
     label: "Get Involved",
-    href: "/get-involved/donate",
+    href: "/get-involved",
     children: [
+      { label: "Request Assistance", href: "/get-involved" },
       { label: "Donate", href: "/get-involved/donate" },
       { label: "Volunteer", href: "/get-involved/volunteer" },
       { label: "CSR Partnership", href: "/get-involved/csr-partnership" },
@@ -40,8 +44,10 @@ export const socialLinks = {
 export const footerLinks: NavLink[] = [
   { label: "About Us", href: "/about" },
   { label: "Our Work", href: "/our-work" },
+  { label: "Our Experiences", href: "/our-experiences" },
   { label: "Our Impact", href: "/impact" },
   { label: "Stories", href: "/stories" },
   { label: "Newsroom", href: "/newsroom" },
+  { label: "Recognitions & Awards", href: "/recognitions" },
   { label: "Contact", href: "/contact" },
 ];

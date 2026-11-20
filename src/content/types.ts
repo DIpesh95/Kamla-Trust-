@@ -18,6 +18,15 @@ export type Trustee = {
   name: string;
   role: string;
   bio: string;
+  /** Link to the trustee's own site/profile for a fuller account of their work, when one exists. */
+  knowMoreUrl?: Verified<string>;
+  /** The trustee's own personal social profiles, distinct from the trust's institutional accounts. */
+  socialLinks?: {
+    instagram?: Verified<string>;
+    linkedin?: Verified<string>;
+    facebook?: Verified<string>;
+    x?: Verified<string>;
+  };
 };
 
 export type TrustProfile = {
@@ -25,6 +34,9 @@ export type TrustProfile = {
   shortName: string;
   relatedEntityNote: string;
   tagline: string;
+  vision: string;
+  mission: string;
+  coreValues: string[];
   founded: number;
   orgType: string;
   trustees: Trustee[];
@@ -35,6 +47,8 @@ export type TrustProfile = {
   exemption80G: Verified<string>;
   exemption12A: Verified<string>;
   exemptionFCRA: Verified<string>;
+  /** Link to a Wikipedia article about the trust or its trustees, when one is confirmed. */
+  wikipediaUrl?: Verified<string>;
 };
 
 export type Initiative = {
@@ -58,6 +72,14 @@ export type PressItem = {
   kind: "Press" | "Recognition" | "Event" | "Community";
   description: string;
   image?: { src: string; alt: string };
+  /** The ceremony or occasion the recognition was presented at, when known. Recognition items only. */
+  occasion?: Verified<string>;
+  /** Who the recognition was presented to, when it's a specific person rather than the trust itself. */
+  recipient?: string;
+  /** Name of the publication/outlet, for Press items. */
+  publication?: string;
+  /** Link to the original article, when one is confirmed. */
+  articleUrl?: Verified<string>;
 };
 
 export type HeadlineStat = {

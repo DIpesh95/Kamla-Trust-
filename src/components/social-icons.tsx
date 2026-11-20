@@ -26,6 +26,16 @@ export function YoutubeIcon({ className = "" }: IconProps) {
   );
 }
 
+export function LinkedinIcon({ className = "" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M6.94 8.5H3.56V20.5H6.94V8.5Z" />
+      <path d="M5.25 3C4.01 3 3 4.01 3 5.25C3 6.49 4.01 7.5 5.25 7.5C6.49 7.5 7.5 6.49 7.5 5.25C7.5 4.01 6.49 3 5.25 3Z" />
+      <path d="M20.5 20.5V13.9C20.5 10.6 18.8 9 16.4 9C14.47 9 13.6 10.07 13.12 10.82V8.5H9.74C9.78 9.24 9.74 20.5 9.74 20.5H13.12V13.9C13.12 13.55 13.15 13.2 13.25 12.95C13.52 12.26 14.14 11.55 15.2 11.55C16.58 11.55 17.12 12.6 17.12 14.14V20.5H20.5Z" />
+    </svg>
+  );
+}
+
 export function XIcon({ className = "" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">

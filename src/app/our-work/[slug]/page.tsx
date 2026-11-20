@@ -6,7 +6,19 @@ import { Container } from "@/components/container";
 import { Fact } from "@/components/fact";
 import { CTASection } from "@/components/cta-section";
 import { ProgramList } from "@/components/program-list";
+import { PillarIcon } from "@/components/pillar-icon";
+import { FilmFrame } from "@/components/film-frame";
+import { ClipReveal } from "@/components/clip-reveal";
 import { pillars, getPillar } from "@/content/pillars";
+import { pillarImages } from "@/content/media";
+
+const accent: Record<string, { icon: string; tint: string }> = {
+  education: { icon: "text-primary", tint: "bg-primary/10" },
+  healthcare: { icon: "text-good", tint: "bg-good/10" },
+  "women-and-girl-child": { icon: "text-secondary", tint: "bg-secondary/10" },
+  "rural-livelihoods-environment": { icon: "text-gold", tint: "bg-gold/15" },
+  "disaster-relief-civic-recognition": { icon: "text-primary-strong", tint: "bg-primary-strong/10" },
+};
 
 export function generateStaticParams() {
   return pillars.map((pillar) => ({ slug: pillar.slug }));
@@ -27,6 +39,8 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
   const { slug } = await params;
   const pillar = getPillar(slug);
   if (!pillar) notFound();
+  const tone = accent[pillar.slug] ?? { icon: "text-primary", tint: "bg-soft-bg" };
+  const image = pillarImages[pillar.slug];
 
   return (
     <>
@@ -37,7 +51,17 @@ export default async function PillarPage({ params }: { params: Promise<{ slug: s
         dek={pillar.summary}
       />
 
+      {image ? (
+        <ClipReveal className="relative aspect-[21/9] w-full">
+          <FilmFrame src={image.src} alt={image.alt} caption={pillar.name.toUpperCase()} sizes="100vw" className="absolute inset-0" />
+        </ClipReveal>
+      ) : null}
+
       <Container className="flex flex-col gap-10 py-16 sm:py-20">
+        <div className={`flex h-16 w-16 items-center justify-center rounded-full ${tone.tint}`}>
+          <PillarIcon slug={pillar.slug} className={`h-9 w-9 ${tone.icon}`} />
+        </div>
+
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
           <Link href="/our-work" className="text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong">
             ← All pillars

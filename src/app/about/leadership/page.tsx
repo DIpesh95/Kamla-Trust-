@@ -3,8 +3,11 @@ import { PageHero } from "@/components/page-hero";
 import { SubNav } from "@/components/sub-nav";
 import { Container } from "@/components/container";
 import { Reveal } from "@/components/motion";
+import { Fact } from "@/components/fact";
 import { trust } from "@/content/trust";
+import { isPlaceholder, placeholder } from "@/content/types";
 import { primaryNav } from "@/content/nav";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon } from "@/components/social-icons";
 
 export const metadata: Metadata = {
   title: "Leadership",
@@ -13,6 +16,13 @@ export const metadata: Metadata = {
 
 const aboutLinks = primaryNav.find((item) => item.label === "About Us")?.children ?? [];
 const [lead, ...rest] = trust.trustees;
+
+const socialIconMap = {
+  instagram: InstagramIcon,
+  linkedin: LinkedinIcon,
+  facebook: FacebookIcon,
+  x: XIcon,
+} as const;
 
 export default function LeadershipPage() {
   return (
@@ -45,6 +55,57 @@ export default function LeadershipPage() {
               &ldquo;Leadership rooted in service.&rdquo;
             </p>
             <p className="max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">{lead.bio}</p>
+
+            <div className="flex flex-wrap items-center gap-5">
+              {lead.knowMoreUrl ? (
+                isPlaceholder(lead.knowMoreUrl) ? (
+                  <p className="text-sm">
+                    <span className="font-semibold uppercase tracking-[0.1em] text-text-muted">Website: </span>
+                    <Fact value={lead.knowMoreUrl} />
+                  </p>
+                ) : (
+                  <a
+                    href={lead.knowMoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:bg-primary-strong"
+                  >
+                    Know more about {lead.name.split(" ").slice(-1)[0]}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )
+              ) : null}
+
+              {lead.socialLinks ? (
+                <div className="flex items-center gap-2">
+                  {(Object.entries(lead.socialLinks) as [keyof typeof socialIconMap, (typeof lead.socialLinks)[keyof typeof lead.socialLinks]][])
+                    .filter(([, url]) => url && !isPlaceholder(url))
+                    .map(([platform, url]) => {
+                      const Icon = socialIconMap[platform];
+                      return (
+                        <a
+                          key={platform}
+                          href={url as string}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${lead.name} on ${platform}`}
+                          className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-text-muted transition-colors hover:border-primary hover:text-primary-strong"
+                        >
+                          <Icon className="h-4 w-4" />
+                        </a>
+                      );
+                    })}
+                </div>
+              ) : null}
+            </div>
+
+            {lead.socialLinks && Object.values(lead.socialLinks).every((url) => !url || isPlaceholder(url)) ? (
+              <p className="text-sm">
+                <span className="font-semibold uppercase tracking-[0.1em] text-text-muted">Social links: </span>
+                <Fact value={placeholder("Pending confirmation from the trustees.")} />
+              </p>
+            ) : null}
+
             <div className="mt-2 flex flex-col gap-3 border-t border-line pt-6">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-text-muted">Selected roles</p>
               <ul className="flex flex-col gap-2 text-sm text-text-muted">

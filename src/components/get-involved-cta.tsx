@@ -7,7 +7,7 @@ export function GetInvolvedCTA() {
     <section className="bg-primary py-28 sm:py-36">
       <Container className="flex flex-col items-start gap-8">
         <Reveal>
-          <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-light-pink">Get involved</p>
+          <p className="timecode text-xs text-light-pink">Get involved</p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="font-display max-w-3xl text-4xl font-medium italic leading-[1.05] text-surface sm:text-6xl">
@@ -36,6 +36,12 @@ export function GetInvolvedCTA() {
             className="rounded-full border border-surface/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:border-surface"
           >
             CSR Partnership
+          </Link>
+          <Link
+            href="/get-involved"
+            className="rounded-full border border-surface/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:border-surface"
+          >
+            Request Assistance
           </Link>
         </Reveal>
       </Container>

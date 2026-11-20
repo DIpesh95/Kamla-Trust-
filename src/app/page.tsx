@@ -9,10 +9,11 @@ import { SignatureInitiatives } from "@/components/signature-initiatives";
 import { HumanImpact } from "@/components/human-impact";
 import { StoriesMagazine } from "@/components/stories-magazine";
 import { NewsroomEditorial } from "@/components/newsroom-editorial";
+import { BooksPublications } from "@/components/books-publications";
 import { LeadershipTeaser } from "@/components/leadership-teaser";
-import { TransparencyTeaser } from "@/components/transparency-teaser";
 import { GetInvolvedCTA } from "@/components/get-involved-cta";
 import { Reveal } from "@/components/motion";
+import { ChapterHeading } from "@/components/chapter-heading";
 import { pillars } from "@/content/pillars";
 import { trust } from "@/content/trust";
 
@@ -21,38 +22,36 @@ export default function Home() {
     <>
       {/* 1. Hero */}
       <Hero />
-      <RecognitionStrip />
 
-      {/* 2. About */}
-      <AboutIntro />
-
-      {/* 3. Our Impact */}
+      {/* 2. Our Impact (Five Decades of Action) */}
       <ImpactNumbers />
 
-      {/* 4. Our Focus Areas */}
-      <section className="bg-surface py-24 sm:py-32">
-        <Container className="flex flex-col gap-14">
-          <Reveal className="max-w-2xl">
-            <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Our focus areas</p>
-            <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
-              Five chapters, one trust.
-            </h2>
-            <p className="mt-4 text-base text-text-muted">
-              {trust.shortName} runs {pillars.reduce((n, p) => n + p.initiatives.length, 0)}+ programs across
-              Maharashtra, organised into five focus areas.
-            </p>
-          </Reveal>
-          <WorkChapters />
+      {/* 3. About */}
+      <AboutIntro />
+
+      {/* 4. Recognised by */}
+      <RecognitionStrip />
+
+      {/* 5. Our Focus Areas */}
+      <section className="bg-surface pb-16 pt-24 sm:pb-20 sm:pt-32">
+        <Container>
+          <ChapterHeading
+            number="05"
+            eyebrow="Our focus areas"
+            title="Five chapters, one trust."
+            dek={`${trust.shortName} runs ${pillars.reduce((n, p) => n + p.initiatives.length, 0)}+ programs across Maharashtra, organised into five focus areas.`}
+          />
         </Container>
       </section>
+      <WorkChapters />
 
-      {/* 5. Signature Initiatives */}
+      {/* 6. Signature Initiatives */}
       <SignatureInitiatives />
 
-      {/* 6. Human Impact */}
+      {/* 7. Human Impact */}
       <HumanImpact />
 
-      {/* 7. Stories of Change */}
+      {/* 8. Stories of Change */}
       <section className="bg-surface py-24 sm:py-32">
         <Container className="flex flex-col gap-12">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
@@ -70,7 +69,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 8. Newsroom */}
+      {/* 9. Newsroom */}
       <section className="bg-soft-bg py-24 sm:py-32">
         <Container className="flex flex-col gap-10">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
@@ -88,16 +87,16 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 9. Leadership */}
+      {/* 10. Books & Publications */}
+      <BooksPublications />
+
+      {/* 11. Leadership */}
       <LeadershipTeaser />
 
-      {/* 10. Annual Reports & Transparency */}
-      <TransparencyTeaser />
-
-      {/* 11. Get Involved */}
+      {/* 12. Get Involved */}
       <GetInvolvedCTA />
 
-      {/* 12. Footer, rendered globally in layout.tsx */}
+      {/* 13. Footer, rendered globally in layout.tsx */}
     </>
   );
 }

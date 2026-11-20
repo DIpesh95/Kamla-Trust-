@@ -20,11 +20,32 @@ export const heroImage = {
 };
 
 /**
- * No real per-pillar photography is currently reachable (see note above). Each pillar page
- * instead uses a custom icon treatment (see components/pillar-icon.tsx) until real photos
- * are available.
+ * Per-pillar photography. No dedicated photo shoot exists for any pillar yet, but three of the
+ * five pillars have a real, already-documented initiative (per pillars.ts) with a matching real
+ * photo elsewhere in the project, so those three use that photo here rather than an icon. The
+ * other two (Education, Healthcare) have no initiative with a real photo yet, so they keep the
+ * icon treatment (see components/pillar-icon.tsx) rather than borrowing an unrelated image.
  */
-export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {};
+export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {
+  "women-and-girl-child": {
+    src: "/images/kpw-lokmata-award.jpg",
+    width: 1440,
+    height: 960,
+    alt: "Kamala Power Women Award ceremony, honouring women achievers",
+  },
+  "rural-livelihoods-environment": {
+    src: "/images/yamuna-drive.jpg",
+    width: 1080,
+    height: 720,
+    alt: "Yamuna Clean-Up & Anemia Awareness drive in Vrindavan",
+  },
+  "disaster-relief-civic-recognition": {
+    src: "/images/republic-day-2026.jpg",
+    width: 1440,
+    height: 960,
+    alt: "Republic Day community gathering and kit distribution at Kamala Mills Compound",
+  },
+};
 
 /**
  * Homepage "About" section photo. No dedicated trust/office photo exists yet. Uses a different

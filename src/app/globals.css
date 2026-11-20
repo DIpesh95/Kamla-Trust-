@@ -14,11 +14,23 @@
   --good: #3f7a52;
   --warn: #a81759;
 
+  /* Warm gold, reserved for the "Five Decades of Action" history/geography section, so it
+     reads as its own distinct chapter rather than another pink panel. */
+  --gold: #d4a44c;
+  --gold-soft: #e8c988;
+  --deep-bronze: #241a0e;
+
   /* Fixed tokens: always this value regardless of context, for elements that pair with
      guaranteed-contrast text (dark sections, buttons on photography). */
   --ink-on-dark: #ffffff;
   --brand: #a81759;
   --brand-strong: #7a1040;
+
+  /* The Archive Reel: warm ivory for text/accents over the film-black ground, and the
+     film-black itself (a true near-black, distinct from --text which is used on light
+     surfaces) for every cinematic dark section site-wide. */
+  --ivory: #f4ebe0;
+  --film-black: #1c1419;
 }
 
 @theme inline {
@@ -36,10 +48,18 @@
   --color-ink-on-dark: var(--ink-on-dark);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-deep-bronze: var(--deep-bronze);
+  --color-ivory: var(--ivory);
+  --color-film-black: var(--film-black);
 
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-body: var(--font-geist), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-data: var(--font-geist), ui-monospace, monospace;
+  /* The "timecode" voice: every label, date, caption, and stat site-wide, carrying the
+     documentary-film identity the way the italic serif carries every headline. */
+  --font-data: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+  --color-timecode: var(--secondary);
 }
 
 body {
@@ -61,6 +81,44 @@ h1, h2, h3, h4 {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ---- The Archive Reel: shared documentary photo treatment ---- */
+
+.timecode {
+  font-family: var(--font-data);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* One consistent film grade over every real photograph on the site: warm-desaturated,
+   gently vignetted, with a faint grain overlay, so a mixed real-photo archive reads as one
+   cohesive film stock rather than a pile of unrelated snapshots. */
+.film-grade {
+  filter: contrast(1.1) saturate(0.82) brightness(0.94) sepia(0.1);
+}
+
+.film-vignette {
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(10, 6, 8, 0.6) 100%);
+  mix-blend-mode: multiply;
+}
+
+.film-grain {
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+}
+
+.film-scanline {
+  background: rgba(244, 235, 224, 0.5);
+}
+
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
