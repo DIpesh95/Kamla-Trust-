@@ -13,7 +13,7 @@ export const newsroom: PressItem[] = [
     date: "2026",
     kind: "Event",
     description:
-      "Kamala Power Women’s annual awards, honouring women across healthcare, journalism, education, art, entrepreneurship, and social work.",
+      "Kamala Power Woman’s annual awards, honouring women across healthcare, journalism, education, art, entrepreneurship, and social work.",
     image: {
       src: "/images/lokmata-ahilyabai-holkar-2026.jpg",
       alt: "Devendra Fadnavis speaking at the Lokmata Ahilyabai Holkar Mahila Samman 2026, NCPA",
@@ -44,7 +44,7 @@ export const newsroom: PressItem[] = [
     description: "Holi celebration organised at Sri Sri Radha Gopinath Temple (ISKCON Chowpatty), Mumbai.",
   },
   {
-    title: "Kamala Power Women Awards, Delhi",
+    title: "Kamala Power Woman Awards, Delhi",
     date: placeholder("Exact date pending confirmation."),
     kind: "Event",
     description: "Recognised inspiring women achievers across 20 sectors.",
@@ -68,7 +68,7 @@ export const newsroom: PressItem[] = [
     description: "Blood donation drive conducted at the Kamala Mills Compound, Mumbai.",
   },
   {
-    title: "Kamala Power Women Award 2022",
+    title: "Kamala Power Woman Award 2022",
     date: "2022",
     kind: "Recognition",
     description: "38 women achievers honoured; awards presented by the then-Governor of Maharashtra, Shri Bhagat Singh Koshyari.",

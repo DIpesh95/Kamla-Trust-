@@ -3,14 +3,14 @@ import { Reveal, CountUp } from "./motion";
 import { Container } from "./container";
 import { Fact } from "./fact";
 
-const [cities, years, programs] = headlineStats;
+const [years, programs] = headlineStats;
 
 export function ImpactNumbers() {
   return (
     <section className="bg-text py-24 sm:py-32">
       <Container className="flex flex-col gap-14">
         <Reveal>
-          <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-secondary">Five decades of action</p>
+          <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-secondary">57 years of action</p>
         </Reveal>
 
         <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:items-end">
@@ -32,8 +32,8 @@ export function ImpactNumbers() {
           </Reveal>
 
           <div className="flex flex-col divide-y divide-surface/15 border-t border-surface/15 lg:border-t-0">
-            {[cities, programs].map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 0.1} className="flex flex-col gap-1.5 py-6">
+            {[programs].map((stat) => (
+              <Reveal key={stat.label} className="flex flex-col gap-1.5 py-6">
                 <div className="flex items-baseline justify-between gap-6">
                   <CountUp value={stat.value} className="font-display text-5xl font-medium text-surface sm:text-6xl" />
                   <span className="text-right font-sans text-xs font-medium uppercase tracking-[0.18em] text-surface/60">

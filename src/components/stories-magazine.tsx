@@ -25,8 +25,10 @@ export function StoriesMagazine() {
               {featured.pillar}
             </span>
             <h3 className="font-display text-3xl font-medium italic text-text sm:text-4xl">{featured.title}</h3>
-            <p className="max-w-lg text-base leading-relaxed text-text-muted">{featured.prompt}</p>
-            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Awaiting interview</span>
+            <p className="max-w-lg text-base leading-relaxed text-text-muted">
+              Proposed direction: {featured.prompt} Subject to consent and a real interview.
+            </p>
+            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Not a real story yet</span>
           </div>
         </article>
       </Reveal>
@@ -41,8 +43,8 @@ export function StoriesMagazine() {
                   {slot.pillar}
                 </span>
                 <h4 className="font-display text-xl font-medium text-text">{slot.title}</h4>
-                <p className="text-sm leading-snug text-text-muted">{slot.prompt}</p>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Awaiting interview</span>
+                <p className="text-sm leading-snug text-text-muted">Proposed direction: {slot.prompt}</p>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Not a real story yet</span>
               </div>
             </article>
           </Reveal>

@@ -20,11 +20,31 @@ export const heroImage = {
 };
 
 /**
- * No real per-pillar photography is currently reachable (see note above). Each pillar page
- * instead uses a custom icon treatment (see components/pillar-icon.tsx) until real photos
- * are available.
+ * Real per-pillar photography, populated only where a genuinely on-topic photo exists in the
+ * Trust's own archive (matched to what the photo actually depicts, not assigned for coverage).
+ * Education and Rural Livelihoods have no dedicated photography yet; those pillars render a
+ * typographic chapter treatment (see components/work-chapters.tsx) instead of a stand-in photo.
  */
-export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {};
+export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {
+  healthcare: {
+    src: "/images/yamuna-drive.jpg",
+    width: 1080,
+    height: 720,
+    alt: "Yamuna Clean-Up & Anemia Awareness drive in Vrindavan",
+  },
+  "women-and-girl-child": {
+    src: "/images/gallery-kanya-sneh-bandhan-square.jpg",
+    width: 720,
+    height: 720,
+    alt: "Kanya Sneh Bandhan mass wedding ceremony, bride receiving a gift",
+  },
+  "disaster-relief-civic-recognition": {
+    src: "/images/republic-day-2026.jpg",
+    width: 900,
+    height: 643,
+    alt: "Republic Day Celebration 2026 at Kamala Mills Compound",
+  },
+};
 
 /**
  * Homepage "About" section photo. No dedicated trust/office photo exists yet. Uses a different
@@ -39,6 +59,54 @@ export const homeAboutImage = {
   height: 720,
   alt: "Yamuna Clean-Up & Anemia Awareness drive in Vrindavan",
 };
+
+/**
+ * The five hero banners. Each is a distinct real event, with the crop position tuned per photo
+ * so faces are never cut off (object-position varies a lot by source aspect ratio and subject
+ * placement, so each one is hand-tuned rather than defaulted to center).
+ */
+export const heroSlides = [
+  {
+    src: "/images/hero-kanya-sneh-bandhan.jpg",
+    width: 1080,
+    height: 720,
+    alt: "Governor of Maharashtra Shri Jishnu Dev Varma Ji at the Kanya Sneh Bandhan mass wedding ceremony",
+    caption: "Kanya Sneh Bandhan — Governor of Maharashtra Shri Jishnu Dev Varma Ji at the mass wedding ceremony.",
+    objectPosition: "center 22%",
+  },
+  {
+    src: "/images/kamala-power-women-2026.jpg",
+    width: 2000,
+    height: 859,
+    alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026: award presented on stage",
+    caption: "Lokmata Ahilyabai Holkar Mahila Samman 2026 — Kamala Power Woman award presented on stage.",
+    objectPosition: "20% 24%",
+  },
+  {
+    src: "/images/pillars-of-humanity-2024.jpg",
+    width: 1200,
+    height: 1600,
+    alt: "Pillars of Humanity Fashion Show, 23rd February 2024, Gateway of India, Mumbai",
+    caption: "Pillars of Humanity Fashion Show, 23 February 2024, Gateway of India.",
+    objectPosition: "50% 10%",
+  },
+  {
+    src: "/images/republic-day-2026.jpg",
+    width: 900,
+    height: 643,
+    alt: "Outdoor Republic Day gathering, Kamala Mills Compound",
+    caption: "Republic Day Celebration 2026 — livelihood-support kits distributed, Kamala Mills Compound.",
+    objectPosition: "18% 46%",
+  },
+  {
+    src: "/images/lokmata-ahilyabai-holkar-2026.jpg",
+    width: 900,
+    height: 643,
+    alt: "Devendra Fadnavis speaking at the Lokmata Ahilyabai Holkar Mahila Samman 2026, NCPA",
+    caption: "Devendra Fadnavis speaking at the Lokmata Ahilyabai Holkar Mahila Samman 2026, NCPA.",
+    objectPosition: "38% 20%",
+  },
+];
 
 export const eventGallery = [
   {

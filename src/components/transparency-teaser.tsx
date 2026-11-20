@@ -17,11 +17,9 @@ export function TransparencyTeaser() {
       <Container className="flex flex-col gap-10">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">
-              Annual reports &amp; transparency
-            </p>
+            <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Our work</p>
             <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
-              What to verify before you give.
+              Annual documentation, in one place.
             </h2>
           </div>
           <Link

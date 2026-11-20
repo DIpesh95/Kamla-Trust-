@@ -32,9 +32,10 @@ function Row({ item }: { item: PressItem }) {
   );
 }
 
-export function NewsroomEditorial({ limit }: { limit?: number }) {
+export function NewsroomEditorial({ limit, kinds }: { limit?: number; kinds?: PressItem["kind"][] }) {
   if (limit) {
-    const items = newsroom.slice(0, limit);
+    const pool = kinds ? newsroom.filter((i) => kinds.includes(i.kind)) : newsroom;
+    const items = pool.slice(0, limit);
     return (
       <div className="flex flex-col">
         {items.map((item) => (

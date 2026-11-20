@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Pink institutional palette */
-  --primary: #a81759;
-  --primary-strong: #7a1040;
-  --secondary: #d93683;
-  --light-pink: #f5b7d0;
-  --soft-bg: #fcebf2;
+  /* Approved brand palette: burgundy, soft pink, ivory, charcoal, white */
+  --primary: #6e1b2e;
+  --primary-strong: #4a1222;
+  --secondary: #e7c9ce;
+  --light-pink: #f6e9eb;
+  --soft-bg: #faf5eb;
   --surface: #ffffff;
-  --text: #252126;
-  --text-muted: #777078;
-  --line: #eadce3;
+  --text: #221c1b;
+  --text-muted: #6b5d58;
+  --line: #e8ded6;
   --good: #3f7a52;
-  --warn: #a81759;
+  --warn: #a8574a;
+  --near-black: #15100f;
 
   /* Fixed tokens: always this value regardless of context, for elements that pair with
      guaranteed-contrast text (dark sections, buttons on photography). */
   --ink-on-dark: #ffffff;
-  --brand: #a81759;
-  --brand-strong: #7a1040;
+  --brand: #6e1b2e;
+  --brand-strong: #4a1222;
 }
 
 @theme inline {
@@ -33,6 +34,7 @@
   --color-line: var(--line);
   --color-good: var(--good);
   --color-warn: var(--warn);
+  --color-near-black: var(--near-black);
   --color-ink-on-dark: var(--ink-on-dark);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);

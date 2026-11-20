@@ -12,7 +12,7 @@ export type FlagshipProgram = {
 export const flagshipPrograms: FlagshipProgram[] = [
   {
     slug: "kamala-power-women-awards",
-    name: "Kamala Power Women Awards",
+    name: "Kamala Power Woman Awards",
     blurb: "Recognises, felicitates, and empowers exemplary women of India on International Women's Day.",
     story:
       "Every year, women who've changed what's possible in their fields, healthcare, journalism, education, art, entrepreneurship, social work, are recognised on one stage. Not as a gesture, but as a record: these women did the work, and the work is seen.",
