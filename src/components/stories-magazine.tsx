@@ -1,53 +1,41 @@
 import { storySlots } from "@/content/stories";
-import { Reveal } from "./motion";
-
-function PhotoPending({ className = "" }: { className?: string }) {
-  return (
-    <div
-      className={`flex flex-col items-center justify-center gap-2 border border-dashed border-line bg-soft-bg px-4 text-center ${className}`}
-    >
-      <span className="text-[10px] font-semibold uppercase tracking-wide text-text-muted">Photo pending</span>
-      <span className="text-[10px] leading-snug text-text-muted/80">Real photo &amp; interview not yet available</span>
-    </div>
-  );
-}
+import { DragRow, GsapStagger } from "./scroll-fx";
 
 export function StoriesMagazine() {
-  const [featured, ...rest] = storySlots;
-
   return (
-    <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
-      <Reveal className="lg:w-3/5">
-        <article className="group">
-          <PhotoPending className="aspect-[4/3] w-full rounded-sm" />
-          <div className="mt-6 flex flex-col gap-3">
-            <span className="w-fit font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              {featured.pillar}
-            </span>
-            <h3 className="font-display text-3xl font-medium italic text-text sm:text-4xl">{featured.title}</h3>
-            <p className="max-w-lg text-base leading-relaxed text-text-muted">{featured.prompt}</p>
-            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Awaiting interview</span>
-          </div>
-        </article>
-      </Reveal>
-
-      <div className="flex flex-col gap-8 lg:w-2/5">
-        {rest.map((slot, i) => (
-          <Reveal key={slot.slug} delay={0.1 + i * 0.08}>
-            <article className="group flex gap-5">
-              <PhotoPending className="h-28 w-28 shrink-0 rounded-sm sm:h-32 sm:w-32" />
-              <div className="flex flex-col gap-1.5">
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
-                  {slot.pillar}
-                </span>
-                <h4 className="font-display text-xl font-medium text-text">{slot.title}</h4>
-                <p className="text-sm leading-snug text-text-muted">{slot.prompt}</p>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Awaiting interview</span>
-              </div>
-            </article>
-          </Reveal>
+    <GsapStagger selector="article" y={30} stagger={0.1}>
+      <DragRow rowClassName="sm:grid sm:grid-flow-col sm:auto-cols-[minmax(0,1fr)]">
+        {storySlots.map((slot) => (
+          <article
+            key={slot.slug}
+            className="group relative flex aspect-[3/4] w-[80vw] shrink-0 snap-start flex-col justify-between overflow-hidden rounded-sm border border-line bg-gradient-to-br from-text via-text to-primary-strong/80 p-7 sm:w-auto sm:p-9"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{ background: "radial-gradient(circle at 80% 10%, rgba(217,54,131,0.35), transparent 55%)" }}
+            />
+            <div className="relative flex items-start justify-between">
+              <span className="w-fit font-sans text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+                {slot.pillar}
+              </span>
+              <span className="rounded-full border border-surface/25 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-surface/70">
+                Awaiting interview
+              </span>
+            </div>
+            <div className="relative flex flex-col gap-3">
+              <h3 className="font-display text-2xl font-medium italic leading-snug text-surface sm:text-3xl">
+                {slot.title}
+              </h3>
+              <p className="max-w-sm text-sm leading-relaxed text-surface/70">{slot.prompt}</p>
+              <span className="text-[11px] leading-snug text-surface/45">
+                Real photo &amp; interview not yet available &mdash; this card will carry an actual story once one is
+                recorded.
+              </span>
+            </div>
+          </article>
         ))}
-      </div>
-    </div>
+      </DragRow>
+    </GsapStagger>
   );
 }

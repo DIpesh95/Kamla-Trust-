@@ -3,6 +3,7 @@ import Image from "next/image";
 import { flagshipPrograms } from "@/content/flagship-programs";
 import { Reveal } from "./motion";
 import { Container } from "./container";
+import { ClipReveal } from "./scroll-fx";
 
 export function SignatureInitiatives() {
   const [kpw, poh, krs] = flagshipPrograms;
@@ -23,7 +24,7 @@ export function SignatureInitiatives() {
             href={`/#${kpw.slug}`}
             className="group relative block overflow-hidden rounded-sm"
           >
-            <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
+            <ClipReveal direction="up" className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
               <Image
                 src={kpw.image!.src}
                 alt={kpw.image!.alt}
@@ -33,7 +34,7 @@ export function SignatureInitiatives() {
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/20 to-transparent" />
-            </div>
+            </ClipReveal>
             <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-7 sm:p-10">
               <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-secondary">{kpw.year}</span>
               <h3 className="font-display text-3xl font-medium text-surface sm:text-5xl">{kpw.name}</h3>
@@ -50,7 +51,7 @@ export function SignatureInitiatives() {
           {/* 2. Pillars of Humanity: portrait, stat-forward */}
           <Reveal delay={0.05} className="group relative overflow-hidden rounded-sm border border-line">
             <Link href={`/#${poh.slug}`}>
-              <div className="relative aspect-[3/4] w-full">
+              <ClipReveal direction="right" className="relative aspect-[3/4] w-full">
                 <Image
                   src={poh.image!.src}
                   alt={poh.image!.alt}
@@ -60,7 +61,7 @@ export function SignatureInitiatives() {
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-text/85 via-text/10 to-transparent" />
-              </div>
+              </ClipReveal>
               <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-7">
                 <span className="font-display text-6xl font-medium italic leading-none text-secondary">6</span>
                 <span className="text-xs font-medium uppercase tracking-[0.18em] text-surface/70">{poh.impact}</span>
@@ -79,13 +80,13 @@ export function SignatureInitiatives() {
                   <h3 className="font-display text-3xl font-medium text-text sm:text-4xl">{krs.name}</h3>
                   <p className="max-w-sm text-sm leading-relaxed text-text-muted sm:text-base">{krs.story}</p>
                 </div>
-                <div className="relative hidden h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-soft-bg sm:flex">
+                <div className="relative hidden h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-gradient-to-br from-primary-strong to-primary sm:flex">
                   {krs.image ? (
                     <Image src={krs.image.src} alt={krs.image.alt} fill sizes="112px" className="object-cover" />
                   ) : (
-                    <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 text-primary" aria-hidden="true">
-                      <path d="M20 6l3.8 8.2 8.9 1.1-6.6 6.1 1.8 8.9L20 26l-7.9 4.3 1.8-8.9-6.6-6.1 8.9-1.1Z" />
-                    </svg>
+                    <span className="font-display text-4xl italic text-surface/70 transition-transform duration-500 group-hover:scale-110">
+                      Rs
+                    </span>
                   )}
                 </div>
               </div>

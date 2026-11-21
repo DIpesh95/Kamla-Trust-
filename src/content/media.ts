@@ -20,11 +20,26 @@ export const heroImage = {
 };
 
 /**
- * No real per-pillar photography is currently reachable (see note above). Each pillar page
- * instead uses a custom icon treatment (see components/pillar-icon.tsx) until real photos
- * are available.
+ * Full per-pillar photography is still not reachable for all five pillars (see note above), but
+ * two pillars already have a real, on-brand photo elsewhere on this site: the Yamuna Clean-Up is
+ * a Healthcare initiative, and Kanya Sneh Bandhan is a Women & Girl Child initiative. Reusing
+ * those real photos here (rather than a generic icon) for just those two; the remaining three
+ * pillars still render a typographic treatment until dedicated photography is available.
  */
-export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {};
+export const pillarImages: Record<string, { src: string; width: number; height: number; alt: string }> = {
+  healthcare: {
+    src: "/images/yamuna-drive.jpg",
+    width: 1080,
+    height: 720,
+    alt: "Yamuna Clean-Up and Anemia Awareness drive, Vrindavan",
+  },
+  "women-and-girl-child": {
+    src: "/images/gallery-kanya-sneh-bandhan-square.jpg",
+    width: 720,
+    height: 720,
+    alt: "Kanya Sneh Bandhan mass wedding ceremony, bride receiving a gift",
+  },
+};
 
 /**
  * Homepage "About" section photo. No dedicated trust/office photo exists yet. Uses a different

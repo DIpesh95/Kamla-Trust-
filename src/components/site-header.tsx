@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { primaryNav } from "@/content/nav";
 import { pillars } from "@/content/pillars";
@@ -18,15 +18,51 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    // Scroll fires far more often than the browser can paint; coalescing the
+    // read (scrollY) and the write (setScrolled) into one rAF per frame keeps
+    // this from forcing extra layout work on every event.
+    let ticking = false;
     function onScroll() {
-      setScrolled(window.scrollY > 72);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 72);
+        ticking = false;
+      });
     }
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Mobile menu: Escape closes it (returning focus to the toggle button),
+  // and a click outside the header also closes it, same as any real
+  // disclosure panel should behave.
+  useEffect(() => {
+    if (!open) return;
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+    function onOutsideClick(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("click", onOutsideClick, true);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("click", onOutsideClick, true);
+    };
+  }, [open]);
 
   const transparent = isHome && !scrolled && !open;
 
@@ -38,6 +74,7 @@ export function SiteHeader() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${
         transparent ? "bg-transparent" : "border-b border-line bg-surface/90 backdrop-blur-md"
       }`}
@@ -161,10 +198,12 @@ export function SiteHeader() {
             Donate
           </Link>
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label="Toggle menu"
+            aria-controls="mobile-nav-panel"
+            aria-label={open ? "Close menu" : "Open menu"}
             className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors lg:hidden ${
               transparent ? "border-surface/40 text-surface" : "border-line text-text"
             }`}
@@ -177,6 +216,7 @@ export function SiteHeader() {
       <AnimatePresence>
         {open ? (
           <motion.div
+            id="mobile-nav-panel"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
