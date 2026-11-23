@@ -3,27 +3,38 @@ import Image from "next/image";
 import { trust } from "@/content/trust";
 import { getYearsActive } from "@/content/stats";
 import { homeAboutImage } from "@/content/media";
-import { Reveal } from "./motion";
+import { ClipReveal, Reveal } from "./motion";
 import { Container } from "./container";
 
 export function AboutIntro() {
   return (
     <section className="bg-surface py-24 sm:py-32">
-      <Container className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <Reveal className="relative aspect-[4/5] w-full overflow-hidden rounded-sm lg:order-2">
-          <Image
-            src={homeAboutImage.src}
-            alt={homeAboutImage.alt}
-            fill
-            quality={95}
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover"
-          />
-        </Reveal>
+      <Container className="grid items-start gap-12 lg:grid-cols-12 lg:gap-8">
+        <div className="relative lg:col-span-6 lg:col-start-7">
+          <ClipReveal direction="right" className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+            <Image
+              src={homeAboutImage.src}
+              alt={homeAboutImage.alt}
+              fill
+              quality={95}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover"
+            />
+          </ClipReveal>
+          <Reveal
+            delay={0.3}
+            className="relative mt-[-3rem] ml-6 w-fit max-w-[14rem] border border-line bg-surface p-5 shadow-[0_18px_40px_-22px_rgba(37,33,38,0.25)] sm:mt-[-4rem] sm:ml-10"
+          >
+            <span className="font-display text-4xl font-medium leading-none text-primary">{getYearsActive()}</span>
+            <p className="mt-1.5 text-xs leading-snug text-text-muted">
+              years since {trust.founded}, still showing up.
+            </p>
+          </Reveal>
+        </div>
 
-        <Reveal y={24} className="flex flex-col gap-6 lg:order-1">
+        <Reveal y={24} className="flex flex-col gap-6 lg:col-span-6 lg:col-start-1 lg:row-start-1">
           <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">About Kamala Trust</p>
-          <h2 className="font-display max-w-md text-4xl font-medium italic leading-[1.1] text-text sm:text-5xl">
+          <h2 className="font-display max-w-md text-4xl font-medium leading-[1.1] text-text sm:text-5xl">
             {getYearsActive()} years of {trust.tagline.toLowerCase()}.
           </h2>
           <p className="max-w-md text-base leading-relaxed text-text-muted">

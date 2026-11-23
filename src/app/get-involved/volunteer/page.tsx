@@ -29,7 +29,7 @@ export default function VolunteerPage() {
           <p className="text-sm font-medium text-text">Where volunteers help</p>
           <ul className="flex flex-col gap-2">
             {pillars.map((pillar) => (
-              <li key={pillar.slug} className="rounded-xl border border-line bg-surface px-4 py-3 text-sm text-text-muted">
+              <li key={pillar.slug} className="border border-line bg-surface px-4 py-3 text-sm text-text-muted">
                 <span className="font-medium text-text">{pillar.name}</span>: {pillar.summary}
               </li>
             ))}

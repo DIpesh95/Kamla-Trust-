@@ -33,7 +33,7 @@ export default function ImpactPage() {
           <p className="font-sans text-xs font-medium uppercase tracking-[0.18em] text-primary">Per-pillar impact</p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pillars.map((pillar) => (
-              <div key={pillar.slug} className="rounded-sm border border-line bg-surface p-6">
+              <div key={pillar.slug} className="border border-line bg-surface p-6">
                 <p className="font-display text-lg font-medium text-text">{pillar.name}</p>
                 <div className="mt-2 text-sm">
                   <Fact value={pillar.stat} />
@@ -43,7 +43,7 @@ export default function ImpactPage() {
           </div>
         </Reveal>
 
-        <Reveal className="rounded-sm border border-line bg-surface p-7">
+        <Reveal className="border border-line bg-surface p-7">
           <p className="font-display text-lg font-medium text-text">Methodology & reports</p>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
             A “50k+ lives impacted” figure previously appeared on the trust’s site with no sourced

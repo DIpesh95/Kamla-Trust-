@@ -5,7 +5,7 @@ export function Fact({ value, className = "" }: { value: Verified<string>; class
   if (isPlaceholder(value)) {
     return (
       <span
-        className={`inline-flex items-center gap-1.5 rounded-md border border-dashed border-warn/50 bg-warn/10 px-2 py-0.5 text-[13px] text-warn ${className}`}
+        className={`inline-flex items-center gap-1.5 rounded-md bg-light-pink px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.06em] text-primary-strong ${className}`}
       >
         {value.note}
       </span>

@@ -15,7 +15,7 @@ const socials = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-line bg-text text-surface">
-      <div className="mx-auto grid w-full max-w-6xl gap-12 px-6 py-20 sm:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
+      <div className="mx-auto grid w-full max-w-[1320px] gap-12 px-[22px] py-20 sm:grid-cols-[1.3fr_1fr_1fr_1.2fr] sm:px-10 lg:px-[60px]">
         <div>
           <Link href="/" className="block w-56">
             <Image
@@ -94,7 +94,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a href={`mailto:${trust.email}`} className="transition-colors hover:text-secondary">
+              <a href={`mailto:${trust.email}`} className="break-all transition-colors hover:text-secondary">
                 {trust.email}
               </a>
             </li>
@@ -103,7 +103,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-surface/10">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-6 text-xs text-surface/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex w-full max-w-[1320px] flex-col gap-2 px-[22px] py-6 text-xs text-surface/45 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-[60px]">
           <p>
             © {new Date().getFullYear()} {trust.legalName}. All rights reserved.
           </p>

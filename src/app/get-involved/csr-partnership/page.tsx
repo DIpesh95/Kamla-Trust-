@@ -28,13 +28,13 @@ export default function CSRPartnershipPage() {
 
       <Container className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[1fr_1fr]">
         <div className="flex flex-col gap-6">
-          <div className="rounded-sm border border-line bg-surface p-6">
+          <div className="border border-line bg-surface p-6">
             <p className="font-display text-lg font-medium text-text">CSR-1 registration</p>
             <div className="mt-2 text-sm">
               <Fact value={{ pending: true, note: "CSR-1 (Registrar of Companies) status not yet confirmed. Required for companies to route CSR funds here." }} />
             </div>
           </div>
-          <div className="rounded-sm border border-line bg-surface p-6">
+          <div className="border border-line bg-surface p-6">
             <p className="font-display text-lg font-medium text-text">Where CSR funding fits</p>
             <p className="mt-2 text-sm leading-relaxed text-text-muted">
               Ongoing programs across education, healthcare, women &amp; child welfare, rural livelihoods,

@@ -7,6 +7,8 @@ export const newsroom: PressItem[] = [
     kind: "Press",
     description:
       "Times Magazine profiled Trustee Nidarshana Gowani’s work, including HPV vaccination drives and savings initiatives for commercial sex workers.",
+    quote:
+      "Profiling the work, not the title — a trustee who shows up for vaccination drives and savings circles alike.",
   },
   {
     title: "Lokmata Ahilyabai Holkar Mahila Samman 2026",

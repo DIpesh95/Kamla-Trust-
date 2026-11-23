@@ -27,7 +27,7 @@ export default function LeadershipPage() {
 
       <Container className="flex flex-col gap-20 py-16 sm:py-24">
         <Reveal className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
-          <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-sm bg-text">
+          <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden bg-text">
             <span className="font-display text-[10rem] italic text-secondary/90">
               {lead.name.split(" ").filter((w) => /^[A-Za-z]/.test(w))[1]?.[0] ?? lead.name[0]}
             </span>
@@ -63,7 +63,7 @@ export default function LeadershipPage() {
             </Reveal>
             <div className="grid gap-6 sm:grid-cols-2">
               {rest.map((person, i) => (
-                <Reveal key={person.name} delay={i * 0.08} className="rounded-sm border border-line bg-soft-bg p-7">
+                <Reveal key={person.name} delay={i * 0.08} className="border border-line bg-soft-bg p-7">
                   <p className="font-display text-xl font-medium text-text">{person.name}</p>
                   <p className="mt-1 text-sm font-medium text-primary-strong">{person.role}</p>
                   <p className="mt-3 text-sm leading-relaxed text-text-muted">{person.bio}</p>
@@ -73,7 +73,7 @@ export default function LeadershipPage() {
           </div>
         ) : null}
 
-        <Reveal className="rounded-sm border border-dashed border-warn/50 bg-warn/5 p-6">
+        <Reveal className="border border-dashed border-warn/50 bg-warn/5 p-6">
           <p className="text-sm font-semibold text-warn">Content gap</p>
           <p className="mt-1.5 max-w-2xl text-sm text-text-muted">
             The trust’s governing board may include additional trustees not named on the current site, and no

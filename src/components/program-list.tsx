@@ -8,7 +8,7 @@ export function ProgramList({ initiatives }: { initiatives: Initiative[] }) {
       {initiatives.map((initiative, i) => (
         <Reveal key={initiative.name} delay={Math.min(i, 6) * 0.05}>
           <div className="group grid grid-cols-[2.5rem_1fr] gap-4 border-t border-line py-7 first:border-t-0 sm:grid-cols-[3.5rem_1fr]">
-            <span className="font-display text-xl italic text-primary/70 transition-colors group-hover:text-primary sm:text-2xl">
+            <span className="font-display text-xl text-primary/70 transition-colors group-hover:text-primary sm:text-2xl">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="flex flex-col gap-2">

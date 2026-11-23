@@ -11,7 +11,6 @@ export const primaryNav: NavLink[] = [
     children: [
       { label: "Our Story", href: "/about" },
       { label: "Leadership", href: "/about/leadership" },
-      { label: "Registration & Transparency", href: "/about/transparency" },
     ],
   },
   { label: "Our Work", href: "/our-work" },

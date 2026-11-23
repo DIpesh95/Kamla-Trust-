@@ -29,9 +29,9 @@ export const flagshipPrograms: FlagshipProgram[] = [
     blurb:
       "An annual walk for humanity, honouring people across communities: transgender individuals, tribal women, sex workers, acid-attack survivors, the elderly, and cancer patients.",
     story:
-      "Some communities are only ever spoken about. This is a day they're spoken to, and with. Six groups the country too often looks past, honoured in the same room, on the same terms.",
+      "Some communities are only ever spoken about. This is a day they're spoken to, and with. Six communities the country too often looks past, honoured in the same room, on the same terms.",
     year: "Annual",
-    impact: "6 communities honoured each year",
+    impact: "Six communities honoured each year",
     image: {
       src: "/images/pillars-of-humanity-2024.jpg",
       alt: "Pillars of Humanity Fashion Show, 23rd February 2024, Gateway of India, Mumbai",

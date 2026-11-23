@@ -44,7 +44,7 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <aside className="flex h-fit flex-col gap-4 rounded-sm border border-line bg-soft-bg p-6">
+            <aside className="flex h-fit flex-col gap-4 border border-line bg-soft-bg p-6">
               <p className="font-sans text-xs font-medium uppercase tracking-[0.18em] text-text-muted">At a glance</p>
               <dl className="flex flex-col gap-3 text-sm">
                 <div>
@@ -67,14 +67,14 @@ export default function AboutPage() {
         <div>
           <Reveal className="mb-10 max-w-xl">
             <p className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">1969 → Today</p>
-            <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
+            <h2 className="mt-4 font-display text-4xl font-medium text-text sm:text-5xl">
               Five decades, in four moments.
             </h2>
           </Reveal>
           <Timeline />
         </div>
 
-        <Reveal className="rounded-sm border border-dashed border-warn/50 bg-warn/5 p-6">
+        <Reveal className="border border-dashed border-warn/50 bg-warn/5 p-6">
           <p className="text-sm font-semibold text-warn">Needs trustee confirmation</p>
           <p className="mt-1.5 max-w-2xl text-sm text-text-muted">{trust.relatedEntityNote}</p>
         </Reveal>

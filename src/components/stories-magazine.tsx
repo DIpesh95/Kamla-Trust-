@@ -1,53 +1,46 @@
 import { storySlots } from "@/content/stories";
 import { Reveal } from "./motion";
 
-function PhotoPending({ className = "" }: { className?: string }) {
+function PersonGlyph({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={`flex flex-col items-center justify-center gap-2 border border-dashed border-line bg-soft-bg px-4 text-center ${className}`}
-    >
-      <span className="text-[10px] font-semibold uppercase tracking-wide text-text-muted">Photo pending</span>
-      <span className="text-[10px] leading-snug text-text-muted/80">Real photo &amp; interview not yet available</span>
-    </div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className} aria-hidden="true">
+      <circle cx="12" cy="8" r="3.4" />
+      <path d="M5 20c0-3.9 3.1-6.6 7-6.6s7 2.7 7 6.6" />
+    </svg>
   );
 }
 
+/** Approved `.frame` treatment: thin burgundy border around the whole card, a `.story-well`
+ * gradient photo area with a centered person glyph + italic "Photograph to follow" caption,
+ * then a thick burgundy rule separating the photo from the story text below. All three story
+ * slots render with identical chrome and the same full disclosure text, matching the live site's
+ * equal-weight treatment rather than singling one story out as "featured." */
 export function StoriesMagazine() {
-  const [featured, ...rest] = storySlots;
-
   return (
-    <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
-      <Reveal className="lg:w-3/5">
-        <article className="group">
-          <PhotoPending className="aspect-[4/3] w-full rounded-sm" />
-          <div className="mt-6 flex flex-col gap-3">
-            <span className="w-fit font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              {featured.pillar}
-            </span>
-            <h3 className="font-display text-3xl font-medium italic text-text sm:text-4xl">{featured.title}</h3>
-            <p className="max-w-lg text-base leading-relaxed text-text-muted">{featured.prompt}</p>
-            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Awaiting interview</span>
+    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+      {storySlots.map((slot, i) => (
+        <Reveal key={slot.slug} delay={i * 0.08} className="flex flex-col border border-primary">
+          <div className="story-well flex aspect-[4/3] w-full flex-col items-center justify-center gap-3">
+            <PersonGlyph className="h-9 w-9 text-primary" />
+            <span className="font-display text-sm italic text-primary">Photograph to follow</span>
           </div>
-        </article>
-      </Reveal>
-
-      <div className="flex flex-col gap-8 lg:w-2/5">
-        {rest.map((slot, i) => (
-          <Reveal key={slot.slug} delay={0.1 + i * 0.08}>
-            <article className="group flex gap-5">
-              <PhotoPending className="h-28 w-28 shrink-0 rounded-sm sm:h-32 sm:w-32" />
-              <div className="flex flex-col gap-1.5">
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
-                  {slot.pillar}
-                </span>
-                <h4 className="font-display text-xl font-medium text-text">{slot.title}</h4>
-                <p className="text-sm leading-snug text-text-muted">{slot.prompt}</p>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Awaiting interview</span>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </div>
+          <div className="h-[3px] w-full bg-primary" />
+          <div className="flex flex-col gap-3 p-6 sm:p-7">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <span className="text-xs font-semibold uppercase tracking-[0.1em] text-primary">{slot.pillar}</span>
+              <span className="w-fit border border-primary px-2 py-[3px] text-[10.5px] font-semibold uppercase tracking-[0.1em] text-primary">
+                Awaiting interview
+              </span>
+            </div>
+            <h3 className="font-display text-2xl font-medium text-text sm:text-[28px]">&ldquo;{slot.title}&rdquo;</h3>
+            <p className="max-w-lg text-base leading-relaxed text-text-muted">{slot.prompt}</p>
+            <p className="mt-2 border-t border-line pt-4 text-xs text-text-muted">
+              Real photo &amp; interview not yet available &mdash; this card will carry an actual story once one is
+              recorded.
+            </p>
+          </div>
+        </Reveal>
+      ))}
     </div>
   );
 }

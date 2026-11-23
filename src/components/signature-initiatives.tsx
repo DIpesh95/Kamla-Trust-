@@ -12,7 +12,7 @@ export function SignatureInitiatives() {
       <Container className="flex flex-col gap-14">
         <Reveal>
           <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Signature initiatives</p>
-          <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
+          <h2 className="mt-4 font-display text-4xl font-medium text-text sm:text-5xl">
             Three traditions, carried every year.
           </h2>
         </Reveal>
@@ -21,7 +21,7 @@ export function SignatureInitiatives() {
         <Reveal>
           <Link
             href={`/#${kpw.slug}`}
-            className="group relative block overflow-hidden rounded-sm"
+            className="group relative block overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-surface"
           >
             <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
               <Image
@@ -48,9 +48,12 @@ export function SignatureInitiatives() {
 
         <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           {/* 2. Pillars of Humanity: portrait, stat-forward */}
-          <Reveal delay={0.05} className="group relative overflow-hidden rounded-sm border border-line">
-            <Link href={`/#${poh.slug}`}>
-              <div className="relative aspect-[3/4] w-full">
+          <Reveal delay={0.05} className="group relative overflow-hidden border border-line">
+            <Link
+              href={`/#${poh.slug}`}
+              className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-surface"
+            >
+              <div className="relative aspect-[3/4] max-h-[700px] w-full lg:max-h-none">
                 <Image
                   src={poh.image!.src}
                   alt={poh.image!.alt}
@@ -62,7 +65,7 @@ export function SignatureInitiatives() {
                 <div className="absolute inset-0 bg-gradient-to-t from-text/85 via-text/10 to-transparent" />
               </div>
               <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2 p-7">
-                <span className="font-display text-6xl font-medium italic leading-none text-secondary">6</span>
+                <span className="font-display text-6xl font-medium tabular-nums leading-none text-secondary">6</span>
                 <span className="text-xs font-medium uppercase tracking-[0.18em] text-surface/70">{poh.impact}</span>
                 <h3 className="mt-2 font-display text-2xl font-medium text-surface">{poh.name}</h3>
                 <p className="text-sm text-surface/75">{poh.blurb}</p>
@@ -71,15 +74,18 @@ export function SignatureInitiatives() {
           </Reveal>
 
           {/* 3. Kamala Rising Star: text-forward, small accent image */}
-          <Reveal delay={0.1} className="group flex flex-col justify-between gap-8 rounded-sm border border-line bg-surface p-8 sm:p-10">
-            <Link href={`/#${krs.slug}`} className="flex flex-1 flex-col justify-between gap-8">
+          <Reveal delay={0.1} className="group flex flex-col justify-between gap-8 border border-line bg-surface p-8 sm:p-10">
+            <Link
+              href={`/#${krs.slug}`}
+              className="flex flex-1 flex-col justify-between gap-8 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+            >
               <div className="flex items-start justify-between gap-6">
                 <div className="flex flex-col gap-4">
                   <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">{krs.year}</span>
                   <h3 className="font-display text-3xl font-medium text-text sm:text-4xl">{krs.name}</h3>
                   <p className="max-w-sm text-sm leading-relaxed text-text-muted sm:text-base">{krs.story}</p>
                 </div>
-                <div className="relative hidden h-28 w-28 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-soft-bg sm:flex">
+                <div className="relative hidden h-28 w-28 shrink-0 items-center justify-center overflow-hidden bg-soft-bg sm:flex">
                   {krs.image ? (
                     <Image src={krs.image.src} alt={krs.image.alt} fill sizes="112px" className="object-cover" />
                   ) : (

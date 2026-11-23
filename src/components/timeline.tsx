@@ -1,4 +1,4 @@
-import { getYearsActive } from "@/content/stats";
+import { getYearsActive, getActiveProgramCount } from "@/content/stats";
 import { trust } from "@/content/trust";
 import { Reveal } from "./motion";
 
@@ -17,7 +17,7 @@ const milestones = [
   },
   {
     year: "Today",
-    text: `${getYearsActive()} years on. 30+ active programs, across education, healthcare, women & girl child, rural livelihoods, and civic life.`,
+    text: `${getYearsActive()} years on. ${getActiveProgramCount()}+ active programs, across education, healthcare, women & girl child, rural livelihoods, and civic life.`,
   },
 ];
 
@@ -25,13 +25,17 @@ export function Timeline() {
   return (
     <div className="relative flex flex-col gap-14 border-l border-line pl-9 sm:gap-20 sm:pl-14">
       {milestones.map((m, i) => (
-        <Reveal key={m.year} delay={i * 0.08} className="relative">
+        <Reveal key={m.year} delay={i * 0.08} className="group relative cursor-default">
           <span
             aria-hidden="true"
-            className="absolute -left-[2.65rem] top-2 h-2.5 w-2.5 rounded-full bg-primary sm:-left-[3.65rem]"
+            className="absolute -left-[2.65rem] top-2 h-2.5 w-2.5 rounded-full bg-primary transition-transform duration-300 ease-out group-hover:scale-150 sm:-left-[3.65rem]"
           />
-          <span className="font-display text-5xl italic leading-none text-primary sm:text-7xl">{m.year}</span>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-text-muted sm:text-lg">{m.text}</p>
+          <span className="font-display text-5xl italic leading-none text-primary transition-colors duration-300 group-hover:text-burgundy-glow sm:text-7xl">
+            {m.year}
+          </span>
+          <p className="mt-4 max-w-lg text-base leading-relaxed text-text-muted transition-transform duration-300 ease-out group-hover:translate-x-1.5 sm:text-lg">
+            {m.text}
+          </p>
         </Reveal>
       ))}
     </div>

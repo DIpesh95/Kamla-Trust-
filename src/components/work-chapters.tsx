@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { pillars } from "@/content/pillars";
 import { pillarImages } from "@/content/media";
-import { PillarIcon } from "./pillar-icon";
 import { Reveal } from "./motion";
 
 const emotionalLine: Record<string, string> = {
@@ -13,60 +12,109 @@ const emotionalLine: Record<string, string> = {
   "disaster-relief-civic-recognition": "Because showing up matters most when it's hardest.",
 };
 
-export function WorkChapters() {
+function Tag({ children, onDark }: { children: React.ReactNode; onDark: boolean }) {
   return (
-    <div className="flex flex-col">
-      {pillars.map((pillar, i) => {
-        const image = pillarImages[pillar.slug];
-        const imageRight = i % 2 === 0;
-        return (
-          <Reveal key={pillar.slug} y={30} className="border-t border-line py-14 first:border-t-0 sm:py-20">
-            <Link
-              href={`/our-work/${pillar.slug}`}
-              className={`group grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
-                imageRight ? "" : "lg:[&>*:first-child]:order-2"
-              }`}
-            >
-              <div className="flex flex-col gap-5">
-                <span className="font-display text-sm italic text-primary">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-4xl font-medium leading-[1.05] text-text sm:text-5xl">
-                  {pillar.name}
-                </h3>
-                <p className="max-w-md font-display text-xl italic leading-snug text-text-muted">
-                  {emotionalLine[pillar.slug]}
-                </p>
-                <span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong">
-                  Explore programs
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1.5">
-                    →
-                  </span>
-                </span>
-              </div>
+    <span
+      className={`inline-flex w-fit items-center border px-3 py-[7px] text-[10.5px] font-semibold uppercase tracking-[0.12em] ${
+        onDark ? "border-surface/55 text-surface" : "border-primary text-primary"
+      }`}
+    >
+      {children}
+    </span>
+  );
+}
 
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
-                {image ? (
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(min-width: 1024px) 45vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex h-full w-full items-center justify-center bg-soft-bg">
-                    <PillarIcon
-                      slug={pillar.slug}
-                      className="h-20 w-20 text-primary transition-transform duration-700 ease-out group-hover:scale-110 sm:h-28 sm:w-28"
-                    />
-                  </div>
-                )}
-              </div>
-            </Link>
-          </Reveal>
-        );
-      })}
+/** Row 1: the two pillars with a real, approved photograph — full-bleed with a bottom scrim. */
+function PhotoFeature({ index, slug, name, summary }: { index: number; slug: string; name: string; summary: string }) {
+  const image = pillarImages[slug];
+  if (!image) return null;
+
+  return (
+    <Reveal y={24} delay={index * 0.05}>
+      <Link
+        href={`/our-work/${slug}`}
+        className="group relative block aspect-[4/5] w-full overflow-hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-surface lg:aspect-[2/1]"
+      >
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(min-width: 640px) 50vw, 100vw"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-[72%]"
+          style={{ background: "linear-gradient(0deg, rgba(8,3,6,.94), rgba(8,3,6,0) 100%)" }}
+        />
+        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-2.5 p-6 sm:p-7">
+          <Tag onDark>
+            {String(index).padStart(2, "0")} &middot; {name}
+          </Tag>
+          <h3 className="font-display text-2xl font-medium leading-snug text-surface sm:text-[28px]">
+            {emotionalLine[slug]}
+          </h3>
+          <p className="max-w-md text-sm text-surface/70">{summary}</p>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
+
+/** Row 2, photo-pending slot: Education always, plus Rural Livelihoods / Disaster Relief until
+ * their approved assets (cleanliness-drive.webp, honouring-workers.webp) are supplied — ivory
+ * background, bordered tag, large burgundy numeral, plain typographic pending caption. No
+ * gradient, no icon: this is the approved "photography not yet available" treatment, not a
+ * substitute photo. */
+function PendingCard({ index, slug, name, summary }: { index: number; slug: string; name: string; summary: string }) {
+  return (
+    <Reveal y={24} delay={index * 0.05}>
+      <Link
+        href={`/our-work/${slug}`}
+        className="group flex aspect-[2/1] w-full flex-col justify-between overflow-hidden bg-soft-bg p-6 sm:p-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-primary"
+      >
+        <Tag onDark={false}>
+          {String(index).padStart(2, "0")} &middot; {name}
+        </Tag>
+        <div className="flex flex-col gap-2">
+          <span className="font-display text-4xl font-semibold leading-none text-primary">
+            {String(index).padStart(2, "0")}
+          </span>
+          <p className="line-clamp-2 max-w-[26ch] text-sm leading-snug text-text-muted">{summary}</p>
+          <span className="text-xs text-text-muted/70">Programme photography pending</span>
+        </div>
+      </Link>
+    </Reveal>
+  );
+}
+
+export function WorkChapters() {
+  const bySlug = (slug: string) => pillars.find((p) => p.slug === slug)!;
+  const women = bySlug("women-and-girl-child");
+  const healthcare = bySlug("healthcare");
+  const education = bySlug("education");
+  const rural = bySlug("rural-livelihoods-environment");
+  const disaster = bySlug("disaster-relief-civic-recognition");
+
+  return (
+    <div className="flex flex-col gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+        <PhotoFeature index={1} slug={women.slug} name={women.shortName} summary={women.summary} />
+        <PhotoFeature index={2} slug={healthcare.slug} name={healthcare.shortName} summary={healthcare.summary} />
+      </div>
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <PendingCard index={3} slug={education.slug} name={education.shortName} summary={education.summary} />
+        {pillarImages[rural.slug] ? (
+          <PhotoFeature index={4} slug={rural.slug} name={rural.shortName} summary={rural.summary} />
+        ) : (
+          <PendingCard index={4} slug={rural.slug} name={rural.shortName} summary={rural.summary} />
+        )}
+        {pillarImages[disaster.slug] ? (
+          <PhotoFeature index={5} slug={disaster.slug} name={disaster.shortName} summary={disaster.summary} />
+        ) : (
+          <PendingCard index={5} slug={disaster.slug} name={disaster.shortName} summary={disaster.summary} />
+        )}
+      </div>
     </div>
   );
 }

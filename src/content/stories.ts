@@ -16,7 +16,8 @@ export const storySlots: StorySlot[] = [
     slug: "kanya-sneh-bandhan-couple",
     pillar: "Women & Girl Child",
     title: "A wedding day, a year on",
-    prompt: "A Kanya Sneh Bandhan couple, on the day of their wedding and a year on.",
+    prompt:
+      "A Kanya Sneh Bandhan couple, on their wedding day and a year on — in their own words, once the interview is complete.",
   },
   {
     slug: "hpv-vaccination-recipient",

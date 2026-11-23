@@ -58,6 +58,8 @@ export type PressItem = {
   kind: "Press" | "Recognition" | "Event" | "Community";
   description: string;
   image?: { src: string; alt: string };
+  /** Pull-quote for the featured text-only treatment (currently only the Press profile). */
+  quote?: string;
 };
 
 export type HeadlineStat = {

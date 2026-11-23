@@ -30,23 +30,17 @@ export default function DonatePage() {
 
       <Container className="grid gap-10 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr]">
         <div className="flex flex-col gap-6">
-          <div className="rounded-sm border border-line bg-surface p-6">
+          <div className="border border-line bg-surface p-6">
             <p className="font-display text-lg font-medium text-text">Bank transfer / UPI</p>
             <div className="mt-2 text-sm">
               <Fact value={paymentDetails} />
             </div>
           </div>
-          <div className="rounded-sm border border-line bg-surface p-6">
+          <div className="border border-line bg-surface p-6">
             <p className="font-display text-lg font-medium text-text">Tax deduction</p>
-            <p className="mt-2 text-sm leading-relaxed text-text-muted">
-              80G eligibility isn&rsquo;t confirmed yet, see{" "}
-              <Link href="/about/transparency" className="font-medium text-primary-strong">
-                Registration &amp; Transparency
-              </Link>
-              .
-            </p>
+            <p className="mt-2 text-sm leading-relaxed text-text-muted">80G eligibility isn&rsquo;t confirmed yet.</p>
           </div>
-          <div className="rounded-sm border border-line bg-surface p-6">
+          <div className="border border-line bg-surface p-6">
             <p className="font-display text-lg font-medium text-text">Giving at scale</p>
             <p className="mt-2 text-sm leading-relaxed text-text-muted">
               For CSR-scale giving, see{" "}

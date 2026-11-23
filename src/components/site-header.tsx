@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { primaryNav } from "@/content/nav";
 import { pillars } from "@/content/pillars";
@@ -18,6 +18,8 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     function onScroll() {
@@ -27,6 +29,29 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Mobile menu: Escape closes it (returning focus to the toggle button), and a click
+  // outside the header also closes it, same as any real disclosure panel should behave.
+  useEffect(() => {
+    if (!open) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+    function onOutsideClick(e: MouseEvent) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("click", onOutsideClick, true);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("click", onOutsideClick, true);
+    };
+  }, [open]);
 
   const transparent = isHome && !scrolled && !open;
 
@@ -38,16 +63,17 @@ export function SiteHeader() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${
         transparent ? "bg-transparent" : "border-b border-line bg-surface/90 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
+      <div className="mx-auto flex w-full max-w-[1320px] items-center justify-between gap-4 px-[22px] py-4 sm:px-10 lg:px-[60px]">
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className={`flex items-center gap-2 transition-colors duration-500 ${
-            transparent ? "text-surface" : "text-text"
+          className={`flex items-center gap-2 rounded-sm transition-colors duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
+            transparent ? "text-surface focus-visible:outline-surface" : "text-text focus-visible:outline-primary-strong"
           }`}
         >
           <Logomark className={`h-7 w-7 ${transparent ? "text-surface" : "text-primary"}`} />
@@ -76,7 +102,9 @@ export function SiteHeader() {
                 <Link
                   href={item.href}
                   onClick={() => setOpenMenu(null)}
-                  className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[13px] font-medium uppercase tracking-[0.04em] transition-colors ${linkColor}`}
+                  className={`flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium uppercase tracking-[0.04em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                    transparent ? "focus-visible:outline-surface" : "focus-visible:outline-primary-strong"
+                  } ${linkColor}`}
                 >
                   {item.label}
                   {hasMenu ? (
@@ -88,7 +116,7 @@ export function SiteHeader() {
 
                 {isOurWork ? (
                   <div
-                    className={`absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 rounded-2xl border border-line bg-surface p-4 shadow-xl transition-all ${panelVisibility}`}
+                    className={`absolute left-1/2 top-full z-50 w-[640px] -translate-x-1/2 border border-line bg-surface p-4 shadow-xl transition-all ${panelVisibility}`}
                   >
                     <div className="grid grid-cols-3 gap-2">
                       {pillars.map((pillar) => {
@@ -98,7 +126,7 @@ export function SiteHeader() {
                             key={pillar.slug}
                             href={`/our-work/${pillar.slug}`}
                             onClick={() => setOpenMenu(null)}
-                            className="group/card flex flex-col overflow-hidden rounded-xl border border-line hover:border-primary/40"
+                            className="group/card flex flex-col overflow-hidden border border-line hover:border-primary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
                           >
                             <div className="relative flex h-20 w-full items-center justify-center bg-soft-bg">
                               {image ? (
@@ -124,21 +152,21 @@ export function SiteHeader() {
                     <Link
                       href="/our-work"
                       onClick={() => setOpenMenu(null)}
-                      className="mt-3 block rounded-lg px-3 py-2 text-center text-sm font-semibold text-primary-strong hover:bg-soft-bg"
+                      className="mt-3 block px-3 py-2 text-center text-sm font-semibold text-primary-strong hover:bg-soft-bg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
                     >
                       View all our work →
                     </Link>
                   </div>
                 ) : item.children ? (
                   <div
-                    className={`absolute left-0 top-full z-50 min-w-56 rounded-xl border border-line bg-surface p-1.5 shadow-lg transition-all ${panelVisibility}`}
+                    className={`absolute left-0 top-full z-50 min-w-56 border border-line bg-surface p-1.5 shadow-lg transition-all ${panelVisibility}`}
                   >
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
                         onClick={() => setOpenMenu(null)}
-                        className="block rounded-lg px-3 py-2 text-sm text-text-muted hover:bg-soft-bg hover:text-primary-strong"
+                        className="block px-3 py-2 text-sm text-text-muted hover:bg-soft-bg hover:text-primary-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
                       >
                         {child.label}
                       </Link>
@@ -156,17 +184,19 @@ export function SiteHeader() {
           </span>
           <Link
             href="/get-involved/donate"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:bg-primary-strong sm:inline-flex"
+            className="hidden bg-primary px-5 py-2.5 text-[13px] font-semibold uppercase tracking-[0.04em] text-surface transition-colors hover:bg-primary-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong sm:inline-flex"
           >
             Donate
           </Link>
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-label="Toggle menu"
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors lg:hidden ${
-              transparent ? "border-surface/40 text-surface" : "border-line text-text"
+            aria-controls="mobile-nav-panel"
+            aria-label={open ? "Close menu" : "Open menu"}
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden ${
+              transparent ? "border-surface/40 text-surface focus-visible:outline-surface" : "border-line text-text focus-visible:outline-primary-strong"
             }`}
           >
             <span aria-hidden="true">{open ? "✕" : "☰"}</span>
@@ -177,6 +207,7 @@ export function SiteHeader() {
       <AnimatePresence>
         {open ? (
           <motion.div
+            id="mobile-nav-panel"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -189,7 +220,7 @@ export function SiteHeader() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-text"
+                    className="block px-3 py-2.5 text-sm font-medium text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
                   >
                     {item.label}
                   </Link>
@@ -200,7 +231,7 @@ export function SiteHeader() {
                           key={pillar.slug}
                           href={`/our-work/${pillar.slug}`}
                           onClick={() => setOpen(false)}
-                          className="rounded-lg px-3 py-2 text-sm text-text-muted"
+                          className="px-3 py-2 text-sm text-text-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
                         >
                           {pillar.name}
                         </Link>
@@ -213,7 +244,7 @@ export function SiteHeader() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setOpen(false)}
-                          className="rounded-lg px-3 py-2 text-sm text-text-muted"
+                          className="px-3 py-2 text-sm text-text-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
                         >
                           {child.label}
                         </Link>
@@ -225,7 +256,7 @@ export function SiteHeader() {
               <Link
                 href="/get-involved/donate"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold uppercase tracking-[0.04em] text-surface"
+                className="mt-2 bg-primary px-4 py-2.5 text-center text-sm font-semibold uppercase tracking-[0.04em] text-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
               >
                 Donate
               </Link>

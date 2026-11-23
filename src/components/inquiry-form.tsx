@@ -34,7 +34,7 @@ export function InquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 rounded-sm border border-line bg-surface p-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4 border border-line bg-surface p-6">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="flex flex-col gap-1.5 text-sm">
           <span className="font-medium text-text">Name</span>
@@ -42,7 +42,7 @@ export function InquiryForm({
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
+            className="border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
           />
         </label>
         <label className="flex flex-col gap-1.5 text-sm">
@@ -52,7 +52,7 @@ export function InquiryForm({
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
+            className="border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
           />
         </label>
       </div>
@@ -62,7 +62,7 @@ export function InquiryForm({
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
+            className="border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
           />
         </label>
       ) : null}
@@ -73,7 +73,7 @@ export function InquiryForm({
           rows={4}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="resize-none rounded-sm border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
+          className="resize-none border border-line bg-soft-bg px-3.5 py-2.5 text-text outline-none focus:border-primary"
         />
       </label>
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
@@ -82,7 +82,7 @@ export function InquiryForm({
         </p>
         <button
           type="submit"
-          className="shrink-0 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-surface transition-colors hover:bg-primary-strong"
+          className="shrink-0 bg-primary px-6 py-2.5 text-sm font-semibold text-surface transition-colors hover:bg-primary-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-strong"
         >
           {submitLabel}
         </button>
