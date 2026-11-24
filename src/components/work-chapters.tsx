@@ -64,7 +64,7 @@ export function WorkChapters() {
 
       <div className="mt-5 flex items-center justify-between gap-6">
         {/* Scroll progress */}
-        <div className="h-1 flex-1 overflow-hidden rounded-full bg-line">
+        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-primary/15">
           <div
             className="h-full rounded-full bg-primary transition-[width] duration-150 ease-out"
             style={{ width: `${Math.max(8, progress * 100)}%` }}

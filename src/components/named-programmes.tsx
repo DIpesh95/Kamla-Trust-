@@ -24,12 +24,11 @@ const slots: Slot[] = [
   { pillarSlug: "education", initiativeName: "Commerce College & Hostel, Bhinmal" },
   { pillarSlug: "rural-livelihoods-environment", initiativeName: "Renewable Power Plants" },
   {
+    // No distinct, unused Tiranga Rally photo is available (the only source photo is already
+    // used in the hero carousel), so this falls back to the icon/pattern treatment rather than
+    // referencing a missing file or repeating the hero image.
     pillarSlug: "disaster-relief-civic-recognition",
     initiativeName: "Tiranga Rally",
-    image: {
-      src: "/images/programme-tiranga-rally.jpg",
-      alt: "Tiranga Rally, Mumbai",
-    },
   },
 ];
 

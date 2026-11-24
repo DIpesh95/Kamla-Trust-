@@ -1,16 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { newsroom } from "@/content/newsroom";
 import type { PressItem } from "@/content/types";
 import { Fact } from "./fact";
 import { Reveal, RevealImage } from "./motion";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "framer-motion";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
 const categories: PressItem["kind"][] = ["Press", "Recognition", "Event", "Community"];
+
+/**
+ * Plain CSS mount-triggered fade, not Framer's AnimatePresence: the exit/enter crossfade proved
+ * unreliable in this app (see hero.tsx, signature-events.tsx), so slide changes here just fade
+ * the new content in without animating the old content out.
+ */
+function FadeIn({ id, children }: { id: string; children: React.ReactNode }) {
+  const [settled, setSettled] = useState(false);
+  const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const t = setTimeout(() => setSettled(true), 20);
+    return () => clearTimeout(t);
+  }, [id]);
+
+  return (
+    <div
+      className="transition-opacity ease-out"
+      style={{ opacity: settled ? 1 : 0, transitionDuration: reduceMotion ? "0ms" : "500ms" }}
+    >
+      {children}
+    </div>
+  );
+}
 
 function Row({ item }: { item: PressItem }) {
   return (
@@ -43,50 +66,41 @@ function FeatureSlider({ items }: { items: PressItem[] }) {
   const withPhoto = items.filter((i) => i.image);
   const slides = withPhoto.length ? withPhoto : items.slice(0, 1);
   const [active, setActive] = useState(0);
-  const reduceMotion = useReducedMotion();
   const featured = slides[active];
   const rest = items.filter((i) => i !== featured).slice(0, 3);
 
   return (
     <div className="flex flex-col gap-8">
       <div className="relative overflow-hidden rounded-sm">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={featured.title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0.15 : 0.5, ease: EASE }}
-          >
-            <Link href="/newsroom" className="group relative block">
-              <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
-                {featured.image ? (
-                  <RevealImage className="absolute inset-0">
-                    <Image
-                      src={featured.image.src}
-                      alt={featured.image.alt}
-                      fill
-                      quality={92}
-                      sizes="100vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  </RevealImage>
-                ) : (
-                  <div className="h-full w-full bg-text" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/25 to-transparent" />
-              </div>
-              <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-7 sm:p-10">
-                <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-secondary">
-                  {featured.kind}
-                </span>
-                <h3 className="font-display text-3xl font-medium text-surface sm:text-5xl">{featured.title}</h3>
-                <p className="max-w-lg text-sm text-surface/80 sm:text-base">{featured.description}</p>
-                <Fact value={featured.date} className="text-xs uppercase tracking-[0.1em] text-surface/70" />
-              </div>
-            </Link>
-          </motion.div>
-        </AnimatePresence>
+        <FadeIn key={featured.title} id={featured.title}>
+          <Link href="/newsroom" className="group relative block">
+            <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
+              {featured.image ? (
+                <RevealImage className="absolute inset-0">
+                  <Image
+                    src={featured.image.src}
+                    alt={featured.image.alt}
+                    fill
+                    quality={92}
+                    sizes="100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </RevealImage>
+              ) : (
+                <div className="h-full w-full bg-text" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/25 to-transparent" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-7 sm:p-10">
+              <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-secondary">
+                {featured.kind}
+              </span>
+              <h3 className="font-display text-3xl font-medium text-surface sm:text-5xl">{featured.title}</h3>
+              <p className="max-w-lg text-sm text-surface/80 sm:text-base">{featured.description}</p>
+              <Fact value={featured.date} className="text-xs uppercase tracking-[0.1em] text-surface/70" />
+            </div>
+          </Link>
+        </FadeIn>
 
         {slides.length > 1 ? (
           <div className="absolute right-6 top-6 flex gap-1.5">

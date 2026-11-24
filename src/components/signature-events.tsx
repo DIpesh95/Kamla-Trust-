@@ -14,6 +14,12 @@ const patterns: Record<string, string> = {
   "kamala-rising-star": "linear-gradient(150deg, #5c1636 0%, #251f21 70%)",
 };
 
+/** Per-programme crop focus, so faces stay fully visible in each photo's particular framing. */
+const imageFocus: Record<string, string> = {
+  "kamala-power-women-awards": "object-[center_18%]",
+  "pillars-of-humanity": "object-[center_35%]",
+};
+
 /**
  * Plain CSS mount-triggered fade, not Framer's AnimatePresence: the exit/enter crossfade proved
  * unreliable in this app (the same issue hit the hero's image transitions — see hero.tsx), so
@@ -95,7 +101,9 @@ export function SignatureEvents() {
                     fill
                     quality={92}
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover object-[center_28%] transition-transform duration-700 ease-out group-hover:scale-105"
+                    className={`object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                      imageFocus[program.slug] ?? "object-[center_28%]"
+                    }`}
                   />
                 </RevealImage>
               ) : (

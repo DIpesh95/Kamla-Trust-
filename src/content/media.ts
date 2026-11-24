@@ -158,14 +158,10 @@ export const eventGallery = [
     alt: "Yamuna Clean-Up & Anaemia Awareness drive in Vrindavan",
     caption: "Yamuna Clean-Up & Anaemia Awareness, Vrindavan",
   },
-  {
-    src: "/images/hero-kanya-sneh-bandhan-alt.jpg",
-    width: 1080,
-    height: 720,
-    alt: "Kanya Sneh Bandhan mass wedding ceremony",
-    caption: "Kanya Sneh Bandhan, 25 couples married",
-  },
 ];
+// Kanya Sneh Bandhan is capped at two photographs here (ceremony + reception) so the gallery
+// doesn't over-represent a single event; a third Kanya Sneh Bandhan photo previously appeared
+// here and has been removed rather than repeated.
 
 /** Recognitions & Awards section photography: the Top 50 Influential Indians, London feature. */
 export const recognitionPhotos = {
