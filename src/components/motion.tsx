@@ -123,6 +123,58 @@ export function RevealItem({
   );
 }
 
+/** A horizontal line that draws left-to-right once, when it scrolls into view. */
+export function DrawLine({ className = "" }: { className?: string }) {
+  const { ref, active } = useRevealTrigger<HTMLDivElement>();
+  const reduceMotion = useReducedMotion();
+  return (
+    <motion.div
+      ref={ref}
+      className={`origin-left ${className}`}
+      initial={{ scaleX: 0 }}
+      animate={{ scaleX: active ? 1 : 0 }}
+      transition={{ duration: reduceMotion ? 0.2 : 1.4, ease: EASE }}
+    />
+  );
+}
+
+/**
+ * Wipes an image (or any content) into view with a clip-path reveal + gentle scale-down, the
+ * signature "editorial card" entrance (Tata Trusts-style). Built on the same scroll-trigger hook
+ * as Reveal, not Framer's own whileInView/AnimatePresence, which proved unreliable in this app.
+ */
+export function RevealImage({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const { ref, active } = useRevealTrigger<HTMLDivElement>();
+  const reduceMotion = useReducedMotion();
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`overflow-hidden ${className}`}
+      initial={{ clipPath: "inset(0 0 100% 0)" }}
+      animate={{ clipPath: active ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
+      transition={{ duration: reduceMotion ? 0.2 : 1.1, delay: reduceMotion ? 0 : delay, ease: EASE }}
+    >
+      <motion.div
+        className="h-full w-full"
+        initial={{ scale: 1.15 }}
+        animate={{ scale: active ? 1 : 1.15 }}
+        transition={{ duration: reduceMotion ? 0.2 : 1.3, delay: reduceMotion ? 0 : delay, ease: EASE }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+
 /** Animates the leading number in strings like "57", "50k+", "30+" from 0 to its value once in view. */
 export function CountUp({
   value,

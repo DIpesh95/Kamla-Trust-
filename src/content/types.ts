@@ -31,6 +31,7 @@ export type TrustProfile = {
   registeredOffice: string;
   phone: string;
   email: string;
+  trusteeEmail: string;
   registrationNumber: Verified<string>;
   exemption80G: Verified<string>;
   exemption12A: Verified<string>;

@@ -13,11 +13,18 @@ export const newsroom: PressItem[] = [
     date: "2026",
     kind: "Event",
     description:
-      "Kamala Power Women’s annual awards, honouring women across healthcare, journalism, education, art, entrepreneurship, and social work.",
+      "Kamala Power Women Award 4.0: Shri Nitin Gadkari presented the Lokmata Ahilyabai Holkar Mahila Samman, honouring women across healthcare, journalism, education, art, entrepreneurship, and social work.",
     image: {
-      src: "/images/lokmata-ahilyabai-holkar-2026.jpg",
-      alt: "Devendra Fadnavis speaking at the Lokmata Ahilyabai Holkar Mahila Samman 2026, NCPA",
+      src: "/images/kpw-lokmata-award.jpg",
+      alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026 awards ceremony",
     },
+  },
+  {
+    title: "Trendsetter Indians Awards 2023 & Khadiology",
+    date: "2023",
+    kind: "Recognition",
+    description:
+      "Nidarshana Gowani recognised at the Trendsetter Indians Awards 2023, alongside “Khadiology: A Walk for Awareness,” held under the Ankibai Ghamandiram Gowani Trust banner.",
   },
   {
     title: "Navbharat Times Utsav 2026",

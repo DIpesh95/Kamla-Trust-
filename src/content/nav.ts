@@ -15,6 +15,7 @@ export const primaryNav: NavLink[] = [
     ],
   },
   { label: "Our Work", href: "/our-work" },
+  { label: "Our Experiences", href: "/#annual-gatherings" },
   { label: "Our Impact", href: "/impact" },
   { label: "Stories", href: "/stories" },
   { label: "Newsroom", href: "/newsroom" },

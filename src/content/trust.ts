@@ -23,7 +23,8 @@ export const trust: TrustProfile = {
   registeredOffice:
     "2nd Floor, Kamala House, Kamala City, Senapati Bapat Marg, Lower Parel West, Mumbai, Maharashtra – 400013",
   phone: "+91 86570 05023",
-  email: "trustee@ankibaighamandiramgowanitrust.com",
+  email: "contact@kamalatrust.org",
+  trusteeEmail: "trustee@kamalatrust.org",
   registrationNumber: placeholder("Trust registration number not yet published; pending from trustees."),
   exemption80G: placeholder("80G tax-exemption status not yet published; pending from trustees."),
   exemption12A: placeholder("12A registration status not yet published; pending from trustees."),

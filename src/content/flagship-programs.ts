@@ -5,6 +5,7 @@ export type FlagshipProgram = {
   story: string;
   year: string;
   impact: string;
+  venue?: string;
   /** Omitted when no real, working photo is available; renders an icon fallback instead. */
   image?: { src: string; alt: string };
 };
@@ -18,9 +19,10 @@ export const flagshipPrograms: FlagshipProgram[] = [
       "Every year, women who've changed what's possible in their fields, healthcare, journalism, education, art, entrepreneurship, social work, are recognised on one stage. Not as a gesture, but as a record: these women did the work, and the work is seen.",
     year: "2026",
     impact: "20+ sectors recognised in the most recent edition",
+    venue: "NCPA, Mumbai",
     image: {
-      src: "/images/kamala-power-women-2026.jpg",
-      alt: "Lokmata Ahilyabai Holkar Mahila Samman 2026: award presented on stage",
+      src: "/images/lokmata-ahilyabai-holkar-2026.jpg",
+      alt: "Devendra Fadnavis speaking at the Lokmata Ahilyabai Holkar Mahila Samman 2026, NCPA",
     },
   },
   {
@@ -32,6 +34,7 @@ export const flagshipPrograms: FlagshipProgram[] = [
       "Some communities are only ever spoken about. This is a day they're spoken to, and with. Six groups the country too often looks past, honoured in the same room, on the same terms.",
     year: "Annual",
     impact: "6 communities honoured each year",
+    venue: "Gateway of India, Mumbai",
     image: {
       src: "/images/pillars-of-humanity-2024.jpg",
       alt: "Pillars of Humanity Fashion Show, 23rd February 2024, Gateway of India, Mumbai",

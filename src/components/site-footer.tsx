@@ -82,7 +82,7 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="font-sans text-xs font-medium uppercase tracking-[0.18em] text-surface/45">Stay updated</p>
           <div className="mt-4">
             <NewsletterForm />
@@ -94,7 +94,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a href={`mailto:${trust.email}`} className="transition-colors hover:text-secondary">
+              <a href={`mailto:${trust.email}`} className="break-all transition-colors hover:text-secondary">
                 {trust.email}
               </a>
             </li>

@@ -1,53 +1,62 @@
 import { storySlots } from "@/content/stories";
-import { Reveal } from "./motion";
+import { PillarIcon } from "./pillar-icon";
+import { RevealGroup, RevealItem } from "./motion";
 
-function PhotoPending({ className = "" }: { className?: string }) {
+const pillarSlugs: Record<string, string> = {
+  "Women & Girl Child": "women-and-girl-child",
+  Healthcare: "healthcare",
+  Education: "education",
+};
+
+const gradients: Record<string, string> = {
+  "women-and-girl-child": "linear-gradient(145deg, #5c1636 0%, #251f21 65%)",
+  healthcare: "linear-gradient(140deg, #4a0f2e 0%, #251f21 65%)",
+  education: "linear-gradient(135deg, #3a1420 0%, #251f21 60%)",
+};
+
+function StoryVisual({ pillar }: { pillar: string }) {
+  const slug = pillarSlugs[pillar];
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 border border-dashed border-line bg-soft-bg px-4 text-center ${className}`}
+      className="relative flex aspect-[4/3] w-full flex-col items-center justify-center overflow-hidden rounded-sm"
+      style={{ background: gradients[slug] ?? gradients.education }}
     >
-      <span className="text-[10px] font-semibold uppercase tracking-wide text-text-muted">Photo pending</span>
-      <span className="text-[10px] leading-snug text-text-muted/80">Real photo &amp; interview not yet available</span>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.1]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(45deg, var(--surface) 0px, var(--surface) 1px, transparent 1px, transparent 14px)",
+        }}
+      />
+      {slug ? (
+        <PillarIcon slug={slug} className="relative h-14 w-14 text-surface/30" />
+      ) : null}
+      <span className="relative mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-surface/60">
+        Photo &amp; interview pending
+      </span>
     </div>
   );
 }
 
 export function StoriesMagazine() {
-  const [featured, ...rest] = storySlots;
-
   return (
-    <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
-      <Reveal className="lg:w-3/5">
-        <article className="group">
-          <PhotoPending className="aspect-[4/3] w-full rounded-sm" />
-          <div className="mt-6 flex flex-col gap-3">
-            <span className="w-fit font-sans text-xs font-medium uppercase tracking-[0.2em] text-primary">
-              {featured.pillar}
+    <RevealGroup className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-7" stagger={0.1}>
+      {storySlots.map((slot) => (
+        <RevealItem key={slot.slug} className="group flex flex-col gap-5">
+          <StoryVisual pillar={slot.pillar} />
+          <div className="flex flex-col gap-3">
+            <span className="w-fit rounded-full border border-primary/30 px-3 py-1 font-sans text-[11px] font-medium uppercase tracking-[0.16em] text-primary">
+              {slot.pillar}
             </span>
-            <h3 className="font-display text-3xl font-medium italic text-text sm:text-4xl">{featured.title}</h3>
-            <p className="max-w-lg text-base leading-relaxed text-text-muted">{featured.prompt}</p>
-            <span className="text-xs font-semibold uppercase tracking-[0.1em] text-warn">Awaiting interview</span>
+            <h3 className="font-display text-3xl font-medium italic leading-tight text-text">{slot.title}</h3>
+            <p className="text-base leading-relaxed text-text-muted">{slot.prompt}</p>
+            <span className="inline-flex w-fit items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-warn">
+              Awaiting interview
+            </span>
           </div>
-        </article>
-      </Reveal>
-
-      <div className="flex flex-col gap-8 lg:w-2/5">
-        {rest.map((slot, i) => (
-          <Reveal key={slot.slug} delay={0.1 + i * 0.08}>
-            <article className="group flex gap-5">
-              <PhotoPending className="h-28 w-28 shrink-0 rounded-sm sm:h-32 sm:w-32" />
-              <div className="flex flex-col gap-1.5">
-                <span className="font-sans text-[11px] font-medium uppercase tracking-[0.18em] text-primary">
-                  {slot.pillar}
-                </span>
-                <h4 className="font-display text-xl font-medium text-text">{slot.title}</h4>
-                <p className="text-sm leading-snug text-text-muted">{slot.prompt}</p>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.08em] text-warn">Awaiting interview</span>
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </div>
-    </div>
+        </RevealItem>
+      ))}
+    </RevealGroup>
   );
 }

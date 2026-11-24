@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { Container } from "@/components/container";
-import { RecognitionStrip } from "@/components/recognition-strip";
+import { RecognitionsAwards } from "@/components/recognitions-awards";
 import { AboutIntro } from "@/components/about-intro";
-import { ImpactNumbers } from "@/components/impact-numbers";
+import { FiveDecadesTimeline } from "@/components/five-decades-timeline";
 import { WorkChapters } from "@/components/work-chapters";
-import { SignatureInitiatives } from "@/components/signature-initiatives";
+import { NamedProgrammes } from "@/components/named-programmes";
+import { SignatureEvents } from "@/components/signature-events";
 import { HumanImpact } from "@/components/human-impact";
 import { StoriesMagazine } from "@/components/stories-magazine";
 import { NewsroomEditorial } from "@/components/newsroom-editorial";
@@ -21,20 +22,22 @@ export default function Home() {
     <>
       {/* 1. Hero */}
       <Hero />
-      <RecognitionStrip />
 
-      {/* 2. About */}
+      {/* 2. Five Decades of Action (stats + timeline + geography, one section) */}
+      <FiveDecadesTimeline />
+
+      {/* 3. Recognitions & Awards */}
+      <RecognitionsAwards />
+
+      {/* 4. About Kamala Trust — Our Story */}
       <AboutIntro />
 
-      {/* 3. Our Impact */}
-      <ImpactNumbers />
-
-      {/* 4. Our Focus Areas */}
-      <section className="bg-surface py-24 sm:py-32">
-        <Container className="flex flex-col gap-14">
+      {/* 5. Our Focus Areas (horizontal carousel) */}
+      <section className="bg-surface py-20 sm:py-28">
+        <Container className="flex flex-col gap-10">
           <Reveal className="max-w-2xl">
             <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Our focus areas</p>
-            <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
+            <h2 className="mt-4 font-display text-5xl font-medium italic leading-[1.05] text-text sm:text-6xl">
               Five chapters, one trust.
             </h2>
             <p className="mt-4 text-base text-text-muted">
@@ -46,19 +49,37 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 5. Signature Initiatives */}
-      <SignatureInitiatives />
+      {/* 6. Our Work: Named Programmes */}
+      <section className="bg-soft-bg py-20 sm:py-28">
+        <Container className="flex flex-col gap-10">
+          <Reveal className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Our work</p>
+              <h2 className="mt-4 font-display text-5xl font-medium italic leading-[1.05] text-text sm:text-6xl">
+                Named programmes, decades running.
+              </h2>
+            </div>
+            <Link href="/our-work" className="text-sm font-semibold uppercase tracking-[0.04em] text-primary-strong">
+              All programmes →
+            </Link>
+          </Reveal>
+          <NamedProgrammes />
+        </Container>
+      </section>
 
-      {/* 6. Human Impact */}
+      {/* 7. Our Signature Initiatives & Events (KPW / PoH / KRS, one tabbed section) */}
+      <SignatureEvents />
+
+      {/* 8. Gallery (Moments & Gatherings + Impact Gallery, one filterable gallery) */}
       <HumanImpact />
 
-      {/* 7. Stories of Change */}
-      <section className="bg-surface py-24 sm:py-32">
+      {/* 9. Stories of Impact */}
+      <section className="bg-surface py-20 sm:py-28">
         <Container className="flex flex-col gap-12">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Stories</p>
-              <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
+              <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Stories of impact</p>
+              <h2 className="mt-4 font-display text-5xl font-medium italic leading-[1.05] text-text sm:text-6xl">
                 Behind every number, a name.
               </h2>
             </div>
@@ -70,13 +91,13 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 8. Newsroom */}
-      <section className="bg-soft-bg py-24 sm:py-32">
+      {/* 10. Newsroom & Media Coverage */}
+      <section className="bg-soft-bg py-20 sm:py-28">
         <Container className="flex flex-col gap-10">
           <Reveal className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Newsroom</p>
-              <h2 className="mt-4 font-display text-4xl font-medium italic text-text sm:text-5xl">
+              <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-primary">Newsroom &amp; media coverage</p>
+              <h2 className="mt-4 font-display text-5xl font-medium italic leading-[1.05] text-text sm:text-6xl">
                 Recognition &amp; recent activity.
               </h2>
             </div>
@@ -88,16 +109,16 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 9. Leadership */}
+      {/* 11. Leadership & Trustee */}
       <LeadershipTeaser />
 
-      {/* 10. Annual Reports & Transparency */}
+      {/* 12. Resources (Documentation + Publications + Transparency, one compact strip) */}
       <TransparencyTeaser />
 
-      {/* 11. Get Involved */}
+      {/* 13. Get Involved */}
       <GetInvolvedCTA />
 
-      {/* 12. Footer, rendered globally in layout.tsx */}
+      {/* 14. Footer, rendered globally in layout.tsx */}
     </>
   );
 }
