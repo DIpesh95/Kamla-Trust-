@@ -17,6 +17,13 @@ const serif = Fraunces({
   weight: "variable",
   style: ["normal", "italic"],
   axes: ["opsz", "SOFT"],
+  // "optional": the browser uses the fallback if Fraunces isn't ready almost immediately,
+  // rather than swapping it in later. Fraunces is a variable font with exotic axes (opsz,
+  // SOFT) whose glyph metrics next/font's automatic fallback-matching can't fully replicate,
+  // so the default "swap" caused a small but real reflow (and visible content shift) once it
+  // finished loading, a few seconds into every page view. This trades a rare, slow-connection
+  // chance of keeping the serif fallback for eliminating that shift on every normal load.
+  display: "optional",
 });
 
 export const metadata: Metadata = {
