@@ -49,7 +49,7 @@ export function RecognitionsAwards() {
 
           <div className="flex flex-col gap-5">
             <RevealItem className="group relative flex-1 overflow-hidden rounded-sm border border-surface/15 transition-all duration-500 ease-out hover:-translate-y-1 hover:border-secondary/40">
-              <div className="relative aspect-[4/3] w-full sm:h-full sm:aspect-auto">
+              <div className="relative aspect-[5/3] w-full sm:h-full sm:aspect-auto">
                 <RevealImage className="absolute inset-0">
                   <Image
                     src={recognitionPhotos.top50Portrait.src}
@@ -57,7 +57,7 @@ export function RecognitionsAwards() {
                     fill
                     quality={92}
                     sizes="(min-width: 1024px) 35vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="object-cover object-[center_48%] transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                 </RevealImage>
                 <div className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/45 via-50% to-transparent" />
