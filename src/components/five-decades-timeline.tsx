@@ -73,6 +73,9 @@ export function FiveDecadesTimeline() {
   const programmaticScrollTimeoutRef = useRef<number | null>(null);
   const [active, setActive] = useState(0);
   const [inView, setInView] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(min-width: 640px)").matches,
+  );
   const reduceMotion = useReducedMotion();
   const progressPct = (active / (milestones.length - 1)) * 100;
 
@@ -130,6 +133,19 @@ export function FiveDecadesTimeline() {
     };
   }, []);
 
+  // The travelling marker and its autoplay only make sense on the desktop horizontal layout —
+  // on mobile the milestones are a plain vertical list with no horizontal track, so the same
+  // scrollIntoView() calls would instead auto-scroll the whole page up and down, which is not
+  // the intended behaviour there. Matches Tailwind's `sm` breakpoint used throughout this file.
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 640px)");
+    function onChange(e: MediaQueryListEvent) {
+      setIsDesktop(e.matches);
+    }
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
   // Tracks whether the timeline is actually on screen, continuously (not just once), so the
   // journey plays while the visitor is looking at this section and stops the moment they scroll
   // away. Direct rect-checks on scroll/resize plus a short poll, rather than relying on
@@ -167,7 +183,7 @@ export function FiveDecadesTimeline() {
   // drag, or wheel) — autoplay then steps aside permanently so it never fights them. Never runs
   // under prefers-reduced-motion.
   useEffect(() => {
-    if (reduceMotion || manualControlRef.current || !inView) {
+    if (reduceMotion || manualControlRef.current || !inView || !isDesktop) {
       stopAutoplay();
       return;
     }
@@ -188,7 +204,7 @@ export function FiveDecadesTimeline() {
       });
     }, 1700);
     return stopAutoplay;
-  }, [reduceMotion, inView]);
+  }, [reduceMotion, inView, isDesktop]);
 
   function onScroll() {
     if (programmaticScrollRef.current) return;
