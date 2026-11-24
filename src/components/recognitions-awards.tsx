@@ -32,13 +32,13 @@ export function RecognitionsAwards() {
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </RevealImage>
-              <div className="absolute inset-0 bg-gradient-to-t from-text/95 via-text/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-text/95 via-text/75 via-55% to-transparent" />
             </div>
             <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-7 sm:p-10">
               <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-secondary">
                 Recognition
               </span>
-              <h3 className="font-display text-3xl font-medium text-surface sm:text-5xl">
+              <h3 className="font-display text-2xl font-medium text-surface sm:text-5xl">
                 Top 50 Most Influential Indians
               </h3>
               <p className="max-w-lg text-sm text-surface/80 sm:text-base">
@@ -60,7 +60,7 @@ export function RecognitionsAwards() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </RevealImage>
-                <div className="absolute inset-0 bg-gradient-to-t from-text/85 via-text/5 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/45 via-50% to-transparent" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <p className="font-display text-lg italic text-surface">Congratulations</p>
@@ -80,7 +80,7 @@ export function RecognitionsAwards() {
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </RevealImage>
-                <div className="absolute inset-0 bg-gradient-to-t from-text/85 via-text/5 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-text/90 via-text/45 via-50% to-transparent" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <p className="font-display text-lg italic text-surface">Meeting with dignitaries</p>
